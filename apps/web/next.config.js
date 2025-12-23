@@ -111,17 +111,6 @@ const nextConfig = {
       ],
     };
 
-    // Ensure proper module resolution for .js files
-    config.resolve = {
-      ...config.resolve,
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', ...(config.resolve?.extensions || [])],
-      // Add alias to help resolve lib/api module
-      alias: {
-        ...config.resolve?.alias,
-        '@lib': require('path').resolve(__dirname, 'src/lib'),
-      },
-    };
-
     if (dev) {
       // Force CSS reload every time for development
       config.cache = false;
