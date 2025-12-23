@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
-import { authAPI, studyPlanAPI } from '../lib/api';
+import { authAPI, studyPlanAPI } from '../lib/api.js';
 import { useDashboard } from '../hooks/useDashboard';
 import styles from './MySchedule.module.css';
 

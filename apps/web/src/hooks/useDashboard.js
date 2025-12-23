@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import dashboardService from '../services/dashboardService';
-import api from '../lib/api';
-import { studyPlanAPI } from '../lib/api';
+import api from '../lib/api.js';
+import { studyPlanAPI } from '../lib/api.js';
 
 // Global request tracking to prevent duplicate calls across hook instances
 let globalTasksFetchInProgress = false;

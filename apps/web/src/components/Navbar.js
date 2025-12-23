@@ -6,7 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { performCompleteLogout, clearAllUserData } from '../lib/api';
+import { performCompleteLogout, clearAllUserData } from '../lib/api.js';
 import navigationMonitor from '../utils/navigationPerformance';
 import { useDashboard } from '../hooks/useDashboard';
 

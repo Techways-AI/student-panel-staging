@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import dynamic from 'next/dynamic';
-import { subjectContentAPI, studentContentAPI } from '../lib/api';
+import { subjectContentAPI, studentContentAPI } from '../lib/api.js';
 import { useTheme } from '../context/ThemeContext';
 import styles from './CourseContent.module.css';
 import mobileStyles from './CourseContentMobile.module.css';
