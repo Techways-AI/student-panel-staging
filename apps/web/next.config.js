@@ -111,6 +111,12 @@ const nextConfig = {
       ],
     };
 
+    // Ensure proper module resolution for .js files
+    config.resolve = {
+      ...config.resolve,
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', ...(config.resolve?.extensions || [])],
+    };
+
     if (dev) {
       // Force CSS reload every time for development
       config.cache = false;

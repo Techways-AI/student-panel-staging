@@ -16,6 +16,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Verify critical files exist before building
+RUN ls -la src/lib/api.js || (echo "ERROR: src/lib/api.js not found!" && exit 1)
+
 # AGGRESSIVE cache clearing before building
 RUN rm -rf .next .swc out .tsbuildinfo .eslintcache node_modules/.cache
 
