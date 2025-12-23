@@ -1,0 +1,1029 @@
+/* CSS_CACHE_BUST_1761305208555 */
+/* Performance optimizations */
+.authBg {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Verify OTP mode: keep sizing fluid without fixed dims */
+.verifyMode {
+  height: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Fine-tune Verify OTP inner spacing */
+.verifyMode .otpInputGroup {
+  margin: 1rem 0 0.75rem 0;
+}
+
+.verifyMode .loginButtonContainer {
+  margin-top: 1rem;
+}
+
+.verifyMode .resendOtp {
+  margin-top: 0.75rem;
+}
+
+.preload {
+  opacity: 0;
+}
+
+.ready {
+  opacity: 1;
+  transition: opacity 220ms ease-out;
+}
+
+.installCta {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+}
+
+.installBtn {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.installBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+}
+
+.authLogo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 10;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.logoIcon {
+  max-width: 150px;
+  height: auto;
+  margin-left: 140px;
+  margin-top: -70px;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0);
+  transition: transform 0.3s ease;
+}
+
+.logoIcon:hover {
+  transform: translateZ(0) scale(1.05);
+}
+
+@keyframes moveBottom {
+  0% {
+      transform: translateZ(0) translateX(100%);
+  }
+  100% {
+      transform: translateZ(0) translateX(-100%);
+  }
+}
+
+.authCard {
+  background: #FFFFFF;
+  backdrop-filter: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  /* Performance optimizations */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  /* Smooth entrance animation */
+  animation: cardEntrance 0.6s ease-out;
+}
+
+.preload .authCard {
+  animation: none !important;
+  opacity: 0.001;
+}
+
+.ready .authCard {
+  animation: cardEntrance 0.6s ease-out;
+}
+
+.authCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #FF8C42, transparent);
+  animation: moveTop 2s linear infinite;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.authCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #2563eb, transparent);
+  animation: moveBottom 2s linear infinite;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@keyframes cardEntrance {
+  from {
+      opacity: 0;
+      transform: translateZ(0) translateY(30px) scale(0.95);
+  }
+  to {
+      opacity: 1;
+      transform: translateZ(0) translateY(0) scale(1);
+  }
+}
+
+@keyframes moveTop {
+  0% {
+      transform: translateZ(0) translateX(-100%);
+  }
+  100% {
+      transform: translateZ(0) translateX(100%);
+  }
+}
+
+.authCard h1 {
+  font-size: var(--font-size-title);
+  color: #1F2937;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: var(--font-size-caption);
+  color: #6B7280;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.whatsappIcon {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 16px;
+  vertical-align: middle;
+  color: #25D366;
+  animation: pulse 2s infinite;
+  width: 16px;
+  height: 16px;
+}
+
+.whatsappNote {
+  color: #1F2937;
+  font-size: 14px;
+  margin: 8px 0;
+  text-align: center;
+  background: rgba(37, 211, 102, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(37, 211, 102, 0.2);
+}
+
+.otpExpiry {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin: 8px 0;
+  text-align: center;
+  font-weight: 600;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.changeNumber {
+  background: none;
+  border: none;
+  color: #F44336;
+  cursor: pointer;
+  font-size: var(--font-size-caption);
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.changeNumber:hover {
+  color: #d32f2f;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
+.loginFormContent {
+  flex: 1;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.authInputGroup {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #F9FAFB;
+  transition: all 0.3s ease;
+}
+
+.authInputGroup:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.authCountry {
+  background: #F9FAFB;
+  border: none;
+  padding: 0.75rem;
+  color: #1F2937;
+  font-size: var(--font-size-caption);
+  cursor: pointer;
+}
+
+.authInput {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-body);
+  background: transparent;
+  color: #1F2937;
+}
+
+.authInput:focus {
+  outline: none;
+}
+
+.authInput::placeholder {
+  color: #9CA3AF;
+}
+
+.otpInputGroup {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.otpInputGroup input {
+  width: clamp(2.2rem, 11vw, 3.5rem);
+  height: clamp(2.2rem, 11vw, 3.5rem);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  font-size: clamp(1rem, 3.5vw, 1.3rem);
+  font-weight: 600;
+  background: #F9FAFB;
+  color: #1F2937;
+  transition: all 0.3s ease;
+}
+
+.otpInputGroup input:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Blinking animation for OTP inputs */
+.otpInputBlink {
+  animation: otpBlink 1.5s ease-in-out;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+@keyframes otpBlink {
+  0% {
+      opacity: 0.3;
+      transform: scale(0.95);
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  25% {
+      opacity: 1;
+      transform: scale(1.05);
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  50% {
+      opacity: 0.8;
+      transform: scale(1);
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  75% {
+      opacity: 1;
+      transform: scale(1.02);
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+}
+
+/* Enhanced focus state for better UX */
+.otpInputGroup input:focus,
+.otpInputGroup input.otpInputBlink:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  transform: scale(1.02);
+}
+
+.otpInputGroup input::-webkit-outer-spin-button,
+.otpInputGroup input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.otpInputGroup input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.errorMessage {
+  color: #F44336;
+  font-size: var(--font-size-caption);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.loginButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.authBtn {
+  background: #e0e0e0;
+  color: #999;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.authBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.authBtnActive {
+  background: linear-gradient(135deg, #F44336 0%, #ff6b5b 100%);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(244, 67, 54, 0.3);
+}
+
+.authBtnActive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+}
+
+.authBtnActive:hover::before {
+  left: 100%;
+}
+
+.authBtnText {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.authBtnArrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+/* Spinner shown inside buttons during async actions */
+.btnSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: btnSpin 0.8s linear infinite;
+}
+
+@keyframes btnSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.authBtnActive:hover .authBtnArrow {
+  transform: translateX(4px);
+}
+
+/* Loading state: center spinner and blur background inside button */
+.authBtnLoading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+.authBtnLoading {
+  cursor: default;
+  pointer-events: none;
+  position: relative;
+  gap: 0; /* prevent spacing affecting perceived centering while loading */
+}
+
+.authBtnLoading .btnSpinner {
+  position: absolute;
+  inset: 0;           /* center within button regardless of padding/size */
+  margin: auto;       /* perfect centering */
+  transform: none;    /* no transform needed with inset centering */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.authBtnLoading .authBtnText,
+.authBtnLoading .authBtnArrow {
+  opacity: 0;
+}
+
+.resendOtp {
+  background: none;
+  border: none;
+  color: #F44336;
+  cursor: pointer;
+  font-size: var(--font-size-caption);
+  margin-top: 1.5rem;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.resendOtp:hover {
+  color: #d32f2f;
+}
+
+.resendOtp:disabled {
+  color: #9CA3AF;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.authTerms {
+  font-size: 0.8rem;
+  color: #4B5563;
+  margin-top: 2rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.termsLink {
+  color: #F44336;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.authFooter {
+  font-size: var(--font-size-caption);
+  color: #4B5563;
+  margin-top: 2rem;
+  text-align: center;
+  position: static;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  max-width: 90%;
+}
+
+.createLink {
+  color: #2563eb;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+.authBg {
+  padding: 1rem;
+  justify-content: flex-start;
+  padding-top: 2rem;
+  /* Allow content to scroll and respect mobile safe areas */
+  position: relative;
+  height: auto;
+  min-height: 100dvh;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: calc(1rem + env(safe-area-inset-top));
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  /* Stabilize scroll within the login container on mobile */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+
+.installCta {
+  position: fixed;
+  top: calc(10px + env(safe-area-inset-top));
+  right: 10px;
+}
+
+.installBtn {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 9999px;
+}
+
+.authLogo {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.logoIcon {
+  max-width: 120px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: unset;
+  max-height: none;
+  padding: 2rem 1.5rem;
+  margin: 0 0 1rem 0;
+  border-radius: 16px;
+}
+
+.verifyMode {
+  padding: 1.5rem 1rem;
+}
+
+.authCard h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-size: var(--font-size-caption);
+  margin-bottom: 1rem;
+}
+
+/* Inputs and button layout on small screens */
+.authInputGroup {
+  width: 100%;
+}
+
+.loginButtonContainer {
+  width: 100%;
+}
+
+.loginButtonContainer button,
+.authBtn {
+  width: 100%;
+  min-width: 0;
+  padding: 0.9rem 1rem;
+}
+
+.whatsappIcon {
+  margin-left: 4px;
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+}
+
+.otpInputGroup {
+  gap: 0.5rem;
+  margin: 1.2rem 0;
+}
+
+.otpExpiry {
+  font-size: 12px;
+  margin: 6px 0;
+  padding: 4px 8px;
+}
+
+.changeNumber {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.resendOtp {
+  margin-top: 1rem;
+  font-size: var(--font-size-caption);
+}
+
+.otpInputGroup input {
+  width: clamp(2rem, 10vw, 3rem);
+  height: clamp(2rem, 10vw, 3rem);
+  font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+}
+
+/* Footer should appear below the card on mobile */
+.authFooter {
+  position: static;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin-top: 1rem;
+  max-width: 100%;
+  font-size: 0.8rem;
+}
+}
+
+/* Tablet optimizations to avoid overflow from logo margins */
+@media (max-width: 1024px) {
+.authLogo {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.logoIcon {
+  max-width: 140px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.authCard {
+  max-width: 520px;
+  width: 100%;
+}
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+.authBg {
+  padding: 0.5rem;
+  justify-content: center;
+  /* Prevent clipping on small-height devices */
+  position: relative;
+  height: auto;
+  min-height: 100svh;
+  overflow-y: auto;
+}
+
+.authLogo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin-bottom: 0;
+}
+
+.authCard {
+  height: auto;
+  min-height: 0;
+  padding: 1.5rem;
+}
+
+.verifyMode {
+  min-height: 0;
+  padding: 1rem;
+}
+
+/* Landscape: place footer below content to avoid overlap */
+.authFooter {
+  position: static;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin-top: 0.75rem;
+}
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+.authCard {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.otpInputGroup input {
+  border-width: 0.5px;
+}
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+.authBtn {
+  min-height: 44px;
+}
+
+.otpInputGroup input {
+  min-height: 44px;
+}
+
+.authInput {
+  min-height: 44px;
+}
+
+.authCountry {
+  min-height: 44px;
+}
+}
+
+/* Terms and Conditions Popup Styles */
+.termsOverlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.7);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 10000;
+padding: 20px;
+backdrop-filter: blur(4px);
+}
+
+.termsPopup {
+background: white;
+border-radius: 16px;
+max-width: 800px;
+width: 100%;
+max-height: 90vh;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+from {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+}
+to {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+}
+
+.termsHeader {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 24px;
+border-bottom: 1px solid #e0e0e0;
+background: #f8f9fa;
+position: sticky;
+top: 0;
+z-index: 1;
+}
+
+.termsHeader h2 {
+margin: 0;
+font-size: 1.5rem;
+font-weight: 700;
+color: #333;
+}
+
+.termsCloseBtn {
+background: none;
+border: none;
+font-size: 24px;
+color: #666;
+cursor: pointer;
+padding: 8px;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.2s ease;
+}
+
+.termsCloseBtn:hover {
+background: #e0e0e0;
+color: #333;
+}
+
+.termsContent {
+padding: 24px;
+overflow-y: auto;
+flex: 1;
+line-height: 1.6;
+color: #333;
+}
+
+.termsContent h3 {
+margin: 0 0 16px 0;
+font-size: 1.3rem;
+font-weight: 600;
+color: #2563eb;
+}
+
+.termsContent h4 {
+margin: 24px 0 12px 0;
+font-size: 1.1rem;
+font-weight: 600;
+color: #333;
+border-bottom: 2px solid #f0f0f0;
+padding-bottom: 8px;
+}
+
+.termsContent h5 {
+margin: 16px 0 8px 0;
+font-size: var(--font-size-body);
+font-weight: 600;
+color: #555;
+}
+
+.termsContent p {
+margin: 12px 0;
+font-size: 0.95rem;
+}
+
+.termsContent ul {
+margin: 12px 0;
+padding-left: 20px;
+}
+
+.termsContent li {
+margin: 6px 0;
+font-size: 0.95rem;
+}
+
+.termsContent strong {
+font-weight: 600;
+color: #333;
+}
+
+/* Mobile responsive for terms popup */
+@media (max-width: 768px) {
+.termsOverlay {
+  padding: 10px;
+}
+
+.termsPopup {
+  max-height: 95vh;
+  border-radius: 12px;
+}
+
+.termsHeader {
+  padding: 16px 20px;
+}
+
+.termsHeader h2 {
+  font-size: 1.3rem;
+}
+
+.termsContent {
+  padding: 20px;
+}
+
+.termsContent h3 {
+  font-size: 1.2rem;
+}
+
+.termsContent h4 {
+  font-size: var(--font-size-body);
+}
+
+.termsContent h5 {
+  font-size: 0.95rem;
+}
+
+.termsContent p,
+.termsContent li {
+  font-size: var(--font-size-caption);
+}
+}
+
+@media (max-width: 480px) {
+.termsOverlay {
+  padding: 5px;
+}
+
+.termsPopup {
+  max-height: 98vh;
+  border-radius: 8px;
+}
+
+.termsHeader {
+  padding: 12px 16px;
+}
+
+.termsHeader h2 {
+  font-size: 1.1rem;
+}
+
+.termsCloseBtn {
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+}
+
+.termsContent {
+  padding: 16px;
+}
+
+.termsContent h3 {
+  font-size: 1.1rem;
+}
+
+.termsContent h4 {
+  font-size: 0.95rem;
+}
+
+.termsContent h5 {
+  font-size: var(--font-size-caption);
+}
+
+.termsContent p,
+.termsContent li {
+  font-size: 0.85rem;
+}
+}

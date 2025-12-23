@@ -1,0 +1,44 @@
+[build]
+  # DISABLED: Complete cache clearing before build
+  command = "npm run build"
+  publish = ".next"
+  
+[build.environment]
+  NODE_ENV = "production"
+  NEXT_TELEMETRY_DISABLED = "1"
+  NODE_OPTIONS = "--max-old-space-size=8192"
+
+# DISABLED: All processing optimizations removed
+[build.processing]
+  skip_processing = true
+
+[build.processing.css]
+  bundle = false
+  minify = false
+
+[build.processing.js]
+  bundle = false
+  minify = false
+
+# DISABLED: All caching headers removed
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
+
+# Redirects and rewrites
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Plugin for Next.js
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Build optimization
+[build.processing.html]
+  pretty_urls = true
+

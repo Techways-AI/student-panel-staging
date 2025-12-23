@@ -1,0 +1,1708 @@
+/* CSS_CACHE_BUST_1761305208555 */
+/* Mobile-First Responsive Important Questions Styles */
+
+/* Base Mobile Styles */
+.revisionRoot {
+  width: 100%;
+  min-height: 100dvh; /* Use dynamic viewport to avoid iOS 100vh issues */
+  background: transparent;
+  color: #000;
+  font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.75rem;
+  padding-top: 0; /* Removed padding-top for tighter spacing with navbar */
+  /* Add bottom padding to avoid overlap with mobile browser chrome / fixed UI */
+  padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
+
+.lightTheme {
+  background-color: transparent;
+  color: #000;
+}
+
+.darkTheme {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+/* Mobile Header - Smart Coach Style */
+@media (max-width: 768px) {
+  .epHeader {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 16px; /* Further reduced padding for tighter spacing */
+    margin-bottom: 0; /* Let layout gap control spacing */
+    padding-top: 8px; /* Further reduced padding-top */
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    width: calc(100% + 1.5rem);
+    order: 0; /* Ensure header stays above the content */
+    flex-shrink: 0;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  }
+
+  .headerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Further reduced gap for tighter spacing */
+  }
+
+  .epSidebar {
+    order: 1;
+    margin-bottom: 1rem;
+  }
+
+  .lockWrapper {
+    order: 2;
+    width: 100%;
+  }
+
+  .epCards,
+  .subjectContent,
+  .noSubjectSelected {
+    order: 2;
+  }
+
+  .titleSection {
+    flex: 1;
+  }
+
+  .epTitle {
+    font-size: 22px; /* Slightly reduced from 24px */
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0; /* Removed bottom margin for tighter spacing */
+    line-height: 1.2;
+    font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: color 0.25s ease-out;
+  }
+
+  .epSubTitle {
+    font-size: 13px; /* Slightly reduced from 14px */
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+    transition: color 0.25s ease-out;
+  }
+}
+
+/* Dark theme styles for mobile header */
+@media (max-width: 768px) {
+  .darkTheme .epHeader {
+    background: transparent;
+  }
+  
+  .darkTheme .backButton {
+    color: #f9fafb;
+  }
+  
+  .darkTheme .backButton:hover {
+    background: rgba(249, 250, 251, 0.1);
+    color: #ffffff;
+  }
+  
+  .darkTheme .backButton:active {
+    background: rgba(249, 250, 251, 0.2);
+  }
+  
+  .darkTheme .epTitle {
+    color: #f9fafb;
+  }
+  
+  .darkTheme .epSubTitle {
+    color: #d1d5db;
+  }
+}
+
+/* Mobile Layout - Single Column */
+.epLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Reduced from 0.75rem for tighter spacing */
+}
+
+/* Enhanced Mobile Sidebar - Filter Interface */
+.epSidebar {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+  order: 1; /* Place sidebar immediately after the header */
+  margin-top: 0;
+  /* Remove sticky on mobile to prevent content expanding underneath the filter */
+  position: static;
+  top: auto;
+  z-index: auto;
+  /* Accessibility improvements */
+  outline: none;
+}
+
+.epSidebar:focus-within {
+  border-color: #3b82f6; /* Focus indicator for keyboard navigation */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Filter Toggle Button */
+.filterToggleButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f9fa;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+
+.filterToggleButton:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.filterToggleButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+}
+
+.filterToggleActive {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+.filterToggleActive:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.filterToggleText {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 0.5rem;
+}
+
+.filterToggleIcon {
+  font-size: 1.25rem;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.filterToggleIconRotated {
+  transform: rotate(180deg);
+}
+
+/* Filter Dropdown */
+.filterDropdown {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  animation: slideDown 0.2s ease-out;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebarTitle {
+  font-weight: 700; /* Increased from 600 for better hierarchy */
+  color: #111827;
+  margin-bottom: 0.75rem; /* Increased from 0.625rem */
+  font-size: 1rem; /* Increased from 0.95rem */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebarTitle::before {
+  content: "🔍";
+  font-size: 1.1rem;
+}
+
+.searchBox { 
+  margin-bottom: 1rem; /* Increased from 0.75rem */
+}
+
+.sidebarSearch {
+  width: 100%;
+  padding: 0.875rem 1rem; /* Increased padding for better touch targets */
+  border: 2px solid #e5e7eb; /* Increased border width */
+  border-radius: 12px; /* Increased border radius */
+  font-size: 1rem;
+  transition: all 0.25s ease-out;
+  background: #f8f9fa;
+  /* Accessibility improvements */
+  min-height: 48px; /* Minimum touch target size for accessibility */
+}
+
+.sidebarSearch:focus {
+  outline: none;
+  border-color: #00B6ED;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 182, 237, 0.1);
+  /* High contrast focus indicator */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.sidebarSearch::placeholder {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .sidebarSearch:focus {
+    border-color: #000000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Increased from 0.5rem for better spacing */
+  max-height: 60vh; /* Add max height for scrolling on small screens */
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.filterItem {
+  text-align: left;
+  background: #f8f9fa;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 0.75rem 1rem; /* Reduced padding for button-like appearance */
+  border-radius: 6px; /* Reduced border radius for button look */
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  position: relative;
+  min-height: 48px; /* Ensure minimum touch target size */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Accessibility improvements */
+  outline: none;
+  text-decoration: none;
+}
+
+.subjectItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem; /* Increased padding for better touch targets */
+  border: 2px solid #e5e7eb; /* Stronger border */
+  border-radius: 12px; /* Larger border radius */
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  margin-bottom: 0.75rem; /* Increased spacing between items */
+  position: relative;
+  overflow: hidden;
+  min-height: 48px; /* Minimum touch target size */
+  /* Accessibility improvements */
+  outline: none;
+  text-decoration: none;
+}
+
+.subjectItem:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px); /* Subtle lift effect */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.subjectItem:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.filterItem:hover { 
+  background: #e5e7eb; 
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+.filterItem:active {
+  background: #d1d5db;
+  transform: scale(0.98);
+}
+
+.filterItem:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.filterItemActive {
+  background: #00B6ED;
+  border-color: #00B6ED;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .filterItem:focus {
+    border-color: #000000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .filterItemActive {
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .filterItem {
+    transition: none;
+    transform: none;
+  }
+  
+  .filterItem:hover,
+  .filterItemActive {
+    transform: none;
+  }
+}
+
+/* Subject Button Content for better layout */
+.subjectButtonContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.subjectName {
+  flex: 1;
+  text-align: left;
+  font-weight: inherit;
+}
+
+.subjectIndicators {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.availabilityIndicator {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.lockIcon {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.filterItemLocked {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.filterItemLocked:hover {
+  transform: none;
+  box-shadow: none;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+/* Mobile Cards */
+.epCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  order: 2; /* Render cards after the sidebar */
+  margin-bottom: 0.5rem; /* Reduced from 1rem since no bottom nav on Important Questions */
+}
+
+.subjectGroup { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem; 
+}
+
+.subjectCard {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.875rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.15s ease-out, background-color 0.25s ease-out, border-color 0.25s ease-out;
+  cursor: pointer;
+}
+
+.subjectCard:hover { 
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); 
+}
+
+.subjectIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.subjectCode { 
+  font-size: 0.9rem; 
+}
+
+.cardContent { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.25rem; 
+  flex: 1;
+  min-width: 0;
+}
+
+.cardTitle { 
+  font-weight: 600; 
+  color: #111827; 
+  font-size: 0.95rem; 
+  line-height: 1.3;
+}
+
+.cardMeta { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  flex-wrap: wrap;
+}
+
+.priorityBadge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
+
+.highPriority { 
+  background: #fee2e2; 
+  color: #FF4747; 
+}
+
+.mediumPriority { 
+  background: #fef3c7; 
+  color: #92400e; 
+}
+
+.lowPriority { 
+  background: #dcfce7; 
+  color: #166534; 
+}
+
+.metaText { 
+  color: #6b7280; 
+  font-size: 0.75rem; 
+}
+
+.cardCaret { 
+  color: oklch(0.556 0 0);
+  font-size: 1rem;
+  transition: transform 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.cardCaretOpen { 
+  transform: rotate(180deg); 
+}
+
+/* Mobile Subject Content */
+.subjectContent {
+  /* Remove container look on mobile; make it feel like on-page */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  /* Allow sticky header to work correctly */
+  overflow: visible;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  order: 3;
+}
+
+/* No Subject Selected Styles */
+.noSubjectSelected {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+  order: 3;
+  margin-bottom: 0.5rem; /* Reduced from 1rem since no bottom nav on Important Questions */
+}
+
+.noSubjectIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.noSubjectSelected h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+}
+
+.noSubjectSelected p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.subjectHeader {
+  background: transparent;        /* page-like */
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb; /* simple divider */
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+  cursor: pointer;
+  /* Let header scroll with page */
+  position: static;
+  top: auto;
+  z-index: auto;
+}
+
+.subjectHeader:hover { background: transparent; }
+
+.subjectInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.subjectDetails {
+  flex: 1;
+}
+
+.subjectTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.subjectMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+/* Mobile Subject Details Panel */
+.subjectDetailsPanel {
+  margin-top: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  color: #374151;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
+}
+
+.detailsTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.75rem 0;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
+}
+
+.topBarLeft { 
+  font-weight: 600; 
+  font-size: 0.9rem;
+}
+
+.partSection { 
+  margin-top: 0.75rem; 
+}
+
+.partHeader { 
+  font-weight: 700; 
+  color: #111827; 
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.partIcon {
+  color: #10b981;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: inline-block;
+}
+
+.partHint { 
+  color: #6b7280; 
+  font-size: 0.8rem; 
+  margin-bottom: 0.5rem; 
+}
+
+.questionList { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.25rem; 
+  max-height: none;      /* show all questions */
+  overflow: visible;      /* no inner scrolling */
+  padding-right: 0;
+  /* Ensure there's space to scroll the final item fully above any UI */
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+}
+
+/* Predicted Questions (actual elements used by Examprep.js) */
+.predictedQuestionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-height: none;      /* show all questions */
+  overflow: visible;      /* no inner scrolling */
+  padding-right: 0;
+  /* Space for bottom nav/browser chrome so last row is fully visible */
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+}
+
+.predictedQuestionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
+  /* Keep item clear of bottom UI when scrolled into view */
+  scroll-margin-bottom: 6rem;
+}
+
+.questionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
+  /* When programmatically or via anchor scrolled, keep item clear of bottom UI */
+  scroll-margin-bottom: 6rem;
+}
+
+.questionIndex { 
+  color: #6b7280; 
+  font-size: 0.8rem;
+  min-width: 20px;
+}
+
+.questionText { 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  flex: 1;
+  font-size: 0.85rem;
+}
+
+.marksBadge { 
+  background: #00B6ED; 
+  color: white; 
+  border-radius: 999px; 
+  padding: 0.2rem 0.4rem; 
+  font-size: 0.7rem; 
+  font-weight: 700; 
+  flex-shrink: 0;
+  transition: background-color 0.25s ease-out;
+}
+
+/* Mobile Revision Styles */
+.revisionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: color 0.2s;
+  align-self: flex-start;
+}
+
+.backBtn:hover {
+  color: #F44336;
+}
+
+.revisionHeader h1 {
+  font-size: 1.5rem;
+  font-family: 'Baloo 2', 'Poppins', sans-serif;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+}
+
+.revisionControls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.semesterSelect,
+.yearSelect,
+.topicSearch {
+  background: #ffffff;
+  color: #000;
+  border: 1.5px solid #aeb6c3;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 100%;
+}
+
+.revisionTabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #232b3e;
+  overflow-x: auto;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 0.9rem;
+  font-family: inherit;
+  padding: 0.7rem 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.tabBtn.active {
+  color: #000;
+  border-bottom: 2px solid #00b4d8;
+  font-weight: 600;
+}
+
+.revisionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.topicsSidebar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  order: 2;
+}
+
+.topicsTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.topicsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.topicItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.7rem;
+  cursor: pointer;
+  color: #000;
+  font-size: 0.9rem;
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.topicItem:hover {
+  background: #f8f9fa;
+  border-color: #e9ecef;
+}
+
+.topicItem.selected {
+  background: #e3f2fd;
+  color: black;
+  border-color: #2196f3;
+}
+
+.topicStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.checkmark {
+  color: #00d084;
+  font-size: 1rem;
+}
+
+.circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #aeb6c3;
+}
+
+.bookmark {
+  color: #F44336;
+  font-size: 1rem;
+  margin-left: auto;
+}
+
+.topicTypeIcon {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.topicInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.topicTitle {
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #000;
+}
+
+.topicType {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.topicDetails {
+  font-size: 0.7rem;
+  color: #888;
+  font-weight: 400;
+}
+
+.topicDetailsPanel {
+  background: #fff;
+  border-radius: 12px;
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  order: 1;
+}
+
+.topicHeaderInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+}
+
+.topicStats {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+
+.startExamBtn {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+  width: 100%;
+}
+
+.startExamBtn:hover {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+
+.startExamBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.noTopics {
+  color: #aeb6c3;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+.topicDetailsHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.topicDetailsHeader h2 {
+  font-size: 1.2rem;
+  font-family: 'Baloo 2', 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.topicDetailsContent {
+  color: #000;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.topicDetailsFooter {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nextTopicBtn {
+  background: #F44336;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nextTopicBtn:hover {
+  background: #d32f2f;
+}
+
+.revisionSubjectDropdown {
+  margin-bottom: 1rem;
+}
+
+.subjectSelect {
+  background: #ffffff;
+  color: #000;
+  border: 1.5px solid #aeb6c3;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 100%;
+}
+
+.subjectSelect:focus {
+  outline: none;
+  border-color: #00b4d8;
+  box-shadow: none;
+}
+
+.selectWrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* Dark Theme Mobile Support */
+[data-theme="dark"] .revisionRoot {
+  background-color: var(--color-neutral-80);
+  color: var(--color-foreground);
+}
+
+[data-theme="dark"] .epHeader {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .backButton {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .backButton:hover {
+  background: rgba(249, 250, 251, 0.1);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .backButton:active {
+  background: rgba(249, 250, 251, 0.2);
+}
+
+/* Mobile-specific dark theme styles */
+@media (max-width: 768px) {
+  [data-theme="dark"] .epHeader {
+    background: transparent; /* Use transparent background to match dark theme */
+    border: none;
+    box-shadow: none;
+  }
+  
+  [data-theme="dark"] .epTitle {
+    color: #f9fafb; /* Light text for dark theme */
+  }
+  
+  [data-theme="dark"] .epSubTitle {
+    color: #d1d5db; /* Light gray text for dark theme */
+  }
+}
+
+[data-theme="dark"] .epHeader {
+  background: #1f2937;
+  border-bottom: 1px solid #374151;
+}
+
+@media (max-width: 768px) {
+  [data-theme="dark"] .epHeader {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    width: calc(100% + 1.5rem);
+  }
+}
+
+[data-theme="dark"] .epTitle {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .epSubTitle {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .epSidebar {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .sidebarTitle {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .sidebarSearch {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .filterItem {
+  background: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .filterItem:hover {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+[data-theme="dark"] .filterItemActive {
+  background: #1e40af;
+  border-color: #3b82f6;
+  color: #dbeafe;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .subjectCard {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .subjectContent {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .subjectHeader {
+  background: #1f2937;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .subjectTitle {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .cardTitle {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .metaText {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .cardCaret {
+  color: oklch(0.985 0 0);
+}
+
+[data-theme="dark"] .subjectDetailsPanel {
+  background: #0f172a;
+  border-color: #1f2937;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .detailsTopBar {
+  background: #111827;
+  border-color: #1f2937;
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .partHeader {
+  color: #f3f4f6;
+}
+
+[data-theme="dark"] .partIcon {
+  color: #10b981;
+}
+
+[data-theme="dark"] .partHint {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .questionRow {
+  background: #374151;
+  border-color: #4b5563;
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .questionIndex {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .questionText {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .topicsSidebar {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .topicsTitle {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .topicItem {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .topicItem:hover {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+[data-theme="dark"] .topicItem.selected {
+  background: #1e40af;
+  border-color: #3b82f6;
+  color: #dbeafe;
+}
+
+[data-theme="dark"] .topicTitle {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .topicType {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .topicDetails {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .topicDetailsPanel {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .topicDetailsHeader h2 {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .topicDetailsContent {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .semesterSelect,
+[data-theme="dark"] .yearSelect,
+[data-theme="dark"] .topicSearch,
+[data-theme="dark"] .subjectSelect {
+  background: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .revisionHeader h1 {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .tabBtn {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .tabBtn.active {
+  color: #f9fafb;
+  border-bottom-color: #00b4d8;
+}
+
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+  .revisionRoot {
+    padding: 0 2rem;
+  }
+  
+  .epTitle {
+    font-size: 1.75rem;
+  }
+  
+  .epSubTitle {
+    font-size: 0.85rem;
+  }
+  
+  .epLayout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+  }
+  
+  .epSidebar {
+    order: 1;
+    padding: 1.25rem;
+  }
+  
+  .epCards {
+    order: 2;
+  }
+  
+  .subjectCard {
+    padding: 1.25rem;
+  }
+  
+  .subjectIcon {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .cardTitle {
+    font-size: 1.05rem;
+  }
+  
+  .revisionHeader {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .revisionHeader h1 {
+    font-size: 1.75rem;
+  }
+  
+  .revisionControls {
+    flex-direction: row;
+    gap: 1rem;
+    width: auto;
+  }
+  
+  .semesterSelect,
+  .yearSelect,
+  .topicSearch {
+    width: auto;
+    min-width: 120px;
+  }
+  
+  .revisionContent {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .topicsSidebar {
+    order: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 1.25rem;
+  }
+  
+  .topicDetailsPanel {
+    order: 2;
+    padding: 1.5rem;
+  }
+  
+  .startExamBtn {
+    width: auto;
+  }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+  .revisionRoot {
+    padding: 0 3rem;
+  }
+  
+  .epHeader {
+    margin-left: -3rem;
+    margin-right: -3rem;
+    width: calc(100% + 6rem);
+  }
+  
+  .epTitle {
+    font-size: 1.875rem;
+  }
+  
+  .epSubTitle {
+    font-size: 0.875rem;
+  }
+  
+  .epLayout {
+    grid-template-columns: 320px 1fr;
+  }
+  
+  .epSidebar {
+    padding: 1.5rem;
+  }
+  
+  .subjectCard {
+    padding: 1.5rem;
+  }
+  
+  .subjectIcon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .cardTitle {
+    font-size: 1.125rem;
+  }
+  
+  .revisionHeader h1 {
+    font-size: 2.1rem;
+  }
+  
+  .topicsSidebar {
+    min-width: 270px;
+    max-width: 320px;
+    padding: 1.5rem 2rem;
+  }
+  
+  .topicDetailsPanel {
+    padding: 2rem 2rem;
+  }
+}
+/* === Parity with desktop: Predicted Questions, Empty State, and Fade-in === */
+/* Ensure subject content shows properly when header is expanded on mobile */
+.fadeIn { animation: examprep-fade-in 180ms ease-out; }
+@keyframes examprep-fade-in { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Predicted questions rows */
+.predictedQuestionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  /* Shaded style (not card): light grey background, no border, no shadow */
+  background: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.predictedQuestionIndex {
+  font-weight: 700;
+  color: #374151;
+  min-width: 1.75rem;
+}
+.predictedQuestionText {
+  flex: 1;
+  color: #111827;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  white-space: normal;          /* wrap on small screens */
+  overflow-wrap: anywhere;      /* break long words */
+  word-break: break-word;       /* better safety for long tokens */
+}
+
+/* Empty/No model paper state */
+.noModelPaper {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: left;
+  color: #6b7280;
+}
+.noModelPaperIcon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.availabilityInfo {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+/* Dark theme parity */
+[data-theme="dark"] .predictedQuestionRow {
+  /* Dark shaded style */
+  background: #4b5563;
+  border: none;
+  box-shadow: none;
+}
+[data-theme="dark"] .predictedQuestionIndex,
+[data-theme="dark"] .predictedQuestionText { color: #f9fafb; }
+[data-theme="dark"] .noModelPaper {
+  background: #374151;
+  border-color: #4b5563;
+  color: #d1d5db;
+}
+[data-theme="dark"] .availabilityInfo { color: #d1d5db; }
+
+/* ===== Extra small mobile optimizations ===== */
+@media (max-width: 480px) {
+  /* Tighten paddings and sizes for small phones */
+  .subjectIcon { width: 40px; height: 40px; border-radius: 10px; }
+  .subjectTitle { font-size: 1.05rem; }
+  .metaText { font-size: 0.75rem; }
+  .priorityBadge { font-size: 0.7rem; padding: 0.15rem 0.5rem; }
+  .predictedQuestionsTitle { font-size: 1rem; }
+  .predictedQuestionRow { padding: 0.6rem 0.75rem; }
+  .predictedQuestionText { font-size: 0.9rem; line-height: 1.5; }
+  .noModelPaper { padding: 0.875rem; }
+}
+
+@media (max-width: 360px) {
+  .predictedQuestionText { font-size: 0.85rem; }
+  .subjectTitle { font-size: 1rem; }
+  .subjectHeader { padding: 0.75rem; }
+}
+
+/* Ensure consistent vertical spacing between predicted question items */
+.predictedQuestionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem; /* space between question rows */
+}
+
+@media (max-width: 480px) {
+  .predictedQuestionsList { gap: 0.65rem; }
+}
+
+/* Add clear space between header and the "Important Questions" title */
+.predictedQuestionsTitle {
+  margin-top: 0.75rem;   /* gap below the subject header */
+  margin-bottom: 0.5rem; /* existing spacing before the list */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===== Lock Overlay & Blur when Exam Prep is locked (mobile) ===== */
+.lockWrapper {
+  position: relative;
+}
+
+.locked .epCards {
+  filter: blur(4px) saturate(0.8);
+  pointer-events: none;
+  user-select: none;
+}
+
+.lockOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  z-index: 20;
+  background: rgba(248, 250, 252, 0.75);
+  border-radius: 0;
+}
+
+.lockOverlayCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  padding: 14px 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 520px;
+}
+
+.lockOverlayTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.lockOverlayText {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.upgradeButton {
+  display: inline-block;
+  margin-top: 10px;
+  background: #0ea5e9;
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.upgradeButton:hover { background: #0284c7; }
+.upgradeButton:active { transform: translateY(1px); }
+
+[data-theme="dark"] .lockOverlay { background: rgba(2, 6, 23, 0.55); }
+[data-theme="dark"] .lockOverlayCard { background: #111827; border-color: #374151; }
+[data-theme="dark"] .lockOverlayTitle { color: #e5e7eb; }
+[data-theme="dark"] .lockOverlayText { color: #9ca3af; }
+[data-theme="dark"] .upgradeButton { background: #38bdf8; color: #0b1220; }
+[data-theme="dark"] .upgradeButton:hover { background: #22d3ee; }
+
+/* ===== Mobile EP Sidebar responsiveness ===== */
+@media (max-width: 768px) {
+  .epSidebar { 
+    width: 100%;
+    padding: 0.75rem;             /* tighter padding on phones */
+    border-radius: 12px;           /* slight rounding */
+  }
+  .filterToggleButton { 
+    padding: 0.85rem 1rem; 
+    font-size: 0.95rem; 
+  }
+  .filterDropdown {
+    max-height: 65vh;             /* allow enough scroll space */
+    overflow-y: auto;
+    overscroll-behavior: contain; /* avoid body scroll chaining */
+    -webkit-overflow-scrolling: touch;
+  }
+  .sidebarSearch { 
+    min-height: 44px;             /* comfortable touch target */
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+  .filterItem { 
+    min-height: 48px; 
+    font-size: 0.95rem; 
+    padding: 0.75rem 0.9rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .epSidebar { padding: 0.6rem; }
+  .filterToggleButton { padding: 0.8rem 0.9rem; font-size: 0.9rem; }
+  .filterDropdown { padding: 0.6rem; }
+  .filterItem { font-size: 0.9rem; padding: 0.7rem 0.85rem; }
+  .sidebarSearch { font-size: 0.9rem; }
+}
+
+@media (max-width: 360px) {
+  .filterToggleButton { padding: 0.7rem 0.85rem; font-size: 0.875rem; }
+  .filterItem { font-size: 0.875rem; min-height: 44px; }
+}

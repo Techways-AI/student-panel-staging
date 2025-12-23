@@ -1,0 +1,116 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+        
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔧 Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: apps/web/package-lock.json
+        
+    - name: 🧹 Clear all caches
+      run: |
+        cd apps/web
+        rm -rf .next .swc out node_modules/.cache .tsbuildinfo
+        npm cache clean --force
+        
+    - name: 📦 Install dependencies
+      run: |
+        cd apps/web
+        npm ci --only=production
+        
+    - name: 🔍 Verify CourseContent files
+      run: |
+        cd apps/web
+        echo "Checking CourseContent files..."
+        ls -la src/components/CourseContent*
+        echo "✅ CourseContent files verified"
+        
+    - name: 🏗️ Build application
+      run: |
+        cd apps/web
+        export NODE_ENV=production
+        export NEXT_TELEMETRY_DISABLED=1
+        export NODE_OPTIONS="--max-old-space-size=8192"
+        npm run build
+        
+    - name: 🧪 Test build output
+      run: |
+        cd apps/web
+        if [ -d ".next" ]; then
+          echo "✅ Build successful - .next directory exists"
+          ls -la .next/
+        else
+          echo "❌ Build failed - .next directory missing"
+          exit 1
+        fi
+        
+    - name: 📊 Build size analysis
+      run: |
+        cd apps/web
+        echo "📊 Build Size Report:"
+        du -sh .next/static/* || echo "No static files found"
+        echo "📋 Static files:"
+        find .next/static -type f -name "*.js" -o -name "*.css" | head -10
+        
+    - name: 🚀 Deploy (placeholder)
+      run: |
+        echo "🚀 Ready for deployment!"
+        echo "Build completed successfully with fresh cache"
+        echo "CourseContent changes included ✅"
+        
+  # Additional job for testing different environments
+  test-deployment:
+    runs-on: windows-latest
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: 🧹 Windows cache clear
+      run: |
+        cd apps/web
+        if (Test-Path .next) { Remove-Item .next -Recurse -Force }
+        if (Test-Path .swc) { Remove-Item .swc -Recurse -Force }
+        if (Test-Path out) { Remove-Item out -Recurse -Force }
+        npm cache clean --force
+        
+    - name: 📦 Install and build
+      run: |
+        cd apps/web
+        npm ci --only=production
+        $env:NODE_ENV="production"
+        $env:NEXT_TELEMETRY_DISABLED="1"
+        npm run build
+        
+    - name: ✅ Verify Windows build
+      run: |
+        cd apps/web
+        if (Test-Path .next) {
+          Write-Host "✅ Windows build successful"
+        } else {
+          Write-Host "❌ Windows build failed"
+          exit 1
+        }
+

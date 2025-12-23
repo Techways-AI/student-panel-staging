@@ -1,0 +1,4780 @@
+/* CSS_CACHE_BUST_1758793687359 */
+/* Welcome Screen Styles - Dark Theme */
+
+.welcomeContainer {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    background: linear-gradient(135deg, #0A0E1A 0%, #1a1a2e 50%, #16213e 100%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease-in-out;
+
+}
+
+.buttonLoadingContent {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.buttonLoader {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(148, 163, 184, 0.4);
+    border-top-color: #e2e8f0;
+    animation: onboardingButtonSpin 0.8s linear infinite;
+}
+
+@keyframes onboardingButtonSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.startAssessmentHighlight {
+
+    position: relative;
+
+    z-index: 2500;
+
+    overflow: visible !important;
+
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.22), 0 0 14px rgba(251, 191, 36, 0.2);
+
+    outline: 2px dotted rgba(255, 255, 255, 0.9);
+
+    outline-offset: 6px;
+
+}
+
+
+
+.fadeIn {
+
+    opacity: 1;
+
+}
+
+
+
+/* Progress Bar */
+
+.progressBarContainer {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 4px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    z-index: 10;
+
+}
+
+
+
+.progressBar {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+.progressFill {
+
+    height: 100%;
+
+    background: linear-gradient(90deg, #00B6ED 0%, #0EA5E9 100%);
+
+    transition: width 0.5s ease-in-out;
+
+    border-radius: 0 2px 2px 0;
+
+}
+
+
+
+/* Horizontal Line */
+
+.horizontalLine {
+
+    position: absolute;
+
+    top: 100px;
+
+    left: 0;
+
+    right: 0;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    z-index: 5;
+
+}
+
+
+
+/* Header */
+
+.header {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 0;
+
+    right: 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 30px;
+
+    z-index: 10;
+
+    height: 40px;
+
+}
+
+
+
+.headerLeft {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+
+.backButton {
+
+    background: transparent;
+
+    border: none;
+
+    padding: 8px 0;
+
+    color: #FFFFFF; /* White text */
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+}
+
+
+
+.backButton:hover {
+
+    color: #b0bec5; /* Light gray on hover */
+
+}
+
+
+
+.backButton svg {
+
+    width: 20px;
+
+    height: 20px;
+
+    stroke-width: 2;
+
+}
+
+
+
+/* Step indicator */
+
+.stepIndicator {
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 20px;
+
+    padding: 8px 16px;
+
+    color: #b0bec5;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+
+/* Main content area */
+
+.mainContent {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex: 1;
+
+    text-align: center;
+
+    padding: 0 40px;
+
+    margin-top: -50px;
+
+    padding-bottom: 100px; /* Reduced space for smaller footer */
+
+}
+
+
+
+/* Tooltip Bubble */
+
+.tooltipBubble {
+
+    background: #1F2937 !important; /* bg-gray-800 */
+
+    border: 1px solid #374151 !important; /* border-gray-700 */
+
+    border-radius: 8px !important; /* rounded-lg */
+
+    padding: 12px 20px !important;
+
+    margin-bottom: 30px !important;
+
+    color: #FFFFFF !important; /* text-white */
+
+    font-size: 0.95rem !important;
+
+    font-weight: 500 !important;
+
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important; /* shadow-lg */
+
+    position: relative !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+
+.tooltipBubble::after {
+
+    content: '';
+
+    position: absolute;
+
+    bottom: -8px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 0;
+
+    height: 0;
+
+    border-left: 8px solid transparent;
+
+    border-right: 8px solid transparent;
+
+    border-top: 8px solid #1F2937; /* Match bubble background */
+
+}
+
+
+
+/* Icon container */
+
+.iconContainer {
+
+    margin-bottom: 25px;
+
+}
+
+
+
+/* Graduation Cap Icon */
+
+.graduationCapIcon {
+
+    width: 80px;
+
+    height: 80px;
+
+    background: linear-gradient(135deg, rgba(0, 182, 237, 0.15) 0%, rgba(0, 182, 237, 0.05) 100%);
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow: 
+        0 8px 32px rgba(0, 182, 237, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    transform: rotate(45deg);
+
+    transition: transform 0.3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+    overflow-x: hidden;
+
+}
+
+.graduationCapIcon::before {
+
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+
+    transition: left 0.6s ease;
+
+}
+
+.graduationCapIcon:hover::before {
+
+    left: 100%;
+
+}
+
+
+
+.graduationCapIcon:hover {
+
+    transform: rotate(45deg) scale(1.05);
+
+}
+
+.logoImage {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: none;
+    transform: rotate(-45deg);
+    background: transparent;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    animation: logoFloat 3s ease-in-out infinite, logoGlow 2s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+}
+
+
+
+.graduationCapSvg {
+
+    width: 50px;
+
+    height: 50px;
+
+    animation: logoFloat 3s ease-in-out infinite, logoGlow 2s ease-in-out infinite alternate;
+
+    transition: all 0.3s ease;
+
+    color: white;
+
+    transform: rotate(-45deg);
+
+}
+
+
+
+/* Diamond Icon for Step 2 */
+
+.diamondIcon {
+
+    width: 80px;
+
+    height: 80px;
+
+    background: linear-gradient(135deg, rgba(0, 182, 237, 0.15) 0%, rgba(0, 182, 237, 0.05) 100%);
+
+    border-radius: 8px; /* Less rounded for diamond shape */
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow: 
+        0 8px 32px rgba(0, 182, 237, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    transform: rotate(45deg);
+
+    transition: transform 0.3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+    overflow-x: hidden;
+
+}
+
+.diamondIcon::before {
+
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+
+    transition: left 0.6s ease;
+
+}
+
+.diamondIcon:hover::before {
+
+    left: 100%;
+
+}
+
+
+
+.diamondIcon:hover {
+
+    transform: rotate(45deg) scale(1.05);
+
+}
+
+.diamondIcon .logoImage {
+    transform: rotate(-45deg);
+}
+
+.diamondIcon .graduationCapSvg {
+
+    transform: rotate(-45deg);
+
+}
+
+
+
+/* Main title */
+
+.mainTitle {
+
+    font-size: 2.5rem !important;
+
+    font-weight: 700 !important;
+
+    color: #FFFFFF !important; /* text-white */
+
+    margin: 0 0 20px 0 !important;
+
+    letter-spacing: -0.02em !important;
+
+    line-height: 1.2 !important;
+
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+/* Subtitle */
+
+.subtitle {
+
+    font-size: 1.1rem !important;
+
+    color: #D1D5DB !important; /* text-gray-300 */
+
+    margin: 0 0 60px 0 !important;
+
+    line-height: 1.5 !important;
+
+    max-width: 500px !important;
+
+    font-weight: 400 !important;
+
+    opacity: 0.9 !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+/* Year Selection Grid */
+
+.yearGrid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+
+    max-width: 500px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+}
+
+
+
+.yearCard {
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    text-align: center;
+
+}
+
+
+
+.yearCard:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+.yearCardSelected {
+
+    background: rgba(0, 182, 237, 0.1);
+
+    border: 2px solid #00B6ED;
+
+    box-shadow: none;
+
+}
+
+
+
+.yearTitle {
+
+    color: #FFFFFF !important;
+
+    font-size: 1.1rem !important;
+
+    font-weight: 600 !important;
+
+    margin: 0 0 8px 0 !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+.yearSubtitle {
+
+    color: #D1D5DB !important;
+
+    font-size: 0.9rem !important;
+
+    font-weight: 400 !important;
+
+    margin: 0 !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+/* Semester Selection */
+
+.semesterTitle {
+
+    color: #FFFFFF !important;
+
+    font-size: 1rem !important;
+
+    font-weight: 500 !important;
+
+    margin: 24px 0 16px 0 !important;
+
+    text-align: center !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+.semesterContainer {
+
+    display: flex;
+
+    gap: 12px;
+
+    justify-content: center;
+
+    max-width: 300px;
+
+    margin: 0 auto;
+
+}
+
+
+
+.semesterButton {
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 8px;
+
+    padding: 12px 20px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    text-align: center;
+
+    color: #FFFFFF !important;
+
+    font-size: 0.9rem !important;
+
+    font-weight: 500 !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+    flex: 1;
+
+    white-space: nowrap;
+
+}
+
+
+
+.semesterButton:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+}
+
+
+
+.semesterSelected {
+
+    background: rgba(0, 182, 237, 0.1);
+
+    border: 2px solid #00B6ED;
+
+    box-shadow: none;
+
+}
+
+
+
+/* Assessment Screen Styles */
+
+.assessmentIcon {
+
+    width: 80px;
+
+    height: 80px;
+
+    background: linear-gradient(135deg, rgba(0, 182, 237, 0.15) 0%, rgba(0, 182, 237, 0.05) 100%);
+
+    border-radius: 12px;
+
+    transform: rotate(45deg);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto;
+
+    box-shadow: 
+        0 8px 32px rgba(0, 182, 237, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    position: relative;
+
+    overflow: hidden;
+    overflow-x: hidden;
+
+}
+
+.assessmentIcon::before {
+
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+
+    transition: left 0.6s ease;
+
+}
+
+.assessmentIcon:hover::before {
+
+    left: 100%;
+
+}
+
+
+
+.assessmentIcon svg {
+
+    transform: rotate(-45deg);
+
+    color: #FFFFFF;
+
+}
+
+
+
+.subtitleSecondary {
+
+    color: #D1D5DB !important;
+
+    font-size: 0.9rem !important;
+
+    font-weight: 400 !important;
+
+    margin: 16px 0 0 0 !important;
+
+    text-align: center !important;
+
+    line-height: 1.5 !important;
+
+    max-width: 500px !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+.assessmentBox {
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    margin: 24px auto 0 auto;
+
+    max-width: 400px;
+
+    width: 100%;
+
+}
+
+
+
+.assessmentDetail {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+
+}
+
+
+
+.assessmentDetail:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+
+.assessmentLabel {
+
+    color: #D1D5DB !important;
+
+    font-size: 0.9rem !important;
+
+    font-weight: 400 !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+.assessmentValue {
+
+    color: #FFFFFF !important;
+
+    font-size: 0.9rem !important;
+
+    font-weight: 600 !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+.assessmentButtonContainer {
+
+    margin-top: 32px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+
+.startAssessmentButton {
+
+    background: linear-gradient(to right, #FF4747 0%, #FF6B6B 100%);
+
+    color: #FFFFFF;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 16px 32px;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    min-width: 200px;
+
+}
+
+
+
+.startAssessmentButton:hover {
+
+    background: linear-gradient(to right, #FF3333 0%, #FF5757 100%);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(255, 71, 71, 0.3);
+
+}
+
+
+
+.startAssessmentButton:active {
+
+    transform: scale(0.95);
+
+}
+
+
+
+/* Assessment Screen Positioning */
+
+.assessmentContent {
+
+    margin-top: 80px;
+
+    padding-top: 40px;
+
+}
+
+
+
+/* Quiz Screen Content Positioning */
+
+.mainContent.quizScreen {
+
+    margin-top: 80px;
+
+    padding-top: 20px;
+
+}
+
+
+
+/* Results Screen Content Positioning */
+
+.mainContent.resultsScreen {
+
+    margin-top: 50px;
+
+    padding-top: 20px;
+
+    padding-bottom: 80px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    min-height: auto;
+
+    max-width: 600px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+/* Personal Information Screen Content Positioning */
+
+.mainContent.personalInfoScreen {
+
+    margin-top: 40px;
+
+    padding-top: 20px;
+
+    padding-bottom: 80px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    min-height: auto;
+
+    max-width: 500px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    /* Allow vertical scroll when content overflows */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Cap height to keep within viewport minus header/footer */
+    max-height: calc(100vh - 140px);
+}
+
+.quizProgressBar {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 3px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    z-index: 5;
+
+}
+
+
+
+.quizProgressFill {
+
+    height: 100%;
+
+    background: linear-gradient(90deg, #00B6ED 0%, #0EA5E9 100%);
+
+    transition: width 0.5s ease-in-out;
+
+}
+
+
+
+.quizHeader {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 0;
+
+    right: 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 30px;
+
+    z-index: 10;
+
+    height: 40px;
+
+}
+
+
+
+.quizBackButton {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #FFFFFF;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+
+}
+
+
+
+.quizBackButton:hover {
+
+    color: #b0bec5;
+
+}
+
+
+
+
+
+.questionProgress {
+
+    color: #D1D5DB;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    margin-bottom: 16px;
+
+    text-align: center;
+
+}
+
+
+
+.categoryBadge {
+
+    background: rgba(0, 182, 237, 0.1);
+
+    border: 1px solid #00B6ED;
+
+    border-radius: 20px;
+
+    padding: 6px 16px;
+
+    color: #00B6ED;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    display: inline-block;
+
+    margin-bottom: 24px;
+
+}
+
+
+
+.questionText {
+
+    color: #FFFFFF !important;
+
+    font-size: 1.5rem !important;
+
+    font-weight: 600 !important;
+
+    margin: 0 0 32px 0 !important;
+
+    text-align: center !important;
+
+    line-height: 1.4 !important;
+
+    max-width: 800px !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+.answerOptions {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    max-width: 800px;
+
+    width: 100%;
+
+    margin: 0 auto 40px auto;
+
+}
+
+
+
+.answerOption {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 2px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    padding: 16px 20px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+.answerOption:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+}
+
+
+
+.selectedOption {
+
+    background: rgba(0, 182, 237, 0.1);
+
+    border: 2px solid #00B6ED;
+
+}
+
+
+
+.radioButton {
+
+    width: 20px;
+
+    height: 20px;
+
+    border: 2px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+}
+
+
+
+.selectedOption .radioButton {
+
+    border-color: #00B6ED;
+
+}
+
+
+
+.radioSelected {
+
+    width: 10px;
+
+    height: 10px;
+
+    background: #00B6ED;
+
+    border-radius: 50%;
+
+}
+
+
+
+.answerText {
+
+    color: #FFFFFF;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+}
+
+
+
+.quizFooter {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 40px;
+
+}
+
+
+
+.nextQuestionButton {
+
+    background: linear-gradient(to right, #FF4747 0%, #FF6B6B 100%);
+
+    color: #FFFFFF;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 16px 40px;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    min-width: 250px;
+
+    width: auto;
+
+}
+
+
+
+.nextQuestionButton:hover:not(:disabled) {
+
+    background: linear-gradient(to right, #FF3333 0%, #FF5757 100%);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(255, 71, 71, 0.3);
+
+}
+
+
+
+.nextQuestionButton:active {
+
+    transform: scale(0.95);
+
+}
+
+
+
+.nextQuestionButton:disabled {
+
+    background: #1F2937;
+
+    color: #6B7280;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+}
+
+
+
+/* Interactive Score Display Styles */
+
+.interactiveScoreContainer {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 24px;
+
+    margin: 24px 0;
+
+    padding: 32px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 16px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+.interactiveScoreContainer:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+
+    border-color: rgba(0, 182, 237, 0.3);
+
+}
+
+
+
+.scoreDisplay {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
+    color: #00B6ED;
+
+    text-shadow: 0 0 20px rgba(0, 182, 237, 0.5);
+
+    animation: scoreGlow 2s ease-in-out infinite alternate;
+
+}
+
+
+
+.scoreNumber {
+
+    font-size: 4rem;
+
+    background: linear-gradient(135deg, #00B6ED 0%, #0EA5E9 100%);
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+
+    animation: scorePulse 0.6s ease-in-out;
+
+}
+
+
+
+.scoreSeparator {
+
+    font-size: 3rem;
+
+    color: #FFFFFF;
+
+    opacity: 0.7;
+
+}
+
+
+
+.totalQuestions {
+
+    font-size: 3rem;
+
+    color: #FFFFFF;
+
+    opacity: 0.8;
+
+}
+
+
+
+.scoreProgressContainer {
+
+    width: 100%;
+
+    max-width: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    align-items: center;
+
+}
+
+
+
+.scoreProgressBar {
+
+    width: 100%;
+
+    height: 8px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+
+.scoreProgressFill {
+
+    height: 100%;
+
+    background: linear-gradient(90deg, #00B6ED 0%, #0EA5E9 100%);
+
+    border-radius: 4px;
+
+    position: relative;
+
+    box-shadow: 0 0 10px rgba(0, 182, 237, 0.5);
+
+}
+
+
+
+.scoreProgressFill::after {
+
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+
+    animation: progressShine 2s ease-in-out infinite;
+
+}
+
+
+
+.scorePercentage {
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
+
+    color: #00B6ED;
+
+    text-align: center;
+
+}
+
+
+
+.scoreFeedback {
+
+    text-align: center;
+
+    margin-top: 16px;
+
+}
+
+
+
+.perfectScore,
+
+.excellentScore,
+
+.goodScore,
+
+.fairScore,
+
+.needsImprovement {
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    padding: 12px 24px;
+
+    border-radius: 12px;
+
+    animation: feedbackSlideIn 0.8s ease-out;
+
+}
+
+
+
+.perfectScore {
+
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+    color: #FFFFFF;
+
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+
+}
+
+
+
+.excellentScore {
+
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+
+    color: #FFFFFF;
+
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+
+}
+
+
+
+.goodScore {
+
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+
+    color: #FFFFFF;
+
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+
+}
+
+
+
+.fairScore {
+
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+
+    color: #FFFFFF;
+
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
+
+}
+
+
+
+.needsImprovement {
+
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+
+    color: #FFFFFF;
+
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+
+}
+
+
+
+/* Animations */
+
+@keyframes scoreGlow {
+
+    0% {
+
+        text-shadow: 0 0 20px rgba(0, 182, 237, 0.5);
+
+    }
+
+    100% {
+
+        text-shadow: 0 0 30px rgba(0, 182, 237, 0.8), 0 0 40px rgba(0, 182, 237, 0.3);
+
+    }
+
+}
+
+
+
+@keyframes scorePulse {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.1);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+
+@keyframes progressShine {
+
+    0% {
+
+        transform: translateX(-100%);
+
+    }
+
+    100% {
+
+        transform: translateX(100%);
+
+    }
+
+}
+
+
+
+@keyframes feedbackSlideIn {
+
+    0% {
+
+        opacity: 0;
+
+        transform: translateY(20px) scale(0.9);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+
+/* Confetti Animation */
+
+.confettiContainer {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+}
+
+
+
+.confetti {
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 10px;
+
+    background: #00B6ED;
+
+    animation: confettiFall 3s ease-in-out infinite;
+
+}
+
+
+
+.confetti:nth-child(1) {
+
+    left: 20%;
+
+    animation-delay: 0s;
+
+    background: #00B6ED;
+
+}
+
+
+
+.confetti:nth-child(2) {
+
+    left: 40%;
+
+    animation-delay: 0.5s;
+
+    background: #0EA5E9;
+
+}
+
+
+
+.confetti:nth-child(3) {
+
+    left: 60%;
+
+    animation-delay: 1s;
+
+    background: #FF6B6B;
+
+}
+
+
+
+.confetti:nth-child(4) {
+
+    left: 80%;
+
+    animation-delay: 1.5s;
+
+    background: #10b981;
+
+}
+
+
+
+.confetti:nth-child(5) {
+
+    left: 50%;
+
+    animation-delay: 2s;
+
+    background: #f59e0b;
+
+}
+
+
+
+@keyframes confettiFall {
+
+    0% {
+
+        transform: translateY(-100px) rotate(0deg);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform: translateY(400px) rotate(720deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+
+
+
+/* Footer */
+
+.footer {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 80px; /* Decreased from 120px */
+
+    background: #0A0E1A;
+
+    padding: 0 20px;
+
+}
+
+
+
+/* Continue button */
+
+.continueButton {
+
+    background: linear-gradient(to right, #FF4747 0%, #FF6B6B 100%);
+
+    color: white;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    font-weight: 600;
+
+    font-size: 0.875rem; /* text-sm = 14px */
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    border: none;
+
+    border-radius: 12px; /* rounded-xl = 12px */
+
+    padding: 16px 24px; /* Increased from 12px 24px for more height */
+
+    cursor: pointer;
+
+    transition: all 200ms ease;
+
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+
+    position: relative;
+
+    overflow: hidden;
+    overflow-x: hidden;
+
+    min-width: 200px;
+
+    width: 100%;
+
+    max-width: 384px; /* max-w-sm = 384px */
+
+    height: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto; /* mx-auto */
+
+}
+
+.continueButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.continueButtonLoading {
+    cursor: wait;
+    background: #facc15;
+}
+
+.continueButton::before {
+
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+
+    transition: left 0.5s;
+
+}
+
+
+
+.continueButton:hover::before {
+
+    left: 100%;
+
+}
+
+
+
+.continueButton:hover {
+
+    background: linear-gradient(to right, #FF3333 0%, #FF5757 100%);
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+}
+
+
+
+.continueButton:active {
+
+    transform: scale(0.95);
+
+}
+
+
+
+.continueButton:disabled {
+
+    background: #1F2937; /* bg-gray-800 */
+
+    color: #6B7280; /* text-gray-500 */
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+}
+
+
+
+/* Mobile Responsive Styles */
+
+@media screen and (max-width: 768px) {
+
+    .welcomeContainer {
+
+        padding: 0;
+
+        overflow-y: auto;
+
+    }
+
+
+
+    .progressBarContainer {
+
+        height: 3px;
+
+    }
+
+
+
+    .horizontalLine {
+
+        top: 80px;
+
+    }
+
+
+
+    .header {
+
+        top: 15px;
+
+        padding: 0 20px;
+
+        height: 35px;
+
+    }
+
+
+
+    .stepIndicator {
+
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 8px 16px;
+        color: #b0bec5;
+        font-size: 0.9rem;
+        font-weight: 500;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        backdrop-filter: blur(10px);
+        white-space: nowrap;
+    }
+
+
+
+    .backButton {
+
+        font-size: 0.8rem;
+
+        gap: 6px;
+
+    }
+
+
+
+    .backButton svg {
+
+        width: 18px;
+
+        height: 18px;
+
+    }
+
+
+
+    .mainContent {
+
+        padding: 0 20px;
+
+        margin-top: 10px;
+        padding-bottom: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .iconContainer {
+        margin-bottom: 20px;
+    }
+
+    .tooltipBubble {
+        background: #1F2937 !important;
+        border: 1px solid #374151 !important;
+        border-radius: 8px !important;
+        padding: 10px 16px !important;
+        margin-bottom: 25px !important;
+        color: #FFFFFF !important;
+        font-size: 0.9rem !important;
+        font-weight: 500 !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+        position: relative !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        max-width: 280px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: nowrap;
+        overflow: hidden;
+    overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .graduationCapIcon {
+        width: 70px;
+        height: 70px;
+        border-radius: 14px;
+    }
+
+    .graduationCapSvg {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logoImage {
+        width: 45px;
+        height: 45px;
+    }
+
+    .diamondIcon {
+        width: 70px;
+        height: 70px;
+        border-radius: 6px;
+    }
+
+    .diamondIcon .graduationCapSvg {
+        width: 35px;
+        height: 35px;
+    }
+
+    .diamondIcon .logoImage {
+        width: 45px;
+        height: 45px;
+    }
+
+    .mainTitle {
+        font-size: 1.8rem !important;
+        margin-bottom: 12px !important;
+        text-align: center !important;
+    }
+
+    .subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 35px !important;
+        max-width: 320px !important;
+        text-align: center !important;
+    }
+
+    .subtitleSecondary {
+        font-size: 0.85rem !important;
+        max-width: 350px !important;
+        text-align: center !important;
+    }
+
+
+
+    .yearGrid {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+
+        max-width: 360px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+
+
+    .yearCard {
+
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 14px 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-height: 65px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .yearCard:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .yearCardSelected {
+        background: rgba(0, 182, 237, 0.1);
+        border: 2px solid #00B6ED;
+        box-shadow: 0 0 15px rgba(0, 182, 237, 0.2);
+    }
+
+
+
+    .yearTitle {
+
+        color: #FFFFFF !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        margin: 0 0 4px 0 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+
+
+
+    .yearSubtitle {
+
+        color: #D1D5DB !important;
+        font-size: 0.75rem !important;
+        font-weight: 400 !important;
+        margin: 0 !important;
+        line-height: 1.2 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+
+
+
+    .semesterTitle {
+
+        color: #FFFFFF !important;
+        font-size: 0.9rem !important;
+
+        font-weight: 500 !important;
+        margin: 20px 0 14px 0 !important;
+        text-align: center !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+
+
+
+    .semesterContainer {
+
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+
+
+    .semesterButton {
+
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        flex: 1;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .semesterButton:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .semesterSelected {
+        background: rgba(0, 182, 237, 0.1);
+        border: 2px solid #00B6ED;
+        box-shadow: 0 0 15px rgba(0, 182, 237, 0.2);
+    }
+
+
+
+    .assessmentIcon {
+
+        width: 70px;
+
+        height: 70px;
+
+        margin: 0 auto;
+    }
+
+
+
+    .assessmentBox {
+
+        padding: 16px;
+
+        max-width: 350px;
+
+        margin: 0 auto;
+    }
+
+    .assessmentButtonContainer {
+        margin-top: 28px;
+    }
+
+
+
+    .startAssessmentButton {
+
+        padding: 14px 28px;
+
+        font-size: 0.9rem;
+
+        min-width: 180px;
+
+        margin: 0 auto;
+    }
+
+
+
+    .assessmentContent {
+
+        margin-top: 60px;
+
+        padding-top: 30px;
+
+    }
+
+
+
+    .footer {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .continueButton {
+        padding: 12px 24px;
+        font-size: 0.875rem;
+        min-width: 160px;
+        height: auto;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    /* Quiz Screen Mobile Styles */
+    .quizHeader {
+        top: 15px;
+        padding: 0 20px;
+        height: 35px;
+
+    }
+
+
+
+    .quizBackButton {
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .questionProgress {
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+    }
+
+    .categoryBadge {
+        font-size: 0.75rem;
+        padding: 5px 14px;
+        margin-bottom: 20px;
+    }
+
+    .questionText {
+        font-size: 1.3rem !important;
+        margin-bottom: 28px !important;
+        max-width: 350px !important;
+    }
+
+    .answerOptions {
+        gap: 12px;
+        max-width: 350px;
+
+        margin: 0 auto 35px auto;
+    }
+
+    .answerOption {
+        padding: 14px 18px;
+    }
+
+    .answerText {
+        font-size: 0.9rem;
+    }
+
+    .quizFooter {
+        margin-top: 35px;
+    }
+
+    .nextQuestionButton {
+        padding: 14px 35px;
+        font-size: 0.9rem;
+        min-width: 220px;
+    }
+
+    /* Results Screen Mobile Styles */
+    .interactiveScoreContainer {
+
+        padding: 24px;
+
+        gap: 20px;
+
+        margin: 20px 0;
+
+        max-width: 350px;
+    }
+
+
+
+    .scoreDisplay {
+
+        font-size: 2.5rem;
+
+        gap: 6px;
+
+    }
+
+
+
+    .scoreNumber {
+
+        font-size: 3rem;
+
+    }
+
+
+
+    .scoreSeparator {
+
+        font-size: 2.5rem;
+
+    }
+
+
+
+    .totalQuestions {
+
+        font-size: 2.5rem;
+
+    }
+
+
+
+    .scoreProgressContainer {
+
+        max-width: 250px;
+
+    }
+
+
+
+    .scorePercentage {
+
+        font-size: 1rem;
+
+    }
+
+
+
+    .perfectScore,
+
+    .excellentScore,
+
+    .goodScore,
+
+    .fairScore,
+
+    .needsImprovement {
+
+        font-size: 1rem;
+
+        padding: 10px 20px;
+
+        text-align: center;
+    }
+
+    /* Additional Mobile Optimizations */
+    /* Ensure all containers are properly centered */
+    .welcomeContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Fix any potential overflow issues */
+    .mainContent {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Ensure proper spacing for all screens */
+    .mainContent.assessmentContent {
+        margin-top: 60px;
+        padding-top: 30px;
+        justify-content: flex-start;
+    }
+
+    .mainContent.quizScreen {
+        margin-top: 60px;
+        padding-top: 20px;
+        justify-content: flex-start;
+    }
+
+    .mainContent.resultsScreen {
+        margin-top: 50px;
+        padding-top: 20px;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+    }
+
+    .mainContent.personalInfoScreen {
+        margin-top: 40px;
+        padding-top: 20px;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+    }
+
+    /* Ensure buttons are properly sized and centered */
+    .continueButton,
+    .startAssessmentButton,
+    .nextQuestionButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Fix any potential text overflow */
+    .mainTitle,
+    .subtitle,
+    .subtitleSecondary,
+    .questionText {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    
+    .dateInputContainer {
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dateInputWrapper {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .progressBarContainer {
+
+        height: 2px;
+
+    }
+
+
+
+    .horizontalLine {
+
+        top: 70px;
+
+    }
+
+
+
+    .header {
+
+        top: 12px;
+
+        padding: 0 15px;
+
+        height: 30px;
+
+    }
+
+
+
+    .stepIndicator {
+
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 18px;
+        padding: 6px 12px;
+        color: #b0bec5;
+        font-size: 0.8rem;
+        font-weight: 500;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        backdrop-filter: blur(10px);
+        white-space: nowrap;
+    }
+
+
+
+    .backButton {
+
+        font-size: 0.7rem;
+
+        gap: 4px;
+
+    }
+
+
+
+    .backButton svg {
+
+        width: 16px;
+
+        height: 16px;
+
+    }
+
+
+
+    .mainContent {
+
+        padding: 0 15px;
+
+        margin-top: 15px;
+        padding-bottom: 35px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .iconContainer {
+        margin-bottom: 18px;
+    }
+
+    .tooltipBubble {
+        background: #1F2937 !important;
+        border: 1px solid #374151 !important;
+        border-radius: 8px !important;
+        padding: 8px 14px !important;
+        margin-bottom: 20px !important;
+        color: #FFFFFF !important;
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+        position: relative !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        max-width: 260px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: nowrap;
+        overflow: hidden;
+    overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .graduationCapIcon {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+    }
+
+    .graduationCapSvg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logoImage {
+        width: 40px;
+        height: 40px;
+    }
+
+    .diamondIcon {
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+    }
+
+    .diamondIcon .graduationCapSvg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .diamondIcon .logoImage {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mainTitle {
+        font-size: 1.6rem !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+    }
+
+    .subtitle {
+        font-size: 0.85rem !important;
+        margin-bottom: 30px !important;
+        max-width: 280px !important;
+        text-align: center !important;
+    }
+
+    .subtitleSecondary {
+        font-size: 0.8rem !important;
+        max-width: 300px !important;
+        text-align: center !important;
+    }
+
+
+
+    .yearGrid {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+
+        max-width: 340px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+
+
+    .yearCard {
+
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 12px 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .yearCard:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .yearCardSelected {
+        background: rgba(0, 182, 237, 0.1);
+        border: 2px solid #00B6ED;
+        box-shadow: 0 0 15px rgba(0, 182, 237, 0.2);
+    }
+
+
+
+    .yearTitle {
+
+        color: #FFFFFF !important;
+        font-size: 0.9rem !important;
+        font-weight: 600 !important;
+        margin: 0 0 3px 0 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+
+
+
+    .yearSubtitle {
+
+        color: #D1D5DB !important;
+        font-size: 0.7rem !important;
+        font-weight: 400 !important;
+        margin: 0 !important;
+        line-height: 1.2 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+
+
+
+    .semesterTitle {
+
+        color: #FFFFFF !important;
+        font-size: 0.85rem !important;
+
+        font-weight: 500 !important;
+        margin: 16px 0 10px 0 !important;
+        text-align: center !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+
+
+
+    .semesterContainer {
+
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        max-width: 280px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+
+
+    .semesterButton {
+
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 10px 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        flex: 1;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .semesterButton:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .semesterSelected {
+        background: rgba(0, 182, 237, 0.1);
+        border: 2px solid #00B6ED;
+        box-shadow: 0 0 15px rgba(0, 182, 237, 0.2);
+    }
+
+    .assessmentIcon {
+        width: 60px;
+
+        height: 60px;
+
+        margin: 0 auto;
+    }
+
+    .assessmentBox {
+        padding: 14px;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .assessmentButtonContainer {
+        margin-top: 24px;
+    }
+
+    .startAssessmentButton {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+        min-width: 160px;
+        margin: 0 auto;
+    }
+
+    .assessmentContent {
+        margin-top: 50px;
+        padding-top: 25px;
+    }
+
+
+
+    .footer {
+
+        height: 55px;
+        padding: 0 12px;
+
+    }
+
+
+
+    .continueButton {
+
+        padding: 12px 24px;
+        font-size: 0.875rem;
+        min-width: 140px;
+
+        height: auto;
+
+        max-width: 300px;
+
+        margin: 0 auto;
+    }
+
+    /* Quiz Screen Small Mobile Styles */
+    .quizHeader {
+        top: 12px;
+        padding: 0 15px;
+        height: 30px;
+
+    }
+
+    .quizBackButton {
+        font-size: 0.7rem;
+        gap: 4px;
+    }
+
+    .questionProgress {
+        font-size: 0.75rem;
+        margin-bottom: 10px;
+    }
+
+    .categoryBadge {
+        font-size: 0.7rem;
+        padding: 4px 12px;
+        margin-bottom: 18px;
+    }
+
+    .questionText {
+        font-size: 1.2rem !important;
+        margin-bottom: 24px !important;
+        max-width: 320px !important;
+    }
+
+    .answerOptions {
+        gap: 10px;
+        max-width: 320px;
+
+        margin: 0 auto 30px auto;
+    }
+
+    .answerOption {
+        padding: 12px 16px;
+    }
+
+    .answerText {
+        font-size: 0.85rem;
+    }
+
+    .quizFooter {
+        margin-top: 30px;
+    }
+
+    .nextQuestionButton {
+        padding: 12px 30px;
+        font-size: 0.85rem;
+        min-width: 200px;
+    }
+
+    /* Results Screen Small Mobile Styles */
+    .interactiveScoreContainer {
+
+        padding: 20px;
+
+        gap: 16px;
+
+        margin: 16px 0;
+
+        max-width: 320px;
+    }
+
+
+
+    .scoreDisplay {
+
+        font-size: 2rem;
+
+        gap: 4px;
+
+    }
+
+
+
+    .scoreNumber {
+
+        font-size: 2.5rem;
+
+    }
+
+
+
+    .scoreSeparator {
+
+        font-size: 2rem;
+
+    }
+
+
+
+    .totalQuestions {
+
+        font-size: 2rem;
+
+    }
+
+
+
+    .scoreProgressContainer {
+
+        max-width: 200px;
+
+    }
+
+
+
+    .scorePercentage {
+
+        font-size: 0.9rem;
+
+    }
+
+
+
+    .perfectScore,
+
+    .excellentScore,
+
+    .goodScore,
+
+    .fairScore,
+
+    .needsImprovement {
+
+        font-size: 0.9rem;
+
+        padding: 8px 16px;
+
+        text-align: center;
+    }
+
+    /* Additional Small Mobile Optimizations */
+    /* Ensure all containers are properly centered */
+    .welcomeContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Fix any potential overflow issues */
+    .mainContent {
+
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Ensure proper spacing for all screens */
+    .mainContent.assessmentContent {
+        margin-top: 50px;
+        padding-top: 25px;
+        justify-content: flex-start;
+    }
+
+    .mainContent.quizScreen {
+        margin-top: 50px;
+        padding-top: 15px;
+        justify-content: flex-start;
+    }
+
+    .mainContent.resultsScreen {
+        margin-top: 40px;
+        padding-top: 15px;
+        padding-bottom: 70px;
+        justify-content: flex-start;
+    }
+
+    .mainContent.personalInfoScreen {
+        margin-top: 30px;
+        padding-top: 15px;
+        padding-bottom: 70px;
+        justify-content: flex-start;
+    }
+
+    /* Ensure buttons are properly sized and centered */
+    .continueButton,
+    .startAssessmentButton,
+    .nextQuestionButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Fix any potential text overflow */
+    .mainTitle,
+    .subtitle,
+    .subtitleSecondary,
+    .questionText {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    
+    .helperText {
+        font-size: 12px;
+    }
+    
+    .fieldLabel {
+        font-size: 14px;
+    }
+
+}
+
+/* Form Error Messages */
+.errorMessage {
+    color: #ff4d4f;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 400;
+    text-align: left;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.formInputError {
+    border-color: #ff4d4f !important;
+    background-color: rgba(255, 77, 79, 0.05) !important;
+}
+
+.genderButtonError {
+    border-color: #ff4d4f !important;
+    background-color: rgba(255, 77, 79, 0.05) !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .continueButton {
+        min-height: 44px;
+    }
+
+    .startAssessmentButton {
+        min-height: 44px;
+    }
+
+    .nextQuestionButton {
+        min-height: 44px;
+    }
+
+    .genderButton {
+        min-height: 44px;
+    }
+
+    .yearCard {
+        min-height: 60px;
+    }
+
+    .semesterButton {
+        min-height: 44px;
+    }
+
+    .answerOption {
+        min-height: 50px;
+    }
+
+}
+
+
+
+/* Landscape orientation adjustments */
+
+@media (max-height: 600px) and (orientation: landscape) {
+
+    .welcomeContainer {
+
+        overflow-y: auto;
+
+    }
+
+
+
+    .mainContent {
+
+        margin-top: -20px;
+
+        padding-bottom: 100px;
+
+    }
+
+
+
+    .mainTitle {
+
+        font-size: 2rem;
+
+        margin-bottom: 10px;
+
+    }
+
+
+
+    .subtitle {
+
+        font-size: 1rem;
+
+        margin-bottom: 30px;
+
+    }
+
+
+
+    .footer {
+
+        height: 60px;
+    }
+
+
+
+    .continueButton {
+
+        height: auto;
+
+        font-size: 0.875rem;
+    }
+
+}
+
+
+
+/* Personal Information Styles */
+
+.personalInfoIcon {
+
+    background: linear-gradient(135deg, #00B6ED 0%, #0EA5E9 100%);
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    transform: rotate(0deg);
+
+    box-shadow: 0 8px 25px rgba(0, 182, 237, 0.3);
+
+}
+
+.studyPreferencesIcon {
+    background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transform: rotate(0deg);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.35);
+}
+
+.studyPreferencesIcon svg {
+    width: 28px;
+    height: 28px;
+}
+
+
+
+.formContainer {
+
+    max-width: 500px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+
+.formRow {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+
+}
+
+
+
+.formField {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+
+.fieldLabel {
+
+    color: #FFFFFF !important;
+
+    font-size: 0.9rem !important;
+
+    font-weight: 500 !important;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+
+}
+
+
+
+.formInput {
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 8px;
+
+    padding: 12px 16px;
+
+    color: #FFFFFF;
+
+    font-size: 0.9rem;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    transition: all 0.3s ease;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    text-align: left !important;
+
+    text-indent: 0 !important;
+
+}
+
+
+
+.formInput select,
+select.formInput {
+
+    background-color: rgba(255, 255, 255, 0.06);
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    -moz-appearance: none;
+
+}
+
+
+.formInput option,
+select.formInput option {
+
+    background-color: #0f172a;
+
+    color: #ffffff;
+
+}
+
+
+
+.formInput:focus {
+
+    outline: none;
+
+    border-color: #00B6ED;
+
+    box-shadow: 0 0 0 2px rgba(0, 182, 237, 0.2);
+
+}
+
+
+
+.formInput::placeholder {
+
+    color: rgba(255, 255, 255, 0.5);
+
+    text-align: left !important;
+
+}
+
+
+
+.inputWithIcon {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+}
+
+
+
+.inputIcon {
+
+    position: absolute;
+
+    left: 12px;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    z-index: 1;
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+
+
+.inputWithIcon .formInput {
+
+    padding-left: 44px;
+
+    text-align: left !important;
+
+    text-indent: 0 !important;
+
+    justify-self: flex-start;
+
+    align-self: flex-start;
+
+}
+
+/* Phone number container with right-aligned lock icon */
+.phoneNumberContainer {
+    position: relative;
+}
+
+/* Add right padding so text doesn't overlap the lock icon */
+.phoneNumberContainer .formInput {
+    padding-right: 44px;
+}
+
+/* Visually indicate read-only field */
+.readonlyField {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* Lock icon positioned inside the input on the right */
+.lockIcon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    pointer-events: none; /* prevent blocking clicks/focus */
+}
+
+.lockIcon svg {
+    display: block;
+}
+
+
+
+/* Force left alignment for all form inputs */
+
+.formInput[type="email"],
+
+.formInput[type="text"],
+
+.formInput[type="tel"] {
+
+    text-align: left !important;
+
+    text-indent: 0 !important;
+
+    direction: ltr !important;
+
+}
+
+
+
+/* Specific email field alignment */
+
+.inputWithIcon input[type="email"] {
+
+    text-align: left !important;
+
+    text-indent: 0 !important;
+
+    direction: ltr !important;
+
+    padding-left: 44px !important;
+
+}
+
+
+
+/* Email placeholder alignment */
+
+.inputWithIcon input[type="email"]::placeholder {
+
+    text-align: left !important;
+
+    text-indent: 0 !important;
+
+    direction: ltr !important;
+
+}
+
+
+
+.genderButtons {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+
+
+.genderButton {
+
+    flex: 1;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 8px;
+
+    padding: 12px 16px;
+
+    color: #FFFFFF;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    text-align: center;
+
+}
+
+
+
+.genderButton:hover {
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+}
+
+
+
+.genderSelected {
+
+    background: #00B6ED !important;
+
+    border-color: #00B6ED !important;
+
+    color: #FFFFFF !important;
+
+}
+
+
+
+@keyframes tourGlowPulse {
+
+    0% {
+
+        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+
+    }
+
+    50% {
+
+        box-shadow: 0 0 0 8px rgba(251, 191, 36, 0);
+
+    }
+
+    100% {
+
+        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+
+    }
+
+}
+
+
+
+.continueButtonHighlight {
+
+    position: relative;
+
+    z-index: 2500;
+
+    overflow: visible !important;
+
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.22), 0 0 14px rgba(251, 191, 36, 0.2);
+
+    outline: 2px dotted rgba(255, 255, 255, 0.9);
+
+    outline-offset: 6px;
+
+}
+
+
+
+.continueButtonHighlight::before,
+
+.continueButtonHighlight::after {
+
+    content: none;
+
+}
+
+
+
+.studyPreferencesHighlight {
+
+    position: relative;
+
+    z-index: 2500;
+
+    overflow: visible !important;
+
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.22), 0 0 18px rgba(251, 191, 36, 0.22);
+
+    outline: 2px dotted rgba(255, 255, 255, 0.9);
+
+    outline-offset: 6px;
+
+    animation: tourGlowPulse 2s ease-in-out infinite;
+
+    display: inline-flex;
+
+    width: fit-content;
+
+    max-width: 100%;
+
+    align-self: center;
+
+}
+
+.studyPreferencesHighlight .dateInput {
+
+    width: auto;
+
+    min-width: 180px;
+
+    padding-left: 16px;
+
+    padding-right: 16px;
+
+}
+
+.tourHighlightBlock {
+
+    position: relative;
+
+    z-index: 2501;
+
+    animation: tourGlowPulse 2s ease-in-out infinite;
+
+}
+
+
+
+.tourHighlightBlock .yearCard,
+
+.tourHighlightBlock .semesterButton {
+
+    animation: tourGlowPulse 2s ease-in-out infinite;
+
+    border-color: rgba(251, 191, 36, 0.9) !important;
+
+    background: rgba(251, 191, 36, 0.12) !important;
+
+}
+
+
+
+.tourHighlightBlock .yearCardSelected,
+
+.tourHighlightBlock .semesterSelected {
+
+    border-color: rgba(251, 191, 36, 1) !important;
+
+    background: rgba(251, 191, 36, 0.18) !important;
+
+}
+
+
+
+.tourOverlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.3s ease;
+
+}
+
+.tourOverlayVisible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: none;
+
+}
+
+
+
+.tourBackdrop {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(10, 14, 26, 0.6);
+
+    backdrop-filter: blur(6px);
+
+    pointer-events: none;
+
+}
+
+
+
+.tourBackdropDim {
+
+    background: rgba(10, 14, 26, 0.72);
+
+    backdrop-filter: blur(14px);
+
+}
+
+
+
+.tourContent {
+
+    position: absolute;
+
+    bottom: 130px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+
+    pointer-events: none;
+
+}
+
+
+
+.tourContentYear {
+
+    bottom: auto;
+
+    top: 35%;
+
+    left: 70%;
+
+    transform: translate(-50%, -50%);
+
+}
+
+
+
+.tourContentSemester {
+
+    bottom: 280px;
+
+    left: 60%;
+
+    transform: translateX(-50%);
+
+}
+
+
+
+.tourContentContinue {
+
+    bottom: 80px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+}
+
+.tourContentStudyPreferences {
+
+    bottom: 300px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+}
+
+.tourContentAssessment {
+
+    bottom: 150px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+}
+
+/* Responsive alignment for tour content positions */
+@media (max-width: 1200px) {
+    .tourContentYear {
+        top: 36%;
+        left: 64%;
+    }
+    .tourContentSemester {
+        bottom: 260px;
+        left: 58%;
+    }
+    .tourContentContinue {
+        bottom: 72px;
+    }
+    .tourContentStudyPreferences {
+        bottom: 260px;
+    }
+    .tourContentAssessment {
+        bottom: 140px;
+    }
+}
+
+@media (max-width: 992px) {
+    .tourContentYear {
+        top: 38%;
+        left: 60%;
+    }
+    .tourContentSemester {
+        bottom: 230px;
+        left: 55%;
+    }
+    .tourContentContinue {
+        bottom: 64px;
+    }
+    .tourContentStudyPreferences {
+        bottom: 230px;
+    }
+    .tourContentAssessment {
+        bottom: 130px;
+    }
+    .tourTooltip {
+        max-width: 320px;
+        min-width: 260px;
+        padding: 18px 22px;
+    }
+    .tourTitle {
+        font-size: 1.1rem;
+    }
+    .tourDescription {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+.guidedFocusActive {
+
+    filter: none;
+
+}
+
+
+
+.tourTooltip {
+
+    background: rgba(15, 23, 42, 0.55);
+
+    border: 1px solid rgba(148, 163, 184, 0.4);
+
+    border-radius: 16px;
+
+    padding: 20px 24px;
+
+    max-width: 360px;
+
+    min-width: 280px;
+
+    width: auto;
+
+    text-align: center;
+
+    color: #F8FAFC;
+
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+
+    pointer-events: auto;
+
+    backdrop-filter: blur(16px);
+
+    -webkit-backdrop-filter: blur(16px);
+
+    word-wrap: break-word;
+
+    overflow-wrap: break-word;
+
+}
+
+
+
+.tourTitle {
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.tourDescription {
+
+    font-size: 0.95rem;
+
+    line-height: 1.4;
+
+    opacity: 0.9;
+
+    margin-bottom: 16px;
+
+}
+
+
+
+.tourSkipButton {
+
+    background: transparent;
+
+    border: none;
+
+    color: #FBBF24;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+
+}
+
+
+
+.tourSkipButton:hover {
+
+    color: #facc15;
+
+}
+
+
+
+.tourArrowSvg {
+
+    width: 220px;
+
+    height: 180px;
+
+    pointer-events: none;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    overflow: visible;
+
+}
+
+
+
+.tourContentYear .tourArrowSvg {
+
+    margin: 0;
+
+    transform: translate(-66px, 8px);
+
+}
+
+
+
+    .tourContentSemester .tourArrowSvg {
+
+        margin: 0;
+
+        transform: translate(40px, 8px);
+
+    }
+
+.tourContentAssessment .tourArrowSvg {
+
+    margin: 0;
+
+    transform: translate(-10px, 8px);
+
+}
+
+.tourContentStudyPreferences .tourArrowSvg {
+
+    margin: 0;
+
+    transform: translate(0, 12px);
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .tourContent {
+
+        bottom: 200px;
+
+        max-width: 90vw;
+
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+
+    }
+
+    .tourContentYear {
+
+        bottom: 360px !important;
+
+        top: auto !important;
+
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+
+    }
+
+    .tourContentSemester {
+        top: auto !important;
+        bottom: 160px !important;
+        left: 50% !important;
+        transform: translate(-50%, 0) !important;
+    }
+
+    .tourContentStudyPreferences {
+
+        bottom: 210px !important;
+
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+
+    }
+
+    .tourContentAssessment {
+
+        bottom: 120px !important;
+
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+
+    }
+
+    .tourContentContinue {
+
+        bottom: 60px !important;
+
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+
+    }
+
+    .tourTooltip {
+
+        padding: 18px 20px;
+
+        max-width: 90vw;
+
+        min-width: 240px;
+
+        margin: 0 16px;
+
+    }
+
+    .tourTitle {
+
+        font-size: 1.05rem;
+
+        margin-bottom: 6px;
+
+    }
+
+    .tourDescription {
+
+        font-size: 0.85rem;
+
+        line-height: 1.35;
+
+        margin-bottom: 14px;
+
+    }
+
+    .tourSkipButton {
+
+        font-size: 0.8rem;
+
+        padding: 8px 12px;
+
+    }
+
+    .tourArrowSvg {
+
+        width: 80px;
+
+        height: 80px;
+
+    }
+
+    .tourContentYear .tourArrowSvg {
+
+        transform: translate(40px, -20px);
+
+    }
+
+    .tourContentSemester .tourArrowSvg {
+        transform: translate(30px, -6px);
+    }
+
+}
+
+
+
+@media (max-width: 480px) {
+
+    .tourContent {
+
+        bottom: 190px;
+
+        max-width: 95vw;
+
+    }
+
+    .tourContentYear {
+
+        bottom: 320px !important;
+
+        top: auto !important;
+
+    }
+
+    .tourContentSemester {
+        bottom: 140px !important;
+    }
+
+    .tourContentStudyPreferences {
+
+        bottom: 240px !important;
+
+    }
+
+    .tourContentAssessment {
+
+        bottom: 110px !important;
+
+    }
+
+    .tourContentContinue {
+
+        bottom: 50px !important;
+
+    }
+
+    .tourTooltip {
+
+        padding: 16px 18px;
+
+        max-width: 95vw;
+
+        min-width: 220px;
+
+        margin: 0 12px;
+
+        border-radius: 12px;
+
+    }
+
+    .tourTitle {
+
+        font-size: 1rem;
+
+        margin-bottom: 5px;
+
+    }
+
+    .tourDescription {
+
+        font-size: 0.8rem;
+
+        line-height: 1.3;
+
+        margin-bottom: 12px;
+
+    }
+
+    .tourSkipButton {
+
+        font-size: 0.75rem;
+
+        padding: 6px 10px;
+
+    }
+
+    .tourArrowSvg {
+
+        width: 70px;
+
+        height: 70px;
+
+    }
+
+    .tourContentYear .tourArrowSvg {
+
+        transform: translate(35px, -18px);
+
+    }
+
+    .tourContentSemester .tourArrowSvg {
+        transform: translate(26px, -8px);
+    }
+
+}
+
+/* Extra small screens and landscape mobile */
+@media (max-width: 360px) {
+    .tourContentYear {
+        bottom: 290px !important;
+        top: auto !important;
+    }
+    
+    .tourContentSemester {
+        bottom: 110px !important;
+    }
+    
+    .tourTooltip {
+        padding: 14px 16px;
+        max-width: 98vw;
+        min-width: 200px;
+        margin: 0 8px;
+        border-radius: 10px;
+    }
+    
+    .tourTitle {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+    }
+    
+    .tourDescription {
+        font-size: 0.75rem;
+        line-height: 1.25;
+        margin-bottom: 10px;
+    }
+    
+    .tourSkipButton {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
+    
+    .tourArrowSvg {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tourContentSemester .tourArrowSvg {
+        transform: translate(22px, -6px);
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .tourContent {
+        bottom: 120px !important;
+    }
+    
+    .tourContentYear {
+        top: 50% !important;
+    }
+    
+    .tourContentSemester,
+    .tourContentStudyPreferences {
+        bottom: 210px !important;
+    }
+    
+    .tourContentAssessment {
+        bottom: 80px !important;
+    }
+    
+    .tourContentContinue {
+        bottom: 30px !important;
+    }
+    
+    .tourTooltip {
+        padding: 12px 16px;
+        max-width: 80vw;
+    }
+    
+    .tourTitle {
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+    
+    .tourDescription {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+    
+    .tourArrowSvg {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Responsive styles for Personal Information */
+
+@media (max-width: 768px) {
+
+    .personalInfoScreen {
+        margin-top: 40px;
+        padding-top: 20px;
+        padding-bottom: 80px;
+        max-width: 100%;
+        /* Ensure overflow scroll on medium-small screens */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: calc(100dvh - 120px);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .personalInfoScreen {
+        margin-top: 30px;
+        padding-top: 15px;
+        padding-bottom: 70px;
+        /* Ensure overflow scroll on small screens */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: calc(100dvh - 110px);
+    }
+}
+
+/* Study Preferences Screen */
+.studyPreferencesScreen {
+    /* Additional styles for study preferences screen if needed */
+    /* Non-empty to satisfy CSS linters */
+    display: block;
+}
+
+.mainContent.studyPreferencesScreen {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    min-height: calc(100dvh - 200px);
+    padding: 48px 32px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Mobile Responsive Styles for Study Preferences */
+@media (max-width: 768px) {
+
+    .mainContent.studyPreferencesScreen {
+        padding: 36px 20px 38px;
+        min-height: calc(100dvh - 140px);
+        align-items: center;
+        justify-content: flex-start;
+        gap: 26px;
+        margin-top: 24px;
+    }
+
+    .studyPreferencesScreen .iconContainer {
+        margin: 28px auto 14px;
+    }
+
+    .studyPreferencesIcon {
+        padding: 14px;
+    }
+    
+    .studyPreferencesScreen .mainTitle {
+        font-size: clamp(24px, 5vw, 30px) !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .studyPreferencesScreen .subtitle {
+        font-size: clamp(14px, 3.2vw, 17px) !important;
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.45;
+        white-space: normal;
+    }
+    
+    .studyPreferencesScreen .formContainer {
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+        gap: 16px;
+        align-items: stretch;
+    }
+    
+    .studyPreferencesScreen .formField {
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .studyPreferencesScreen .fieldLabel {
+        font-size: 0.95rem;
+    }
+    
+    .studyPreferencesScreen .dateInputContainer {
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+    .studyPreferencesScreen .dateInput {
+        font-size: 1rem;
+        padding: 12px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #111827;
+        border: 1px solid rgba(17, 24, 39, 0.15);
+        border-radius: 10px;
+    }
+    
+    .studyPreferencesScreen .dateInput::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        opacity: 1;
+        cursor: pointer;
+        margin-left: 4px;
+    }
+    
+    .studyPreferencesScreen .dateInput::-webkit-calendar-picker-indicator:hover {
+        filter: invert(0.8);
+    }
+    
+    .studyPreferencesScreen .calendarIconSmall {
+        flex-shrink: 0;
+        pointer-events: none;
+    }
+    
+    .studyPreferencesScreen .helperText {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 280px;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .mainContent.studyPreferencesScreen {
+        padding: 32px 18px 30px;
+        min-height: calc(100dvh - 130px);
+        gap: 0px;
+        margin-top: 40px;
+    }
+
+    .studyPreferencesScreen .iconContainer {
+        margin: 18px auto 22px;
+    }
+
+    .studyPreferencesIcon {
+        width: 60px;
+        height: 60px;
+        border-radius: 14px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .studyPreferencesIcon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .studyPreferencesScreen .mainTitle {
+        font-size: clamp(22px, 6vw, 26px) !important;
+    }
+    
+    .studyPreferencesScreen .subtitle {
+        font-size: clamp(13px, 3.6vw, 16px) !important;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.45;
+    }
+    
+    .studyPreferencesScreen .fieldLabel {
+        font-size: 0.95rem;
+    }
+    
+    .studyPreferencesScreen .formField {
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .studyPreferencesScreen .dateInputContainer {
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+    
+    .studyPreferencesScreen .dateInput {
+        font-size: 0.95rem;
+        padding: 12px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #111827;
+        border: 1px solid rgba(17, 24, 39, 0.15);
+        border-radius: 10px;
+    }
+    
+    .studyPreferencesScreen .dateInput::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        opacity: 1;
+        cursor: pointer;
+        margin-left: 4px;
+    }
+    
+    .studyPreferencesScreen .dateInput::-webkit-calendar-picker-indicator:hover {
+        filter: invert(0.8);
+    }
+    
+    .studyPreferencesScreen .calendarIconSmall {
+        flex-shrink: 0;
+        pointer-events: none;
+    }
+    
+    .studyPreferencesScreen .calendarIconSmall {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .studyPreferencesScreen .helperText {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 260px;
+    }
+}
+/* Responsive fixes appended */
+@media screen and (max-width: 768px) {
+  .welcomeContainer {
+    position: relative;
+    height: auto;
+    min-height: 100dvh;
+    padding-top: calc(env(safe-area-inset-top) + 0px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 0px);
+  }
+
+  .tooltipBubble {
+    max-width: 90vw !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .nextQuestionButton,
+  .startAssessmentButton {
+    width: 100% !important;
+    max-width: 360px !important;
+    min-width: 0 !important;
+    padding: 14px 16px !important;
+  }
+}
+

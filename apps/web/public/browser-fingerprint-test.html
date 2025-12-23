@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Fingerprint Test</title>
+</head>
+<body>
+    <h1>Browser Fingerprint Test</h1>
+    <div id="browserInfo"></div>
+    <div id="fingerprintInfo"></div>
+    <button onclick="testFingerprint()">Test Fingerprint</button>
+    <button onclick="testLoginSimulation()">Test Login Simulation</button>
+    
+    <script>
+        function getBrowserInfo() {
+            return {
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                language: navigator.language,
+                cookieEnabled: navigator.cookieEnabled,
+                onLine: navigator.onLine,
+                hardwareConcurrency: navigator.hardwareConcurrency,
+                maxTouchPoints: navigator.maxTouchPoints,
+                screen: {
+                    width: screen.width,
+                    height: screen.height,
+                    colorDepth: screen.colorDepth,
+                    pixelDepth: screen.pixelDepth,
+                    devicePixelRatio: window.devicePixelRatio
+                },
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timestamp: new Date().toISOString()
+            };
+        }
+        
+        function generateFingerprint() {
+            const browserInfo = getBrowserInfo();
+            
+            // Create a simplified fingerprint (similar to device manager)
+            const fingerprint = {
+                platform: browserInfo.platform || 'unknown',
+                screen: `${browserInfo.screen.width}x${browserInfo.screen.height}@${browserInfo.screen.devicePixelRatio || 1}`,
+                timezone: browserInfo.timezone || 'unknown',
+                language: browserInfo.language || 'unknown',
+                hw: browserInfo.hardwareConcurrency || null
+            };
+            
+            // Clean user agent
+            if (browserInfo.userAgent) {
+                fingerprint.userAgent = browserInfo.userAgent
+                    .replace(/\d+\.\d+\.\d+\.\d+/g, 'X.X.X.X')
+                    .replace(/\d+\.\d+\.\d+/g, 'X.X.X')
+                    .replace(/Chrome\/\d+/g, 'Chrome/X')
+                    .replace(/Safari\/\d+/g, 'Safari/X')
+                    .replace(/Firefox\/\d+/g, 'Firefox/X')
+                    .replace(/Edge\/\d+/g, 'Edge/X')
+                    .replace(/Version\/\d+/g, 'Version/X');
+            }
+            
+            return fingerprint;
+        }
+        
+        function testFingerprint() {
+            const browserInfo = getBrowserInfo();
+            const fingerprint = generateFingerprint();
+            
+            document.getElementById('browserInfo').innerHTML = `
+                <h3>Browser Information:</h3>
+                <pre>${JSON.stringify(browserInfo, null, 2)}</pre>
+            `;
+            
+            document.getElementById('fingerprintInfo').innerHTML = `
+                <h3>Generated Fingerprint:</h3>
+                <pre>${JSON.stringify(fingerprint, null, 2)}</pre>
+            `;
+            
+            console.log('Browser Info:', browserInfo);
+            console.log('Fingerprint:', fingerprint);
+        }
+        
+        function testLoginSimulation() {
+            const fingerprint = generateFingerprint();
+            const deviceUuid = generateUUID();
+            
+            const loginPayload = {
+                mobile: '9392289626',
+                otp: '1234',
+                device_uuid: deviceUuid,
+                device_type: detectDeviceType(),
+                fingerprint: fingerprint
+            };
+            
+            console.log('Login Payload:', loginPayload);
+            console.log('Login Payload JSON:', JSON.stringify(loginPayload, null, 2));
+            
+            alert('Check console for login payload details');
+        }
+        
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function detectDeviceType() {
+            const userAgent = navigator.userAgent;
+            
+            // Specific mobile patterns
+            const mobilePatterns = [
+                /Android\s+\d+/,
+                /iPhone\s+OS\s+\d+/,
+                /iPad.*OS\s+\d+/,
+                /Windows\s+Phone\s+\d+/,
+                /BlackBerry\s+\d+/,
+                /BB10/,
+                /Opera\s+Mini/,
+                /IEMobile/
+            ];
+
+            // Generic mobile indicators
+            const mobileGeneric = [
+                /Mobile.*Safari/,
+                /Android.*Mobile/,
+                /iPhone/,
+                /iPad|Android.*Tablet|Kindle.*Fire/
+            ];
+
+            // Check for specific mobile patterns
+            for (const pattern of mobilePatterns) {
+                if (pattern.test(userAgent)) {
+                    return 'mobile';
+                }
+            }
+
+            // Check for generic mobile indicators
+            for (const pattern of mobileGeneric) {
+                if (pattern.test(userAgent)) {
+                    return 'mobile';
+                }
+            }
+
+            // Default to desktop if no mobile patterns match
+            return 'desktop';
+        }
+        
+        // Auto-run on load
+        window.onload = function() {
+            testFingerprint();
+        };
+    </script>
+</body>
+</html>
+

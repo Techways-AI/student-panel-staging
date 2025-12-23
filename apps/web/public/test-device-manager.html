@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Manager Test</title>
+</head>
+<body>
+    <h1>Device Manager Test</h1>
+    <div id="status">Loading...</div>
+    <div id="deviceInfo"></div>
+    
+    <script src="/utils/deviceManager.js"></script>
+    <script>
+        // Wait for device manager to initialize
+        setTimeout(() => {
+            const statusDiv = document.getElementById('status');
+            const deviceInfoDiv = document.getElementById('deviceInfo');
+            
+            if (window.deviceManager) {
+                statusDiv.textContent = 'Device Manager: ✅ Available';
+                
+                // Get device info
+                const deviceInfo = window.deviceManager.getDeviceInfo();
+                
+                deviceInfoDiv.innerHTML = `
+                    <h3>Device Information:</h3>
+                    <p><strong>Device UUID:</strong> ${deviceInfo.deviceUuid || 'Not available'}</p>
+                    <p><strong>Device Type:</strong> ${deviceInfo.deviceType || 'Not available'}</p>
+                    <p><strong>Fingerprint:</strong></p>
+                    <pre>${JSON.stringify(deviceInfo.fingerprint, null, 2)}</pre>
+                `;
+                
+                console.log('Device Manager Test - Device Info:', deviceInfo);
+            } else {
+                statusDiv.textContent = 'Device Manager: ❌ Not Available';
+                deviceInfoDiv.innerHTML = '<p>Device Manager failed to load</p>';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+

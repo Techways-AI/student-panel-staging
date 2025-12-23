@@ -1,0 +1,1323 @@
+/* CSS_CACHE_BUST_1761305208555 */
+/* ===== Important Questions Component Styles ===== */
+
+.revisionRoot {
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height));
+  height: calc(100vh - var(--navbar-height));
+  max-height: calc(100vh - var(--navbar-height));
+  background: transparent;
+  color: #000;
+  font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  padding-top: 0;
+  padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  /* Keep hidden scrollbar rules consistent with Smart Coach */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  -webkit-overflow-scrolling: touch;
+}
+
+.revisionRoot::-webkit-scrollbar {
+  display: none; /* WebKit browsers (Chrome, Safari, Edge) */
+}
+
+/* Desktop: match dashboard content height (viewport minus navbar) */
+@media (min-width: 1025px) {
+  .revisionRoot {
+    padding-bottom: 24px; /* tighter bottom spacing on large screens */
+  }
+}
+
+.lightTheme {
+  background-color: transparent;
+  color: #000;
+}
+
+.darkTheme {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+.darkTheme .epHeader {
+  background: #1f2937;
+  border-bottom: 1px solid #374151;
+  margin-left: -3rem;
+  margin-right: -3rem;
+  width: calc(100% + 6rem);
+}
+
+.darkTheme .epTitle {
+  color: #f9fafb;
+}
+
+.darkTheme .epSubTitle {
+  color: #d1d5db;
+}
+
+/* ===== Header Styles ===== */
+.epHeader {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  padding: var(--space-6, 1.5rem) var(--space-8, 2rem);
+  margin-bottom: var(--space-8, 2rem);
+  padding-top: var(--space-6, 1.5rem);
+  margin-left: -3rem;
+  margin-right: -3rem;
+  width: calc(100% + 6rem);
+}
+
+.headerContent {
+  max-width: none;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-8, 2rem);
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.titleSection {
+  flex: 1;
+}
+
+.epTitle {
+  font-size: var(--text-3xl, 1.875rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 var(--space-2, 0.5rem) 0;
+  line-height: var(--line-height-tight, 1.2);
+  font-family: var(--font-primary, inherit);
+}
+
+.epSubTitle {
+  font-size: var(--text-lg, 1.125rem);
+  color: #64748b;
+  margin: 0;
+  line-height: var(--line-height-relaxed, 1.6);
+  font-family: var(--font-primary, inherit);
+}
+
+/* ===== Layout Styles ===== */
+.epLayout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 0;
+  overflow: visible; /* allow page-level scrolling */
+}
+
+.epSidebar {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebarTitle {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.searchBox { 
+  margin-bottom: 0.5rem; 
+}
+
+.sidebarSearch {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.filterItem {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.4;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.filterItem:hover { 
+  background: #f9fafb; 
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.filterItemActive {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.filterItemActive:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.filterItemLocked {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.filterItemLocked:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  transform: none;
+  box-shadow: none;
+}
+
+.subjectButtonContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.subjectIndicators {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lockIcon {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.subjectName {
+  flex: 1;
+  font-weight: 500;
+}
+
+.availabilityIndicator {
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+}
+
+/* ===== Main Content Styles ===== */
+.epCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow: visible; /* prevent clipping of inner sections */
+  align-items: flex-start;
+}
+
+.subjectContent {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.subjectHeader {
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease-out;
+  border-bottom: 1px solid #f3f4f6;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.subjectHeader:hover {
+  background: #f9fafb;
+}
+
+.subjectInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subjectIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.subjectCode {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.subjectDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.subjectTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827; 
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.subjectMeta {
+  display: flex; 
+  align-items: center;
+  gap: 0.75rem; 
+  flex-wrap: wrap;
+}
+
+.priorityBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.highPriority {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.metaText {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.cardCaret {
+  font-size: 1.25rem;
+  color: #9ca3af;
+  transition: transform 0.2s ease-out;
+  flex-shrink: 0;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.cardCaret:hover {
+  color: #6b7280;
+  background: #f3f4f6;
+}
+
+.cardCaretOpen {
+  transform: rotate(180deg);
+}
+
+.subjectDetailsPanel {
+  padding: 0;
+  background: transparent;
+  border-top: none;
+  display: block;
+  width: 100%;
+  min-height: auto;
+}
+
+.detailsTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.topBarLeft {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.errorState {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+}
+
+.modelPaperContent {
+  display: block;
+  width: 100%;
+  padding-bottom: 48px; /* safe space so last items are not obscured */
+}
+
+.partSection {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: visible; /* ensure full visibility of questions */
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.partHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+.partIcon {
+  font-size: 1.25rem;
+}
+
+.questionList {
+  padding: 1rem 1.25rem;
+  overflow: visible;
+  max-height: none;
+}
+
+.questionList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.questionList::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.questionList::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.questionList::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.questionRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.questionRow:last-child {
+  border-bottom: none;
+}
+
+.questionIndex {
+  font-weight: 600;
+  color: #374151;
+  flex-shrink: 0;
+  min-width: 2rem;
+}
+
+.questionText {
+  flex: 1;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.marksBadge {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.noModelPaper {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+}
+
+.noModelPaperIcon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.availabilityInfo {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+.noSubjectSelected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.noSubjectIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+
+
+/* ===== Mobile Header Styles ===== */
+.headerTop {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.backButton {
+  background: #374151;
+  color: #f9fafb;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.backButton:hover {
+  background: #4b5563;
+}
+
+/* ===== Skeleton Loading Styles ===== */
+.epTitleSkeleton {
+  height: 2rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 60%;
+}
+
+.epSubTitleSkeleton {
+  height: 1rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 40%;
+}
+
+.sidebarTitleSkeleton {
+  height: 1.25rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.searchBoxSkeleton {
+  height: 2.5rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.filterGroupSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.filterItemSkeleton {
+  height: 44px;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 12px;
+}
+
+.subjectGroupSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subjectCardSkeleton {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subjectIconSkeleton {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.cardContentSkeleton {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardTitleSkeleton {
+  height: 1.25rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 80%;
+}
+
+.cardMetaSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.priorityBadgeSkeleton {
+  height: 1.5rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 20px;
+  width: 6rem;
+}
+
+.metaTextSkeleton {
+  height: 0.875rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 5rem;
+}
+
+.cardCaretSkeleton {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.detailsTopBarSkeleton {
+  height: 1.5rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.topBarLeftSkeleton {
+  height: 1rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 40%;
+}
+
+.modelPaperContentSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.partSectionSkeleton {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.partHeaderSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.partIconSkeleton {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.partTitleSkeleton {
+  height: 1rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 8rem;
+}
+
+.partHintSkeleton {
+  height: 0.875rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  width: 70%;
+  margin: 0.5rem 0;
+}
+
+.questionListSkeleton {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.questionRowSkeleton {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+}
+
+.questionIndexSkeleton {
+  width: 2rem;
+  height: 1rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.questionTextSkeleton {
+  height: 1rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.marksBadgeSkeleton {
+  width: 3rem;
+  height: 1.5rem;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+/* ===== Dark Theme Styles ===== */
+.darkTheme .revisionRoot {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+.darkTheme .epHeader {
+  background: transparent;
+}
+
+.darkTheme .epTitle {
+  color: #f9fafb;
+}
+
+.darkTheme .epSubTitle {
+  color: #d1d5db;
+}
+
+.darkTheme .epSidebar {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.darkTheme .sidebarTitle {
+  color: #f9fafb;
+}
+
+.darkTheme .sidebarSearch {
+  background: #4b5563;
+  border-color: #6b7280;
+  color: #f9fafb;
+}
+
+.darkTheme .sidebarSearch::placeholder {
+  color: #9ca3af;
+}
+
+.darkTheme .filterItem {
+  background: #4b5563;
+  border-color: #6b7280;
+  color: #f9fafb;
+}
+
+.darkTheme .filterItem:hover {
+  background: #4b5563;
+  border-color: #9ca3af;
+}
+
+.darkTheme .filterItemActive {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+.darkTheme .filterItemLocked {
+  background: #374151;
+  border-color: #4b5563;
+  color: #6b7280;
+}
+
+.darkTheme .lockIcon {
+  color: #6b7280;
+}
+
+.darkTheme .trialExpiredMessage,
+.darkTheme .freeTrialMessage {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.darkTheme .trialExpiredMessage h3,
+.darkTheme .freeTrialMessage h3 {
+  color: #fca5a5;
+}
+
+.darkTheme .freeTrialMessage h3 {
+  color: #fbbf24;
+}
+
+.darkTheme .trialExpiredMessage p,
+.darkTheme .freeTrialMessage p {
+  color: #d1d5db;
+}
+
+.darkTheme .subjectContent {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.darkTheme .subjectHeader:hover {
+  background: #4b5563;
+}
+
+.darkTheme .subjectTitle {
+  color: #f9fafb;
+}
+
+.darkTheme .metaText {
+  color: #d1d5db;
+}
+
+.darkTheme .subjectDetailsPanel {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+.darkTheme .detailsTopBar {
+  border-color: #6b7280;
+}
+
+.darkTheme .topBarLeft {
+  color: #f9fafb;
+}
+
+.darkTheme .partSection {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.darkTheme .partHeader {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+.darkTheme .questionRow {
+  border-color: #6b7280;
+}
+
+.darkTheme .questionIndex,
+.darkTheme .questionText {
+  color: #f9fafb;
+}
+
+.darkTheme .questionList::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.darkTheme .questionList::-webkit-scrollbar-thumb {
+  background: #6b7280;
+}
+
+.darkTheme .questionList::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.darkTheme .backButton {
+  background: #4b5563;
+  color: #f9fafb;
+}
+
+.darkTheme .backButton:hover {
+  background: #6b7280;
+}
+
+.darkTheme .cardCaret:hover {
+  color: #d1d5db;
+  background: #4b5563;
+}
+
+/* ===== Dark Theme Skeleton Loading Overrides ===== */
+.darkTheme .epTitleSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .epSubTitleSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .sidebarTitleSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .searchBoxSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .filterItemSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .subjectCardSkeleton {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.darkTheme .subjectIconSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .cardTitleSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .priorityBadgeSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .metaTextSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .cardCaretSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .detailsTopBarSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .topBarLeftSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .partSectionSkeleton {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.darkTheme .partHeaderSkeleton {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+.darkTheme .partIconSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .partTitleSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .partHintSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .questionIndexSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+.darkTheme .questionTextSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+/* ===== Animation Keyframes ===== */
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+/* ===== Predicted Questions (flat section) ===== */
+.predictedQuestionsTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 1rem 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.predictedTrophy { font-size: 1.125rem; }
+
+.predictedQuestionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.predictedQuestionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: #ffffff;              /* card like in image */
+  border: 1px solid #e5e7eb;        /* subtle border */
+  border-radius: 12px;              /* rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* soft shadow */
+  transition: transform .15s ease-out, box-shadow .15s ease-out;
+}
+
+.predictedQuestionRow:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.predictedQuestionIndex {
+  font-weight: 700;
+  color: #374151;
+  min-width: 2rem;
+}
+
+.predictedQuestionText {
+  flex: 1;
+  color: #111827;
+  line-height: 1.5;
+}
+
+.predictedMarksBadge {
+  background: #fee2e2;  /* light red pill */
+  color: #b91c1c;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ===== Predicted Questions Dark Theme ===== */
+.darkTheme .predictedQuestionsTitle { color: #f9fafb; }
+.darkTheme .predictedQuestionRow {
+  background: #374151;
+  border-color: #4b5563;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.darkTheme .predictedQuestionRow:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.5); }
+.darkTheme .predictedQuestionIndex,
+.darkTheme .predictedQuestionText { color: #f9fafb; }
+.darkTheme .predictedMarksBadge { background: #7f1d1d; color: #fee2e2; }
+
+/* === Overrides: Predicted Questions grey shade background === */
+.predictedQuestionRow {
+  background: #f3f4f6 !important; /* light grey shade */
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.predictedQuestionRow:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.darkTheme .predictedQuestionRow {
+  background: #4b5563 !important; /* grey for dark */
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.darkTheme .predictedQuestionRow:hover {
+  box-shadow: none !important;
+}
+/* === Fix: keep subject header fixed during expansion scroll === */
+.epCards { overflow: visible !important; }
+.subjectContent { position: sticky; top: 0; z-index: 5; }
+.subjectHeader { background: #ffffff; z-index: 6; }
+/* === Adjust: make only the subject header sticky, not the full card === */
+.subjectContent { position: static !important; }
+.subjectHeader {
+  position: static !important; /* disable sticky to avoid covering content */
+  top: auto;
+  z-index: auto;
+  background: #ffffff;
+}
+.darkTheme .subjectHeader { background: #374151; }
+
+/* Ensure container doesn't clip sticky */
+.epCards { overflow: visible !important; }
+/* === Predicted Questions list: disable vertical scrolling === */
+.predictedQuestionsList {
+  max-height: none !important;
+  overflow: visible !important;
+  padding-right: 0 !important;
+  padding-bottom: 24px !important; /* ensure last question is not clipped */
+}
+
+/* Add a guaranteed spacer after the list */
+.predictedQuestionsList::after {
+  content: "";
+  display: block;
+  height: 32px; /* extra safe space so last card clears viewport */
+}
+
+/* Remove scrollbar styling and extra spacers since list is not scrollable */
+
+/* Avoid row clipping and provide slight separation at end */
+.predictedQuestionRow:last-child {
+  margin-bottom: 16px; /* increased bottom gap for the final item */
+}
+/* === Smooth content fade-in to reduce perceived glitch === */
+.fadeIn { animation: examprep-fade-in 180ms ease-out; }
+@keyframes examprep-fade-in { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
+/* === Sidebar: remove card look; add simple divider line === */
+.epSidebar {
+  background: transparent !important;
+  border: none !important;
+  border-right: 1px solid #e5e7eb !important; /* simple page-like divider */
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 1rem 0 0 !important; /* tighten to page */
+}
+
+.darkTheme .epSidebar {
+  background: transparent !important;
+  border-right: 1px solid #4b5563 !important;
+}
+/* === Reduce vertical gap between subject header and content === */
+.subjectHeader { padding-bottom: 0.75rem !important; }
+.subjectContent { margin-bottom: 0.25rem !important; }
+.predictedQuestionsTitle { margin-top: 0.25rem !important; margin-bottom: 0.5rem !important; }
+
+/* Optional: tighten title-row spacing on small screens too */
+@media (max-width: 1024px) {
+  .subjectHeader { padding-bottom: 0.5rem !important; }
+  .predictedQuestionsTitle { margin-top: 0.2rem !important; }
+}
+/* === Reduce gap between epHeader and content === */
+.epHeader { 
+  margin-bottom: 0.75rem !important; /* was ~2rem */
+  padding-bottom: 1rem !important;   /* slightly tighter */
+}
+.darkTheme .epHeader { margin-bottom: 0.75rem !important; }
+
+/* Slightly reduce spacing inside main column below header */
+.epCards { gap: 0.5rem !important; }
+/* === Subject header: remove card look === */
+.subjectContent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.subjectHeader {
+  background: transparent !important;
+  border-bottom: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.subjectHeader:hover { background: transparent !important; }
+
+.darkTheme .subjectContent { background: transparent !important; border: none !important; box-shadow: none !important; }
+.darkTheme .subjectHeader { background: transparent !important; }
+/* === Subject header: add simple bottom border line === */
+.subjectHeader {
+  border-bottom: 1px solid #e5e7eb !important; /* subtle divider */
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 0.5rem !important;
+}
+.darkTheme .subjectHeader {
+  border-bottom: 1px solid #4b5563 !important;
+}
+/* === Add thin border around subject header (not card) === */
+.subjectHeader {
+  border: 1px solid #e5e7eb !important;   /* subtle outline */
+  border-radius: 8px !important;          /* slight rounding like page elements */
+  background: transparent !important;     /* no card fill */
+  padding: 0.75rem 1rem !important;       /* comfortable density */
+}
+
+/* Remove any inner divider since we now outline the header */
+.subjectHeader { border-bottom: 1px solid #e5e7eb !important; }
+
+.darkTheme .subjectHeader {
+  border-color: #4b5563 !important;
+  background: transparent !important;
+}
+
+/* Optional: hide hover fill to avoid card feel */
+.subjectHeader:hover { background: transparent !important; }
+
+/* ===== Lock Overlay & Blur when Exam Prep is locked ===== */
+.lockWrapper {
+  position: relative;
+}
+
+.locked .epCards {
+  filter: blur(4px) saturate(0.8);
+  pointer-events: none;
+  user-select: none;
+}
+
+.lockOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 20;
+  background: rgba(248, 250, 252, 0.65); /* slate-50 with alpha */
+  border-radius: 0;
+}
+
+.lockOverlayCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  padding: 16px 18px;
+  text-align: center;
+  max-width: 520px;
+}
+
+.lockOverlayTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.lockOverlayText {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.darkTheme .lockOverlay {
+  background: rgba(2, 6, 23, 0.55);
+}
+
+.darkTheme .lockOverlayCard {
+  background: #111827;
+  border-color: #374151;
+}
+
+.darkTheme .lockOverlayTitle { color: #e5e7eb; }
+.darkTheme .lockOverlayText { color: #9ca3af; }
+
+/* Upgrade button inside lock overlay */
+.upgradeButton {
+  display: inline-block;
+  margin-top: 12px;
+  background: #0ea5e9;
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.upgradeButton:hover { background: #0284c7; }
+.upgradeButton:active { transform: translateY(1px); }
+
+.darkTheme .upgradeButton {
+  background: #38bdf8;
+  color: #0b1220;
+}
+.darkTheme .upgradeButton:hover { background: #22d3ee; }

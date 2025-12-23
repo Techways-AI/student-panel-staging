@@ -1,0 +1,83 @@
+/* CSS_CACHE_BUST_1761305208555 */
+/* Revision Page Styles */
+.revision-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.revision-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.revision-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.revision-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.revision-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.revision-section {
+  margin-bottom: 25px;
+}
+
+.revision-section h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.revision-list {
+  list-style: none;
+  padding: 0;
+}
+
+.revision-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.revision-list li:last-child {
+  border-bottom: none;
+}
+
+.revision-progress {
+  background: #e9ecef;
+  border-radius: 10px;
+  height: 20px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.revision-progress-bar {
+  background: #28a745;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .revision-container {
+    padding: 15px;
+  }
+  
+  .revision-title {
+    font-size: 2rem;
+  }
+  
+  .revision-content {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,89 @@
+apply plugin: "com.android.application"
+apply plugin: "com.facebook.react"
+
+// Configure React Native options
+react {
+    /* Core Settings */
+    entryFile = file("../index.js")
+
+    /* Hermes Settings */
+    // Enables the Hermes JavaScript engine (recommended for performance)
+    
+}
+
+/**
+ * Run Proguard on Release builds to minify bytecode.
+ */
+def enableProguardInReleaseBuilds = false
+
+/**
+ * The preferred JavaScriptCore (JSC) flavor.
+ * You can switch to the intl version if you need i18n features.
+ */
+def jscFlavor = 'org.webkit:android-jsc:+'
+
+android {
+    ndkVersion rootProject.ext.ndkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    namespace "com.tempproject"
+
+    defaultConfig {
+        applicationId "com.tempproject"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            // ⚠️ In production, use your own release keystore
+            signingConfig signingConfigs.debug
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+}
+
+dependencies {
+    // React Native core
+    implementation("com.facebook.react:react-android")
+
+    // Your other native modules
+    implementation project(':react-native-webview')
+
+    // Hermes or JSC engine
+    if (project.ext.react.enableHermes) {
+        implementation("com.facebook.react:hermes-android")
+    } else {
+        implementation jscFlavor
+    }
+
+    // Optional debugging tools (Flipper)
+    // debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
+    // debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
+    //     exclude group:'com.squareup.okhttp3', module:'okhttp'
+    // }
+    // debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}")
+}
+
+// Link native modules automatically
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+applyNativeModulesAppBuildGradle(project)

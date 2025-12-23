@@ -1,0 +1,74 @@
+/* CSS_CACHE_BUST_1761305208555 */
+.loadingProgressContainer {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.loadingProgressBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.loadingProgressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #007bb8, #00A8E8);
+  border-radius: 3px;
+  transition: width 0.1s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.loadingProgressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: progressShimmer 1.5s infinite;
+}
+
+@keyframes progressShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.loadingProgressText {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  font-family: var(--font-poppins);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loadingProgressContainer {
+    max-width: 250px;
+  }
+  
+  .loadingProgressBar {
+    height: 4px;
+  }
+  
+  .loadingProgressText {
+    font-size: 0.8rem;
+  }
+} 

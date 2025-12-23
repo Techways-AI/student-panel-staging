@@ -1,0 +1,499 @@
+/* CSS_CACHE_BUST_1761305208555 */
+.settingsContainer {
+  padding: 1rem 2rem 1rem 0;
+  color: #333333;
+  background-color: var(--bg-color);
+  transition: all 0.3s ease;
+  position: relative;
+  top: -20px;
+  right: 0;
+  padding-top: 1rem;
+  box-sizing: border-box;
+  min-height: 100vh !important;
+  height: auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  width: 95%;
+}
+
+
+
+.settingSection {
+  margin-bottom: 0rem;
+}
+
+.settingSection h1 {
+  font-size: 1.8rem;
+  margin-bottom: -1.5rem;
+  font-family: var(--font-baloo);
+  font-weight: 700;
+  color: #333333;
+}
+
+.settingSection p {
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+.twofaSection {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.twofaSection:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.sectionTitle {
+  font-size: 1.19rem;
+  font-weight: 500;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.twofaContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.twofaInfo {
+  flex: 1;
+  min-width: 202px;
+}
+
+.twofaLabelRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.twofaLabel {
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.mfaStatus {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.mfaStatus.enabled {
+  background-color: #e6f4ea;
+  color: #1a7f37;
+}
+
+.mfaStatus.disabled {
+  background-color: #fff1ed;
+  color: #c2410c;
+}
+
+.settingDescription {
+  color: #4b5563;
+  font-size: 0.95rem;
+  margin-top: 0;               /* Ensure no space above */
+  margin-bottom: 0; 
+}
+
+.mfaButton {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* When MFA is enabled */
+.mfaButton.enabled {
+  background-color: #1f2937; /* Dark gray */
+  color: #ffffff;
+  border-color: #1f2937;
+}
+
+.mfaButton.enabled:hover {
+  background-color: #111827;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* When MFA is disabled */
+.mfaButton.disabled {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.mfaButton.disabled:hover {
+  background-color: #f3f4f6;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.settingsInfo h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 2rem 0 1rem 0;
+}
+
+.billingRow {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.billingRow:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.billingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.billingHeader h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.billingAction {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.billingAction:hover {
+  text-decoration: underline;
+}
+
+.billingStatus {
+  font-size: 1rem;
+  color: #374151;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.statusBadge {
+  background-color: #e6f4ea;
+  color: #1a7f37;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.billingSubtext {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.5;
+}
+
+.billingDetail {
+  font-size: 1rem;
+  color: #374151;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.accountBox {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.accountBox:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.sectionHeading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 1rem 0;
+}
+
+.accountBox p {
+  color: #374151;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.cancelText {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.link {
+  color: #3b82f6;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #2563eb;
+}
+
+.deleteButton {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.deleteButton:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+.settingsCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.settingsCard:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.settingsCard h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 1rem 0;
+}
+
+.settingsTabs {
+  display: flex;
+  gap: 0;
+  margin: 2rem 0 1rem 0;
+  border-bottom: 2px solid #e5e7eb;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.settingsTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabsItem {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-weight: 500;
+  color: #6b7280;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.tabsItem:hover {
+  color: #374151;
+  background-color: #f9fafb;
+  border-bottom-color: #d1d5db;
+}
+
+.tabsItem.active {
+  color: #3b82f6;
+  border-bottom-color: #3b82f6;
+  font-weight: 600;
+  background-color: #eff6ff;
+}
+
+.tabsItem.active:hover {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .settingsContainer {
+    width: 100%;
+    margin-left: 0 !important;
+    flex-direction: column;
+  }
+
+  .sidebarExpanded {
+    margin-left: 0px;
+  }
+
+  .sidebarCollapsed {
+    margin-left: 0px;
+  }
+
+  .settingSection h1 {
+    font-size: 1.5rem;
+    margin-bottom: -1rem;
+  }
+
+  .settingSection p {
+    font-size: 0.95rem;
+    margin-bottom: 0rem;
+  }
+
+  .settingSection {
+    padding: 0 1rem;
+    margin-bottom: 0rem;
+  }
+
+  .twofaSection {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .twofaContent {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .twofaInfo {
+    min-width: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 0.98rem;
+  }
+
+  .mfaButton {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .billingRow {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .accountBox {
+    padding: 1.5rem;
+  }
+
+  .billingHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .billingDetail {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .billingStatus {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .settingsTabs {
+    padding: 0 1rem;
+    margin: 1.5rem 0 1rem 0;
+    gap: 0;
+  }
+
+  .settingsTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabsItem {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    min-width: auto;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .settingsTabs {
+    gap: 0;
+  }
+
+  .tabsItem {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .settingsTabs {
+    gap: 0;
+  }
+
+  .tabsItem {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .twofaInfo {
+    min-width: 0;
+    width: 100%;
+  }
+} 

@@ -1,0 +1,208 @@
+/* CSS_CACHE_BUST_1761305208555 */
+/* VideoPlayer.module.css */
+
+.videoPlayerContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000000;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  z-index: 10;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingOverlay p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: #1e293b;
+  border-radius: 8px;
+}
+
+.errorContent {
+  text-align: center;
+  color: #ffffff;
+  padding: 2rem;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.errorContent h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.errorContent p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #cbd5e1;
+}
+
+.retryButton {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.retryButton:hover {
+  background: #2563eb;
+}
+
+.autoplayBlockedOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 20;
+}
+
+.autoplayBlockedContent {
+  text-align: center;
+  color: #ffffff;
+  padding: 2rem;
+  max-width: 400px;
+}
+
+.autoplayBlockedIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.autoplayBlockedContent h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.autoplayBlockedContent p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.playButton {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.playButton:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.customControls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 15;
+}
+
+.customControls .playButton {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.customControls .playButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .autoplayBlockedContent {
+    padding: 1.5rem;
+  }
+  
+  .autoplayBlockedContent h3 {
+    font-size: 1.25rem;
+  }
+  
+  .autoplayBlockedContent p {
+    font-size: 0.9rem;
+  }
+  
+  .playButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}

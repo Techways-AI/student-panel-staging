@@ -1,0 +1,126 @@
+/* CSS_CACHE_BUST_1761305208555 */
+/* Timetable Page Styles */
+.timetable-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timetable-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.timetable-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.timetable-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.timetable-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timetable-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.timetable-day {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  min-height: 100px;
+}
+
+.timetable-day-header {
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.timetable-slot {
+  background: #e9ecef;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #495057;
+}
+
+.timetable-slot.subject {
+  background: #d4edda;
+  color: #155724;
+  border-left: 3px solid #28a745;
+}
+
+.timetable-slot.break {
+  background: #fff3cd;
+  color: #856404;
+  border-left: 3px solid #ffc107;
+}
+
+.timetable-controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.timetable-button {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.timetable-button:hover {
+  background: #0056b3;
+}
+
+.timetable-button.secondary {
+  background: #6c757d;
+}
+
+.timetable-button.secondary:hover {
+  background: #545b62;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timetable-container {
+    padding: 15px;
+  }
+  
+  .timetable-title {
+    font-size: 2rem;
+  }
+  
+  .timetable-content {
+    padding: 20px;
+  }
+  
+  .timetable-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .timetable-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,115 @@
+/* Subtle hover scale for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .quizModalContent:hover {
+    transform: translateY(0) scale(1.02);
+  }
+}
+/* CSS_CACHE_BUST_1761305208555 */
+.quizModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.quizModalContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.25s ease-out;
+  transition: transform 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .quizModalContent {
+    padding: 1.5rem;
+    max-width: 95%;
+    width: 95%;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quizModalContent {
+    padding: 1rem;
+    max-width: 100%;
+    width: 100%;
+    margin: 0.5rem;
+    border-radius: 8px;
+  }
+}
+
+/* Dark theme modal */
+[data-theme="dark"] .quizModalContent {
+  background: #1f2937;
+  color: #f9fafb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.quizModalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: var(--font-size-section);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.quizModalClose:hover {
+  background-color: #f3f4f6;
+  color: #000;
+}
+
+/* Dark theme close button */
+[data-theme="dark"] .quizModalClose {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .quizModalClose:hover {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} 

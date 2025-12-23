@@ -1,0 +1,2058 @@
+/* CSS_CACHE_BUST_1761305208555 */
+
+/* Prevent layout shifts on reload/refresh - WITHOUT changing alignment */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100svh;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Desktop only - Prevent scrolling (1025px+) */
+@media (min-width: 1025px) {
+  html {
+    overflow-y: hidden; /* Prevent html scrolling on desktop */
+  }
+  
+  body {
+    overflow-y: hidden; /* Prevent body scrolling on desktop */
+  }
+}
+
+/* Critical layout stability - only prevent shifts, don't change dimensions */
+.courseContentContainer,
+.topNavBar,
+.leftPanel,
+.centerPanel,
+.rightPanel {
+  contain: layout style;
+}
+
+/* Prevent FOUC and layout shifts - maintain existing dimensions */
+.courseContentContainer {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+:root {
+  /* ========================================
+     BRAND IDENTITY & COLORS
+     ======================================== */
+  --color-brand-red: #FF4747;        /* CTAs, progress highlights, urgent actions (5% usage) */
+  --color-brand-blue: #00B6ED;       /* Navigation, icons, secondary buttons (15% usage) */
+  --color-neutral-80: #f9fafb;       /* Background and neutral elements (80% usage) */
+  
+  /* ========================================
+     UNIFIED TYPOGRAPHY SYSTEM
+     ======================================== */
+  --font-primary: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  --font-baloo: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* ========================================
+     STANDARDIZED FONT SIZES
+     ======================================== */
+  --text-xs: 0.75rem;      /* 12px - Small text, XP values, labels */
+  --text-sm: 0.875rem;     /* 14px - Secondary information */
+  --text-base: 1rem;       /* 16px - Body text, descriptions */
+  --text-lg: 1.125rem;     /* 18px - Section headings */
+  --text-xl: 1.25rem;      /* 20px - Subsection headings */
+  --text-2xl: 1.5rem;      /* 24px - Medium headings */
+  --text-3xl: 1.875rem;    /* 30px - Main headings (Subject names) */
+  --text-4xl: 2.25rem;     /* 36px - Large headings */
+  --text-5xl: 3rem;        /* 48px - Extra large headings */
+  
+  /* Missing font size aliases for compatibility */
+  --font-size-body: 1rem;        /* 16px - matches --text-base */
+  --font-size-section: 1.125rem; /* 18px - matches --text-lg */
+  --font-size-caption: 0.75rem;  /* 12px - matches --text-xs */
+  
+  /* ========================================
+     STANDARDIZED FONT WEIGHTS
+     ======================================== */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* ========================================
+     LINE HEIGHTS
+     ======================================== */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  
+  /* ========================================
+     LAYOUT ARCHITECTURE
+     ======================================== */
+  --sidebar-width: 320px;
+  --main-content-width: 500px;
+  --content-max-width: 1220px;
+  --navbar-height: 56px;
+  
+  /* ========================================
+     SPACING & PADDING
+     ======================================== */
+  --space-1: 0.25rem;      /* 4px */
+  --space-2: 0.5rem;       /* 8px */
+  --space-3: 0.75rem;      /* 12px */
+  --space-4: 1rem;         /* 16px */
+  --space-5: 1.25rem;      /* 20px */
+  --space-6: 1.5rem;       /* 24px */
+  --space-8: 2rem;         /* 32px */
+  --space-10: 2.5rem;      /* 40px */
+  --space-12: 3rem;        /* 48px */
+  
+  /* ========================================
+     CARD & COMPONENT STYLING
+     ======================================== */
+  --card-radius: 16px;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --card-padding: 1.5rem;
+  
+  /* ========================================
+     ANIMATIONS & TRANSITIONS
+     ======================================== */
+  --transition-fast: 150ms ease-out;
+  --transition-normal: 250ms ease-out;
+  --transition-slow: 350ms ease-out;
+  
+  /* ========================================
+     BREAKPOINTS
+     ======================================== */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* ========================================
+   BASE STYLES & RESET
+   ======================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  /* Hide scrollbars globally */
+}
+
+@supports (-webkit-touch-callout: none) {
+  html,
+  body {
+    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+
+  body.ios,
+  body.ios .app-container {
+    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+}
+
+body.ios {
+  overflow: hidden;
+}
+
+body.ios .app-container {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Reserve space for fixed mobile bottom nav and fixed top navbar */
+@media (max-width: 768px) {
+  /* Overview mobile: align behavior with course pages */
+  body:has(.overview-mobile-active) .app-container {
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+    padding-top: 0 !important;
+  }
+  body:has(.overview-mobile-active) .main-wrapper {
+    margin-top: var(--navbar-height) !important;
+    height: calc(100dvh - var(--navbar-height)) !important;
+    max-height: calc(100dvh - var(--navbar-height)) !important;
+    overflow: hidden !important;
+  }
+  body:has(.overview-mobile-active) .main-content,
+  body:has(.overview-mobile-active) .dashboard-content {
+    height: calc(100dvh - var(--navbar-height)) !important;
+    max-height: calc(100dvh - var(--navbar-height)) !important;
+    overflow: hidden !important;
+    padding-top: 0 !important;
+  }
+  body {
+    /* Bottom padding handled by content wrappers to avoid page gap */
+    padding-bottom: 0;
+    /* Do not add top padding; use main-wrapper margin instead */
+    padding-top: 0;
+  }
+  /* Keep content fully visible between fixed bars */
+  .main-wrapper {
+    margin-top: var(--navbar-height);
+  }
+  .main-content,
+  .dashboard-content {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .courseContentContainer {
+    padding-top: 0;
+  }
+
+  /* Ensure full viewport height on mobile and account for fixed navbar */
+  .app-container {
+    min-height: 100dvh;
+  }
+  .main-wrapper {
+    min-height: calc(100dvh - var(--navbar-height));
+  }
+  .dashboard-content {
+    min-height: calc(100dvh - var(--navbar-height));
+  }
+}
+
+/* Login page: remove reserved navbar spacing and hide nav bars on mobile to avoid top white gap */
+@media (max-width: 768px) {
+  body.login-page {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 100dvh;
+  }
+
+  body.login-page .main-wrapper {
+    margin-top: 0 !important;
+    min-height: 100dvh;
+  }
+
+  body.login-page .navbar,
+  body.login-page header[class*="navbar"],
+  body.login-page .mobile-bottom-nav,
+  body.login-page .header {
+    display: none !important;
+  }
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--line-height-normal);
+  color: #333333;
+  background-color: var(--color-neutral-80);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Login page: remove reserved spacing at all widths */
+body.login-page {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+body.login-page .main-wrapper {
+  margin-top: 0 !important;
+  min-height: 100vh;
+}
+
+/* ========================================
+   UNIFIED TYPOGRAPHY SYSTEM
+   ======================================== */
+
+/* Base Typography */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: #333333;
+  background-color: var(--color-neutral-80);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-4);
+  color: #222;
+}
+
+h1, .text-4xl {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h2, .text-3xl {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h3, .text-2xl {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h4, .text-xl {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h5, .text-lg {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+h6, .text-base {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Body Text */
+p, .body-text {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  color: #333;
+  margin-bottom: var(--space-4);
+}
+
+/* Text Size Classes */
+.text-xs {
+  font-size: var(--text-xs);
+  line-height: var(--line-height-tight);
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+  line-height: var(--line-height-normal);
+}
+
+.text-base {
+  font-size: var(--text-base);
+  line-height: var(--line-height-normal);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+  line-height: var(--line-height-normal);
+}
+
+.text-xl {
+  font-size: var(--text-xl);
+  line-height: var(--line-height-tight);
+}
+
+.text-2xl {
+  font-size: var(--text-2xl);
+  line-height: var(--line-height-tight);
+}
+
+.text-3xl {
+  font-size: var(--text-3xl);
+  line-height: var(--line-height-tight);
+}
+
+.text-4xl {
+  font-size: var(--text-4xl);
+  line-height: var(--line-height-tight);
+}
+
+.text-5xl {
+  font-size: var(--text-5xl);
+  line-height: var(--line-height-tight);
+}
+
+/* Font Weight Classes */
+.font-light {
+  font-weight: var(--font-weight-light);
+}
+
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.font-extrabold {
+  font-weight: var(--font-weight-extrabold);
+}
+
+/* Font Family Classes */
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-baloo {
+  font-family: var(--font-baloo);
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Line Height Classes */
+.leading-tight {
+  line-height: var(--line-height-tight);
+}
+
+.leading-normal {
+  line-height: var(--line-height-normal);
+}
+
+.leading-relaxed {
+  line-height: var(--line-height-relaxed);
+}
+
+/* Navigation items */
+.nav-item {
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+/* ========================================
+   LAYOUT ARCHITECTURE
+   ======================================== */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100svh;
+  height: 100vh;
+  height: 100dvh;
+  height: 100svh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  z-index: 0; /* keep below fixed navbar/bottom nav */
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1 1 auto;            /* fill remaining height below navbar */
+  min-height: 0;             /* allow flex child to shrink */
+  margin-top: var(--navbar-height);
+  position: relative;
+  z-index: 0; /* keep below fixed navbar/bottom nav */
+}
+
+.main-content {
+  flex: 1 1 auto;
+  width: 100%;
+  position: relative;
+  min-height: 0;             /* prevent overflow and bottom gaps */
+  /* Enhanced mobile scrolling */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  /* Ensure content scrolls smoothly */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  z-index: 0; /* keep below fixed navbar/bottom nav */
+}
+
+.dashboard-content {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  position: relative;
+  z-index: 0; /* keep below fixed navbar/bottom nav */
+}
+
+/* Ask AI page specific overrides - make containers full screen */
+body.ask-ai-page .app-container {
+  height: 100vh !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  min-height: 100vh !important;
+}
+
+body.ask-ai-page .main-wrapper {
+  height: 100vh !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  min-height: 100vh !important;
+}
+
+body.ask-ai-page .main-content {
+  height: 100vh !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+body.ask-ai-page .dashboard-content {
+  height: 100vh !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  min-height: 100vh !important;
+}
+
+/* Ask AI: remove any global paddings and navbars so content is flush */
+body.ask-ai-page {
+  padding-top: 0 !important;
+  padding-bottom: env(safe-area-inset-bottom, 0) !important;
+}
+
+/* Hide top and bottom nav on Ask AI full-screen */
+body.ask-ai-page .navbar,
+body.ask-ai-page header[class*="navbar"],
+body.ask-ai-page .mobile-bottom-nav {
+  display: none !important;
+}
+
+/* Left Sidebar */
+.left-sidebar {
+  width: var(--sidebar-width);
+  min-height: 100vh;
+}
+
+
+
+/* Right Sidebar */
+.right-sidebar {
+  width: var(--sidebar-width);
+  min-height: 100vh;
+}
+
+/* ========================================
+   COMPONENT STYLES
+   ======================================== */
+
+/* ========================================
+   1. HEADER COMPONENT
+   ======================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+}
+
+.header-nav {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.header-nav-item {
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.header-nav-item:hover {
+  color: var(--color-brand-blue);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: 8px;
+  transition: background-color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.user-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-brand-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+/* ========================================
+    2. STREAK TRACKER COMPONENT
+    ======================================== */
+.streak-tracker {
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  margin-bottom: var(--space-6);
+}
+
+.streak-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.streak-day {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.streak-day.completed {
+  background: var(--color-brand-blue);
+  color: white;
+}
+
+.streak-day.today {
+  background: var(--color-brand-red);
+  color: white;
+}
+
+.streak-day.future {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+
+/* ========================================
+    3. TODAY'S GOALS COMPONENT
+    ======================================== */
+.today-goals {
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  margin-bottom: var(--space-6);
+}
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.goal-item:last-child {
+  border-bottom: none;
+}
+
+.goal-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-brand-blue);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.goal-checkbox.checked {
+  background: var(--color-brand-blue);
+  position: relative;
+}
+
+.goal-checkbox.checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.goal-text {
+  flex: 1;
+  font-size: var(--text-base);
+  color: #333;
+}
+
+.goal-text.completed {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* ========================================
+    4. PREMIUM CTA COMPONENT
+    ======================================== */
+.premium-cta {
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  color: white;
+  text-align: center;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.premium-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.premium-cta h3 {
+  color: white;
+  margin-bottom: var(--space-2);
+}
+
+.premium-cta p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-4);
+}
+
+.upgrade-button {
+  color: var(--color-brand-red);
+  border: none;
+  padding: var(--space-3) var(--space-6);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.upgrade-button:hover {
+  background: #f8f9fa;
+  transform: translateY(-1px);
+}
+
+/* ========================================
+    5. MAIN CONTENT - SUBJECT CARDS
+    ======================================== */
+.subject-cards {
+  display: grid;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.subject-card {
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.subject-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.subject-card h3 {
+  color: #222;
+  margin-bottom: var(--space-3);
+}
+
+.subject-card p {
+  color: #666;
+  margin-bottom: var(--space-4);
+}
+
+.subject-illustration {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(135deg, var(--color-brand-blue) 0%, #4facfe 100%);
+  border-radius: 12px;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: var(--text-2xl);
+}
+
+/* ========================================
+    6. SUBJECT CAROUSEL COMPONENT
+    ======================================== */
+.subject-carousel {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform var(--transition-normal);
+  gap: var(--space-4);
+}
+
+.carousel-item {
+  min-width: 200px;
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.carousel-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: var(--card-shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.carousel-nav:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.carousel-nav.prev {
+  left: var(--space-4);
+}
+
+.carousel-nav.next {
+  right: var(--space-4);
+}
+
+/* ========================================
+    7. LEADERSHIP BOARD COMPONENT
+    ======================================== */
+.leadership-board {
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.leaderboard-item:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-rank {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.rank-1 {
+  background: #ffd700;
+  color: #92400e;
+}
+
+.rank-2 {
+  background: #c0c0c0;
+  color: #374151;
+}
+
+.rank-3 {
+  background: #cd7f32;
+  color: #92400e;
+}
+
+.rank-other {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.leaderboard-user {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.user-avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-brand-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.user-position {
+  font-size: var(--text-sm);
+  color: #666;
+}
+
+.leaderboard-score {
+  font-weight: 600;
+  color: var(--color-brand-blue);
+}
+
+/* ========================================
+   THEME SYSTEM
+   ======================================== */
+[data-theme="dark"] {
+  /* Dark mode color variables */
+  --color-neutral-80: #1f2937;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --background: #111827;
+  --foreground: #f9fafb;
+  --color-background: #111827;
+  --color-foreground: #f9fafb;
+  --color-navy: #f9fafb;
+  --color-cream: #1f2937;
+  --color-grey-text: #d1d5db;
+  --color-light-grey: #374151;
+  --color-white: #1f2937;
+  --bg-color: #1f2937;
+  
+  body {
+    background-color: #111827;
+    color: #f9fafb;
+  }
+  
+  .header {
+    background: rgba(31, 41, 55, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .subject-card,
+  .today-goals,
+  .streak-tracker,
+  .premium-cta,
+  .leadership-board {
+    color: #f9fafb;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .page-title, .section-heading {
+    color: #f9fafb;
+  }
+  
+  p, .body-text {
+    color: #d1d5db;
+  }
+  
+  /* Text color utilities for dark mode */
+  .text-muted, .caption, .note {
+    color: #9ca3af;
+  }
+  
+  /* Button styles in dark mode */
+  .btn-primary {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: #4b5563;
+    color: #f9fafb;
+  }
+  
+  /* Input fields in dark mode */
+  input, textarea, select {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+  
+  /* Navigation in dark mode */
+  .navbar {
+    background: #1f2937;
+    border-bottom: 1px solid #4b5563;
+  }
+  
+  .nav-link {
+    color: #d1d5db;
+  }
+  
+  .nav-link:hover {
+    color: #60a5fa;
+  }
+  
+  .nav-link.active {
+    color: #60a5fa;
+  }
+  
+  /* Icon colors in dark mode */
+  .icon-button {
+    color: #d1d5db;
+  }
+  
+  .icon-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #60a5fa;
+  }
+
+  /* Quiz component overrides (desktop + mobile) */
+  [data-theme="dark"] [class*="quizCard"],
+  .darkTheme [class*="quizCard"] {
+    background: #1a1a2e;
+    border: 1px solid #374151;
+    color: #e5e7eb;
+  }
+
+  [data-theme="dark"] [class*="quizHeader"],
+  [data-theme="dark"] [class*="quizQuestionTitle"],
+  [data-theme="dark"] [class*="quizQuestionText"],
+  .darkTheme [class*="quizHeader"],
+  .darkTheme [class*="quizQuestionTitle"],
+  .darkTheme [class*="quizQuestionText"] {
+    color: #e5e7eb;
+  }
+
+  [data-theme="dark"] [class*="quizOptions"],
+  .darkTheme [class*="quizOptions"] {
+    color: inherit;
+  }
+
+  [data-theme="dark"] [class*="quizOption"],
+  .darkTheme [class*="quizOption"] {
+    color: #d1d5db;
+  }
+
+  [data-theme="dark"] [class*="quizOptionSelected"],
+  .darkTheme [class*="quizOptionSelected"] {
+    background: #1e3a8a;
+    border-color: #3b82f6;
+    color: #dbeafe;
+  }
+
+  [data-theme="dark"] [class*="correctAnswer"],
+  .darkTheme [class*="correctAnswer"] {
+    background: #14532d;
+    border-color: #22c55e;
+    color: #dcfce7;
+  }
+
+  [data-theme="dark"] [class*="incorrectAnswer"],
+  .darkTheme [class*="incorrectAnswer"] {
+    background: #7f1d1d;
+    border-color: #ef4444;
+    color: #fecaca;
+  }
+
+  [data-theme="dark"] [class*="quizFooter"],
+  .darkTheme [class*="quizFooter"] {
+    border-top: 1px solid #374151;
+  }
+
+  [data-theme="dark"] [class*="quizProgress"],
+  .darkTheme [class*="quizProgress"] {
+    color: #9ca3af;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+  
+  .left-sidebar,
+  .right-sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --card-padding: 1rem;
+    --space-6: 1rem;
+  }
+  
+  .header {
+    padding: 0 var(--space-4);
+  }
+  
+  .header-nav {
+    gap: var(--space-4);
+  }
+  
+  .dashboard-layout {
+    padding: var(--space-3);
+  }
+  
+  .carousel-nav {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .carousel-nav.prev {
+    left: var(--space-2);
+  }
+  
+  .carousel-nav.next {
+    right: var(--space-2);
+  }
+}
+
+@media (max-width: 640px) {
+  .header-nav {
+    display: none;
+  }
+  
+  .user-stats {
+    gap: var(--space-2);
+  }
+  
+  .streak-calendar {
+    gap: var(--space-1);
+  }
+  
+  .goal-item {
+    padding: var(--space-2) 0;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY FEATURES
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for keyboard navigation */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.9);
+  }
+  
+  .subject-card,
+  .today-goals,
+  .streak-tracker,
+  .premium-cta,
+  .leadership-board {
+    border: 2px solid #000;
+  }
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+.animate-transform {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Hardware acceleration for animations */
+.subject-card,
+.carousel-item,
+.premium-cta {
+  will-change: transform;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Typography utilities are now defined above in the unified typography system */
+
+.whitespace-nowrap { white-space: nowrap; }
+
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+
+/* ========================================
+   COURSE CONTENT LAYOUT
+   ======================================== */
+.course-content-body {
+  background: var(--color-neutral-80);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Prevent layout shifts */
+  position: relative;
+}
+
+/* Mobile: lock Course Content layout to a fixed viewport without scrolling */
+@media (max-width: 768px) {
+  body.course-content-active .main-content {
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+  body.course-content-active .dashboard-content {
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+  body.course-content-active .course-content-body {
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+  /* Lock wrapper and move scroll to the inner center panel to mimic page scroll */
+  body.course-content-active .course-content-body .course-content-wrapper {
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+  /* Also support CSS-module class used by CourseContentMobile: course-content-container */
+  body.course-content-active [class*="course-content-container"] {
+    height: 100dvh !important;
+    overflow: hidden !important; /* container locked; delegate to center-panel */
+  }
+  body.course-content-active [class*="course-content-container"]::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  /* Make center-panel the single scrollable region */
+  body.course-content-active [class*="center-panel"] {
+    height: 100% !important;
+    min-height: 0 !important; /* allow flex child to shrink in a fixed parent */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  body.course-content-active [class*="center-panel"]::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  /* Fallback: if the inner scroll lives on content-area instead */
+  body.course-content-active [class*="content-area"] {
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  body.course-content-active [class*="content-area"]::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
+.course-content-wrapper {
+  padding: var(--space-4);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Smooth transitions */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Ensure course content takes full width and height */
+.course-content-body .course-content-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Optimized transitions for instant navigation */
+body {
+  transition: background-color 0.1s ease-in-out; /* Faster transition */
+  /* Hardware acceleration for smooth performance */
+  will-change: background-color;
+}
+
+/* Prevent layout shifts during transitions */
+.course-content-body {
+  /* Ensure smooth background transition */
+  background: var(--color-neutral-80);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; /* Allow page scrolling on course content */
+  /* Prevent layout shifts */
+  position: relative;
+  /* Faster transition for background */
+  transition: background-color 0.1s ease-in-out;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  will-change: background-color;
+}
+
+/* Hide navbar when course content is active */
+.navbar,
+.course-content-body header.navbar-stable {
+  display: none !important;
+  /* Faster transition for navbar hiding */
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+/* Alternative selector for navbar hiding */
+.course-content-body .main-wrapper > header {
+  display: none !important;
+}
+
+/* Additional selector for navbar hiding with higher specificity */
+body.course-content-active header[class*="navbar"],
+body.course-content-active .navbar,
+body.course-content-active header.navbar-stable {
+  display: none !important;
+}
+
+/* Ensure course content overlay covers the entire viewport properly */
+.course-content-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Ensure course content container within overlay starts from top */
+.course-content-overlay .course-content-container,
+.course-content-overlay [class*="course-content-container"] {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+}
+
+/* Ensure course content takes full viewport when active */
+.course-content-body .app-container {
+  padding-top: 0;
+  transition: padding-top 0.1s ease-in-out;
+}
+
+.course-content-body .main-wrapper {
+  margin-top: 0;
+  min-height: 100vh;
+  transition: margin-top 0.1s ease-in-out;
+}
+
+.course-content-body .main-content {
+  padding-top: 0;
+  transition: padding-top 0.1s ease-in-out;
+}
+
+/* Global desktop scrolling prevention for all pages */
+@media (min-width: 1025px) {
+  /* Prevent full page scrolling on desktop/laptop for all pages */
+  body {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  html {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Default desktop layout keeps main sections fixed */
+  .main-content,
+  .dashboard-content {
+    height: calc(100vh - var(--navbar-height)) !important;
+    overflow: hidden !important;
+  }
+
+  /* Dashboard Overview desktop should scroll */
+  body.dashboard-page {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  body.dashboard-page .main-content,
+  body.dashboard-page .dashboard-content {
+    min-height: calc(100vh - var(--navbar-height)) !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  body.dashboard-page .main-content::-webkit-scrollbar,
+  body.dashboard-page .dashboard-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Important Questions desktop should scroll like Smart Coach */
+  body.important-questions-page {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  body.important-questions-page .dashboard-content {
+    min-height: calc(100vh - var(--navbar-height)) !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  body.important-questions-page .dashboard-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.important-questions-page .main-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.important-questions-page [class*="revisionRoot"],
+  body.important-questions-page [class*="revisionContent"],
+  body.important-questions-page [class*="revisionMain"],
+  body.important-questions-page [class*="revisionContainer"] {
+    max-height: none !important;
+    overflow-y: auto !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  body.important-questions-page [class*="revisionRoot"]::-webkit-scrollbar,
+  body.important-questions-page [class*="revisionContent"]::-webkit-scrollbar,
+  body.important-questions-page [class*="revisionMain"]::-webkit-scrollbar,
+  body.important-questions-page [class*="revisionContainer"]::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Re-enable scrolling only when a semester is expanded */
+  body.semester-expanded-desktop .main-content,
+  body.semester-expanded-desktop .dashboard-content {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  /* When no semester is expanded, keep sections static */
+  body.semester-collapsed-desktop .main-content,
+  body.semester-collapsed-desktop .dashboard-content {
+    overflow: hidden !important;
+  }
+}
+
+/* Desktop-specific course content scrolling prevention */
+@media (min-width: 1025px) {
+  /* Prevent full page scrolling on desktop/laptop */
+  body.course-content-active {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  html.course-content-active {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Ensure course content container handles its own scrolling */
+  .course-content-body {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Allow only specific content areas to scroll */
+  .course-content-body .course-content-wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  /* Prevent full page scrolling for subjects page on desktop */
+  body.subjects-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  html.subjects-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Ensure subjects page content is contained within viewport */
+  body.subjects-page .main-content {
+    height: calc(100vh - 60px) !important;
+    overflow: hidden !important;
+  }
+  
+  body.subjects-page .dashboard-content {
+    height: calc(100vh - 60px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body.subjects-page .dashboard-content::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+  
+  body.subjects-page .course-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body.subjects-page .course-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Ensure subjects container handles its own scrolling */
+  body.subjects-page .course-container {
+    height: calc(100vh - 60px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* Mobile-specific overrides for subjects page only */
+@media (max-width: 768px) {
+  /* Enhanced mobile content scrolling */
+  .main-content {
+    padding-bottom: calc(160px + env(safe-area-inset-bottom)); /* Further increased padding to completely prevent dashboard content overlap */
+    /* Ensure smooth scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  .dashboard-content {
+    padding-bottom: calc(160px + env(safe-area-inset-bottom)); /* Further increased padding to completely prevent dashboard content overlap */
+    min-height: calc(100vh - var(--navbar-height) - 80px - env(safe-area-inset-bottom) + 100px);
+    /* Allow content to scroll within the fixed layout */
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  /* Hide scrollbar for dashboard content */
+  .dashboard-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  /* Remove dashboard-content height for My Schedule page on mobile */
+  body:has(.container) .dashboard-content {
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* My Schedule page mobile rules using body class */
+  body.my-schedule-page .dashboard-content {
+    min-height: calc(100vh - 60px - 80px - env(safe-area-inset-bottom) + 100px) !important; /* Increased height for more content space */
+    height: auto !important;
+    padding-bottom: 0 !important;
+    overflow: visible !important; /* Allow scrolling */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body.my-schedule-page .dashboard-content::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+  
+  body.my-schedule-page .main-content {
+    padding-top: 80px !important; /* Add extra padding to prevent content going under navbar */
+    height: auto !important;
+    overflow: visible !important; /* Allow scrolling */
+  }
+  
+  body.my-schedule-page .main-wrapper {
+    margin-top: 0 !important;
+  }
+  
+  /* Update main-wrapper for mobile */
+  .main-wrapper {
+    margin-top: 60px; /* explicit top offset on mobile */
+    min-height: auto; /* avoid extra vertical gap */
+    padding: 0; /* remove padding space inside wrapper */
+    gap: 0; /* ensure no internal spacing between children */
+  }
+  /* Ensure main-content has no extra top margin creating gaps */
+  .main-content {
+    margin-top: 0 !important;
+  }
+  
+  /* ASK AI page main-wrapper (full screen) */
+  body.ask-ai-page .main-wrapper {
+    margin-top: 0; /* No navbar margin */
+    min-height: 100vh;
+    height: 100vh; /* Full screen height */
+  }
+
+  /* Ensure dashboard content starts below fixed navbar even before body class attaches */
+  .dashboard-content {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+  /* Exceptions: pages that hide the navbar or manage their own layout */
+  body.login-page .dashboard-content,
+  body.ask-ai-page .dashboard-content,
+  body.course-content-active .dashboard-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Universal guard: ensure main content is always offset from fixed bars */
+  .main-content {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  /* Exceptions where navs are hidden or layout is full-screen */
+  body.login-page .main-content,
+  body.ask-ai-page .main-content,
+  body.course-content-active .main-content,
+  body.important-questions-page .main-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* ASK AI page app-container (full screen) */
+  body.ask-ai-page .app-container {
+    height: 100vh !important;
+    min-height: 100vh !important;
+  }
+  
+  /* Only apply when body has subjects-page class */
+  body.subjects-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Only apply when body has dashboard-page class */
+  body.dashboard-page {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Only apply when body has ask-ai-page class */
+  body.ask-ai-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Only apply when body has smart-coach-page class */
+  body.smart-coach-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Only apply when body has my-schedule-page class */
+  body.my-schedule-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Only apply when body has profile-page class */
+  body.profile-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* Only apply when body has important-questions-page class */
+  body.important-questions-page {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  /* My Subjects (subjects-page): make content full-height above bottom nav (like home) */
+  
+  /* Ensure dashboard page content is scrollable within fixed layout */
+  body.dashboard-page .dashboard-content {
+    height: calc(100vh - var(--navbar-height) - (72px + env(safe-area-inset-bottom, 0px))) !important;
+    padding-top: var(--navbar-height); /* keep content below fixed navbar */
+    overflow-y: auto !important; /* Allow content to scroll */
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    /* Hide scrollbar */
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+  }
+  
+  /* Hide scrollbar for dashboard page content */
+  body.dashboard-page .dashboard-content::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+  
+  /* Ensure Smart Coach page content is scrollable within fixed layout */
+  body.smart-coach-page .dashboard-content {
+    height: calc(100vh - 60px - 80px - env(safe-area-inset-bottom)) !important; /* Account for navbar (60px) and bottom nav (80px) */
+    overflow-y: auto !important; /* Allow content to scroll */
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body.smart-coach-page .dashboard-content::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+  
+  /* Ensure My Schedule page content is scrollable within fixed layout */
+  body.my-schedule-page .dashboard-content {
+    height: calc(100vh - 60px - 80px - env(safe-area-inset-bottom)) !important; /* Account for navbar (60px) and bottom nav (80px) */
+    overflow-y: auto !important; /* Allow content to scroll */
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body.my-schedule-page .dashboard-content::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+  
+  /* Ensure Profile page content is scrollable within fixed layout */
+  body.profile-page .dashboard-content {
+    height: calc(100vh - 60px - 80px - env(safe-area-inset-bottom)) !important; /* Account for navbar (60px) and bottom nav (80px) */
+    overflow-y: auto !important; /* Allow content to scroll */
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body.profile-page .dashboard-content::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+  
+  /* Ensure Important Questions page content is scrollable within fixed layout */
+  body.important-questions-page .dashboard-content {
+    height: calc(100vh - 60px - env(safe-area-inset-bottom)) !important; /* Account for navbar (60px) only - no bottom nav on exam prep */
+    overflow-y: auto !important; /* Allow content to scroll */
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  /* Override general mobile padding for important questions page */
+  body.important-questions-page .main-content {
+    padding-bottom: 0 !important; /* No bottom padding since no bottom nav */
+  }
+  
+  /* Hide scrollbar for Important Questions page content */
+  body.important-questions-page .dashboard-content::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+  
+  /* Ensure main content area accounts for navbar on subjects page */
+  body.subjects-page .main-content {
+    height: calc(100vh - 60px) !important;
+    overflow: hidden !important; /* Prevent main-content from scrolling */
+  }
+  
+  /* Ensure main content area accounts for navbar on dashboard page */
+  body.dashboard-page .main-content {
+    height: auto !important;
+    min-height: calc(100vh - var(--navbar-height)) !important;
+    overflow: visible !important;
+  }
+  
+  /* Ensure main content area accounts for navbar on Smart Coach page */
+  body.smart-coach-page .main-content {
+    height: calc(100vh - 60px) !important;
+    overflow: hidden !important; /* Prevent main-content from scrolling */
+    padding-top: 0 !important; /* Remove gap on mobile too */
+  }
+  
+  /* Ensure main content area accounts for navbar on My Schedule page */
+  body.my-schedule-page .main-content {
+    height: calc(100vh - 60px) !important;
+    overflow: hidden !important; /* Prevent main-content from scrolling */
+    padding-top: 0 !important; /* Remove gap on mobile too */
+  }
+  
+  /* Ensure main content area accounts for navbar on Profile page */
+  body.profile-page .main-content {
+    height: calc(100vh - 60px) !important;
+    overflow: hidden !important; /* Prevent main-content from scrolling */
+  }
+  
+  /* Ensure main content area accounts for navbar on Important Questions page */
+  body.important-questions-page .main-content {
+    height: calc(100vh - 60px) !important;
+    overflow: hidden !important; /* Prevent main-content from scrolling */
+  }
+}
+
+/* Force mobile dropdown positioning */
+@media (max-width: 768px) {
+  .semester-card .semester-xp-progress-row .semester-toggle {
+    position: absolute !important;
+    right: 16px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    align-self: unset !important;
+    z-index: 10 !important;
+  }
+  
+  .semester-card .semester-xp-progress-row {
+    position: relative !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .semester-card .semester-xp-progress-row .semester-toggle {
+    right: 12px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .semester-card .semester-xp-progress-row .semester-toggle {
+    right: 10px !important;
+  }
+}
+
+/* ========================================
+   DESKTOP NAVBAR FIXES FOR SCHEDULE & SMART COACH
+   ======================================== */
+
+/* Desktop fixes for Schedule and Smart Coach pages */
+@media (min-width: 1025px) {
+  /* Ensure navbar is ALWAYS fixed on desktop - CRITICAL */
+  .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1001 !important;
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+  }
+  
+  /* My Schedule page - work within standard layout */
+  .main-content:has(.container) {
+    padding-top: 0; /* Remove gap - My Schedule handles its own positioning */
+    height: calc(100vh - var(--navbar-height) + 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  /* Remove main-wrapper margin for My Schedule page */
+  body:has(.container) .main-wrapper {
+    margin-top: 0 !important;
+  }
+  
+  /* Remove dashboard-content height for My Schedule page */
+  body:has(.container) .dashboard-content {
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  /* My Schedule page specific rules using body class */
+  body.my-schedule-page .main-content {
+    padding-top: 0 !important; /* Remove gap - My Schedule handles its own positioning */
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  /* Additional specificity for My Schedule gap removal */
+  body.my-schedule-page .main-content:has(.container) {
+    padding-top: 0 !important;
+  }
+  
+  body.my-schedule-page .main-wrapper {
+    margin-top: 0 !important;
+  }
+  
+  /* My Schedule container should not take full height */
+  .container {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Smart Coach page - work within standard layout */
+  .main-content:has(.smartCoachContainer) {
+    padding-top: 0 !important; /* Remove gap - Smart Coach handles its own positioning */
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  /* Additional specificity for Smart Coach gap removal */
+  body.smart-coach-page .main-content:has(.smartCoachContainer) {
+    padding-top: 0 !important;
+  }
+  
+  /* Remove main-wrapper margin for Smart Coach page */
+  body.smart-coach-page .main-wrapper {
+    margin-top: 0 !important;
+  }
+  
+  /* Smart Coach container should not take full height */
+  .smartCoachContainer {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* ========================================
+   MOBILE NAVBAR STABILITY FIXES
+   ======================================== */
+
+/* Ensure navbar stays fixed and stable during scroll */
+.navbar-stable {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  will-change: auto !important;
+}
+
+/* Ensure bottom nav stays fixed and stable during scroll */
+.bottom-nav-stable {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+}
+
+body.ios.course-content-active .bottom-nav-stable {
+  box-shadow: none !important;
+}
+
+  /* Additional mobile touch optimizations */
+  * {
+    /* Prevent touch callouts on all elements */
+    -webkit-touch-callout: none;
+    /* Improve touch responsiveness */
+    touch-action: manipulation;
+  }
+  
+  /* Optimize button and link touch targets */
+  button, a, [role="button"], [tabindex] {
+    /* Ensure minimum touch target size */
+    min-height: 30px;
+    min-width: 30px;
+    /* Improve touch feedback */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    /* Prevent text selection on interactive elements */
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Prevent layout shifts on mobile */
+  img, video, iframe {
+    /* Prevent layout shifts from media loading */
+    contain: layout style;
+  }
+  
+
+/* ========================================
+   END OF DURRANI'S EDUCATIONAL DASHBOARD CSS
+   ======================================== */

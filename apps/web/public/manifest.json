@@ -1,0 +1,180 @@
+{
+  "name": "Durrani's AI",
+  "short_name": "Durrani's AI",
+  "description": "Advanced interactive learning platform for pharmaceutical students with AI-powered quizzes, adaptive learning, and comprehensive study materials.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": [
+    "education",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/pwa/apple-icon-180.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/pwa/apple-icon-180.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/pwa/apple-icon-180.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/pwa/apple-icon-180.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "View your learning progress and dashboard",
+      "url": "/dashboard",
+      "icons": [
+        {
+          "src": "/assets/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Quiz",
+      "short_name": "Quiz",
+      "description": "Take a quiz or practice questions",
+      "url": "/quiz",
+      "icons": [
+        {
+          "src": "/assets/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "AI Tutor",
+      "short_name": "AI Tutor",
+      "description": "Ask questions to AI tutor",
+      "url": "/ask-ai",
+      "icons": [
+        {
+          "src": "/assets/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dashboard view of Durrani's Pharma learning platform"
+    }
+  ],
+  "features": [
+    "Cross Platform",
+    "fast",
+    "simple",
+    "responsive",
+    "offline-capable"
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+pharma",
+      "url": "/?protocol=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/upload",
+      "accept": {
+        "application/pdf": [
+          ".pdf"
+        ],
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [
+          ".docx"
+        ],
+        "text/plain": [
+          ".txt"
+        ]
+      }
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "handle_links": "preferred",
+  "capture_links": "new-client",
+  "permissions": [
+    "notifications",
+    "background-sync",
+    "storage"
+  ]
+}
+

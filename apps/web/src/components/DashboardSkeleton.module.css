@@ -1,0 +1,406 @@
+/* CSS_CACHE_BUST_1761305208555 */
+/* Dashboard Skeleton Loading Styles */
+
+.dashboardSkeletonContainer {
+  min-height: calc(100vh - var(--navbar-height));
+  background: var(--color-neutral-80);
+  padding: var(--space-8);
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
+  gap: var(--space-8);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  font-family: var(--font-primary);
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark mode skeleton container */
+[data-theme="dark"] .dashboardSkeletonContainer {
+  background: #111827;
+}
+
+/* Left Column */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  height: fit-content;
+}
+
+/* Center Column */
+.centerColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+/* Right Column */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  height: fit-content;
+}
+
+/* Base Card Skeleton */
+.cardSkeleton {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f2f2f2;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: skeletonFadeIn 0.3s ease-out;
+}
+
+/* Dark mode card skeleton */
+[data-theme="dark"] .cardSkeleton {
+  background: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Skeleton Shimmer Animation */
+.cardSkeleton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Dark mode shimmer */
+[data-theme="dark"] .cardSkeleton::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+}
+
+/* Text Skeleton */
+.textSkeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark mode text skeleton */
+[data-theme="dark"] .textSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
+
+/* Circle Skeleton */
+.circleSkeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 50%;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark mode circle skeleton */
+[data-theme="dark"] .circleSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
+
+/* Premium Card Skeleton */
+.premiumCardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  height: 100%;
+  justify-content: center;
+}
+
+.premiumTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.premiumButtonSkeleton {
+  width: 80%;
+  height: 36px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark mode button skeleton */
+[data-theme="dark"] .premiumButtonSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
+
+/* Streak Card Skeleton */
+.streakCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.streakHeaderSkeleton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weeklyStreakSkeleton {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.streakDaysSkeleton {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+/* AI Tutor Card Skeleton */
+.aiTutorCardContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+}
+
+.aiTutorTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Subject Card Skeleton */
+.subjectCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.subjectCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subjectCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.progressBarSkeleton {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark mode progress bar skeleton */
+[data-theme="dark"] .progressBarSkeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
+
+.subjectCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Subjects Grid Skeleton */
+.subjectsGridSkeleton {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 100%;
+}
+
+/* Today's Goals Card Skeleton */
+.todayGoalsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.todayGoalsHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todayGoalsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.goalItemSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.goalTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+/* Leaderboard Card Skeleton */
+.leaderboardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.leaderboardHeader {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Dark mode leaderboard header */
+[data-theme="dark"] .leaderboardHeader {
+  border-bottom-color: #374151;
+}
+
+.leaderboardList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.leaderboardItemSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.leaderboardTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+/* Skeleton Animations */
+@keyframes skeletonFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes skeletonPulse {
+  0%, 100% {
+    background-position: 200% 0;
+  }
+  50% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .dashboardSkeletonContainer {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .subjectsGridSkeleton {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboardSkeletonContainer {
+    padding: var(--space-4);
+    gap: var(--space-4);
+  }
+  
+  .subjectsGridSkeleton {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cardSkeleton {
+    padding: 16px;
+  }
+}
+
+/* Smooth transitions when data loads */
+.skeletonToDataTransition {
+  animation: fadeInContent 0.4s ease-out;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

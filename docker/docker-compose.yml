@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: durrani_db
+    environment:
+      POSTGRES_DB: durrani_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Dur!Ns_2025
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - durrani_network
+    restart: unless-stopped
+
+  # Backend API Service
+  api:
+    build:
+      context: ../apps/api
+      dockerfile: Dockerfile
+    container_name: durrani_api
+    environment:
+      - DATABASE_URL=postgresql://postgres:Dur!Ns_2025@postgres:5432/durrani_db
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-your_jwt_secret_key_here}
+      - JWT_ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - S3_BUCKET=${S3_BUCKET}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    networks:
+      - durrani_network
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+
+  # Frontend Web Service
+  web:
+    build:
+      context: ../apps/web
+      dockerfile: Dockerfile
+    container_name: durrani_web
+    environment:
+      - NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    networks:
+      - durrani_network
+    restart: unless-stopped
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: durrani_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - web
+      - api
+    networks:
+      - durrani_network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  durrani_network:
+    driver: bridge
+

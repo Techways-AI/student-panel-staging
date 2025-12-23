@@ -1,0 +1,109 @@
+name: Deploy Frontend to ECS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION || 'ap-south-1' }}
+      ECR_REPO_NAME: ${{ vars.ECR_REPO_NAME || 'frontend-repo' }}
+      ECS_CLUSTER: ${{ vars.ECS_CLUSTER || 'frontend-cluster' }}
+      ECS_SERVICE: ${{ vars.ECS_SERVICE || 'frontend-task-service-d6vqsb1q' }}
+      TASK_FAMILY: ${{ vars.TASK_FAMILY || 'frontend-task' }}
+      CONTAINER_NAME: ${{ vars.CONTAINER_NAME || 'frontend' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Create ECR repository if it doesn't exist
+        run: |
+          aws ecr describe-repositories --repository-names ${{ env.ECR_REPO_NAME }} --region ${{ env.AWS_REGION }} || \
+          aws ecr create-repository --repository-name ${{ env.ECR_REPO_NAME }} --region ${{ env.AWS_REGION }}
+
+      - name: Log in to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build and Push Docker image
+        run: |
+          IMAGE_URI=${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPO_NAME }}:${{ github.sha }}
+          docker build -t $IMAGE_URI ./apps/web
+          docker push $IMAGE_URI
+          echo "IMAGE_URI=$IMAGE_URI" >> $GITHUB_ENV
+
+      - name: Install jq for JSON processing
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Prepare new task definition
+        run: |
+          aws ecs describe-task-definition \
+            --task-definition $TASK_FAMILY \
+            --query "taskDefinition" \
+            --region $AWS_REGION \
+            --output json > task-def.json
+
+          # Update image and add environment variables for proper header handling
+          jq --arg IMAGE "$IMAGE_URI" \
+             --arg CONTAINER "$CONTAINER_NAME" \
+             '(.containerDefinitions[] | select(.name == $CONTAINER)).image = $IMAGE | 
+              (.containerDefinitions[] | select(.name == $CONTAINER)).environment = [
+                {"name": "NODE_ENV", "value": "production"},
+                {"name": "NEXT_PUBLIC_API_URL", "value": "https://api.durranis.ai"},
+                {"name": "NEXT_PUBLIC_ENVIRONMENT", "value": "production"}
+              ] | .' \
+             task-def.json > new-task-def.json
+
+          # Remove unnecessary fields
+          jq 'del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy)' new-task-def.json > final-task-def.json
+
+      - name: Register new task definition and export ARN
+        id: register-task
+        run: |
+          TASK_DEF_ARN=$(aws ecs register-task-definition \
+            --cli-input-json file://final-task-def.json \
+            --region $AWS_REGION \
+            --query "taskDefinition.taskDefinitionArn" \
+            --output text)
+          echo "TASK_DEF_ARN=$TASK_DEF_ARN" >> $GITHUB_ENV
+          echo "task_def_arn=$TASK_DEF_ARN" >> $GITHUB_OUTPUT
+
+      - name: Update ECS service
+        run: |
+          aws ecs update-service \
+            --cluster $ECS_CLUSTER \
+            --service $ECS_SERVICE \
+            --task-definition ${{ steps.register-task.outputs.task_def_arn }} \
+            --force-new-deployment \
+            --region $AWS_REGION
+
+      - name: Wait for service to stabilize
+        run: |
+          echo "⏳ Waiting for ECS service to stabilize..."
+          aws ecs wait services-stable \
+            --cluster $ECS_CLUSTER \
+            --services $ECS_SERVICE \
+            --region $AWS_REGION
+          echo "✅ Service is stable!"
+
+      - name: Verify deployment
+        run: |
+          echo "🔍 Verifying deployment..."
+          aws ecs describe-services \
+            --cluster $ECS_CLUSTER \
+            --services $ECS_SERVICE \
+            --query "services[0].{status: status, desiredCount: desiredCount, runningCount: runningCount, pendingCount: pendingCount}" \
+            --output table
+
+
+

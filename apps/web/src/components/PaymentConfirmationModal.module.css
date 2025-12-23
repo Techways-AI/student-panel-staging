@@ -1,0 +1,995 @@
+/* CSS_CACHE_BUST_1761305308555 */
+/* Payment Confirmation Modal Styles */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 0 24px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 20px;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  color: #666;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover:not(:disabled) {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.closeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modalBody {
+  padding: 24px;
+}
+
+.planSummary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid #e8f0ff;
+}
+
+.planIcon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.planDetails {
+  flex: 1;
+}
+
+.planName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.planPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.originalPrice {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+  margin-right: 6px;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #007bb8;
+}
+
+.period {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.planDescription {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.featuresList {
+  margin-bottom: 24px;
+}
+
+.featuresList h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.featuresList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.checkIcon {
+  color: #22c55e;
+  font-weight: bold;
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.errorIcon {
+  font-size: 1.1rem;
+}
+
+.importantNotes {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.note:last-child {
+  margin-bottom: 0;
+}
+
+.noteIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.modalFooter {
+  display: flex;
+  gap: 12px;
+  padding: 0 24px 24px 24px;
+}
+
+.cancelButton {
+  flex: 1;
+  padding: 12px 24px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: #e9ecef;
+  color: #333;
+}
+
+.cancelButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.confirmButton {
+  flex: 2;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #007bb8 0%, #0056b3 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.confirmButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 184, 0.3);
+}
+
+.confirmButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.paymentIcon {
+  font-size: 1rem;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .modalContent {
+    width: 95vw;
+    max-height: 95vh;
+  }
+
+  .modalHeader {
+    padding: 20px 20px 0 20px;
+    padding-bottom: 16px;
+  }
+
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+
+  .modalBody {
+    padding: 20px;
+  }
+
+  .planSummary {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .planIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .planName {
+    font-size: 1.1rem;
+  }
+
+  .price {
+    font-size: 1.25rem;
+  }
+
+  .modalFooter {
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+  }
+
+  .cancelButton,
+  .confirmButton {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modalContent {
+    width: 98vw;
+    border-radius: 12px;
+  }
+
+  .modalHeader {
+    padding: 16px 16px 0 16px;
+    padding-bottom: 12px;
+  }
+
+  .modalBody {
+    padding: 16px;
+  }
+
+  .planSummary {
+    padding: 16px;
+  }
+
+  .feature {
+    font-size: 0.85rem;
+  }
+
+  .note {
+    font-size: 0.8rem;
+  }
+
+  .modalFooter {
+    padding: 0 16px 16px 16px;
+  }
+
+  .yearSemesterRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .yearSemesterToggle {
+    font-size: 0.8rem;
+  }
+
+  .labelText {
+    font-size: 0.7rem;
+  }
+
+  .yearSemesterSelect {
+    font-size: 0.8rem;
+    padding: 7px 9px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .modalContent {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  .modalTitle {
+    color: #fff;
+  }
+
+  .planSummary {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+    border-color: #333;
+  }
+
+  .planIcon {
+    background: #333;
+  }
+
+  .planName {
+    color: #fff;
+  }
+
+  .planDescription {
+    color: #ccc;
+  }
+
+  .feature {
+    color: #ccc;
+  }
+
+  .importantNotes {
+    background: #2a2a2a;
+  }
+
+  .note {
+    color: #ccc;
+  }
+
+  .cancelButton {
+    background: #333;
+    border-color: #444;
+    color: #ccc;
+  }
+
+  .cancelButton:hover:not(:disabled) {
+    background: #444;
+    color: #fff;
+  }
+}
+
+.modalContent {
+  max-width: 420px;
+  width: 90vw;
+  border-radius: 14px;
+}
+
+.modalHeader {
+  padding: 18px 20px 0 20px;
+  border-bottom: none;
+}
+
+.modalTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.modalBody {
+  padding: 0 20px 16px 20px;
+}
+
+.planSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0 16px 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.planIcon {
+  display: none;
+}
+
+.planDetails {
+  flex: 1;
+}
+
+.planName {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.planPrice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fff7e5;
+  border: 1px solid #ffe1a6;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.period {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.planDescription {
+  margin-top: 6px;
+}
+
+/* Year/Semester Selection Section */
+.yearSemesterSection {
+  padding: 10px 0 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.yearSemesterToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 0.85rem;
+  color: #16a34a;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.yearSemesterToggleLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.yearSemesterIcon {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+  background: #16a34a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.2);
+}
+
+.yearSemesterChevron {
+  font-size: 0.8rem;
+  color: #86efac;
+  transition: transform 0.15s ease;
+}
+
+.yearSemesterChevronOpen {
+  transform: rotate(180deg);
+}
+
+.yearSemesterForm {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.yearSemesterRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.yearSemesterLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.labelText {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.yearSemesterSelect {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 0.85rem;
+  background: #ffffff;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.yearSemesterSelect:hover {
+  border-color: #16a34a;
+}
+
+.yearSemesterSelect:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+.yearSemesterSelect:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.duplicateWarning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #dc2626;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.warningIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.yearSemesterConfirmBtn {
+  margin-top: 4px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.yearSemesterConfirmBtn:hover:not(:disabled) {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.yearSemesterConfirmBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #9ca3af;
+}
+
+.couponSection {
+  padding: 10px 0 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.couponToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 0.85rem;
+  color: #2563eb;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.couponToggleLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.couponIcon {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+  background: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.2);
+}
+
+.couponChevron {
+  font-size: 0.8rem;
+  color: #93a3d8;
+  transition: transform 0.15s ease;
+}
+
+.couponChevronOpen {
+  transform: rotate(180deg);
+}
+
+.couponForm {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.couponInput {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 0.85rem;
+}
+
+.couponApplyButton {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.couponApplyButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.couponApplied {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #16a34a;
+}
+
+.availableOffersSection {
+  padding: 16px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.availableOffersTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 12px 0;
+}
+
+.offersList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.offerCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.offerCard:hover {
+  border-color: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+.offerHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.offerLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.offerCodeBadge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #f0f9ff;
+  border: 1px dashed #2563eb;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+.offerTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.3;
+}
+
+.offerApplyButton {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  height: fit-content;
+}
+
+.offerApplyButton:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.offerApplyButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.offerValue {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #16a34a;
+  margin-bottom: 8px;
+}
+
+.offerDescription {
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.offerMoreButton {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.offerMoreButton:hover {
+  text-decoration: underline;
+}
+
+.offerMinPurchase {
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.testimonialSection {
+  padding: 14px 0 4px 0;
+}
+
+.testimonialHeading {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.testimonialHeading::before,
+.testimonialHeading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.testimonialTitleAccent {
+  font-weight: 700;
+  color: #f97316;
+}
+
+.testimonialCard {
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 10px 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.testimonialAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.testimonialBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.testimonialNameLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testimonialName {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.testimonialSince {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.testimonialText {
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.testimonialTextHighlight {
+  font-weight: 600;
+  background: #fef3c7;
+}
+
+.testimonialStars {
+  font-size: 0.8rem;
+  color: #fbbf24;
+}
+
+.modalFooter {
+  padding: 0 20px 18px 20px;
+}
+
+.confirmButton {
+  width: 100%;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 12px 18px;
+  background: #2563eb;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+  font-size: 0.95rem;
+}

@@ -1,0 +1,688 @@
+/* CSS_CACHE_BUST_1761305208555 */
+/* Subscription Plans Styles */
+.subscriptionPlansPage {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.subscriptionPlansPage.dark-theme {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #f9fafb;
+}
+
+/* Header Styles */
+.subscriptionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.headerCrownIcon {
+  font-size: 2.5rem;
+  animation: bounce 2s infinite;
+}
+
+.subscriptionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark-theme .subscriptionTitle {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subscriptionSubtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.dark-theme .subscriptionSubtitle {
+  color: #d1d5db;
+}
+
+.statsRow {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.statIcon {
+  font-size: 1.2rem;
+}
+
+/* Current Subscription Card */
+.currentSubscriptionCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dark-theme .currentSubscriptionCard {
+  background: rgba(31, 41, 55, 0.95);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.currentSubscriptionInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.currentSubscriptionIcon {
+  font-size: 1.5rem;
+}
+
+.currentSubscriptionLabel {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.dark-theme .currentSubscriptionLabel {
+  color: #f9fafb;
+}
+
+.currentSubscriptionDate {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.dark-theme .currentSubscriptionDate {
+  color: #d1d5db;
+}
+
+.nextBillingDate {
+  color: #059669;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.subscriptionStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.statusBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.statusBadge.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.statusBadge.inactive {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.dark-theme .statusBadge.active {
+  background: #14532d;
+  color: #bbf7d0;
+}
+
+.dark-theme .statusBadge.inactive {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+/* Plan Options */
+.planOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Plan Card */
+.planCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .planCard {
+  background: rgba(31, 41, 55, 0.95);
+  border: 2px solid rgba(75, 85, 99, 0.3);
+}
+
+.planCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.planCard.bestValue {
+  border-color: #f59e0b;
+  transform: scale(1.05);
+}
+
+.planCard.current {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.bestValueBadge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.currentPlanBadge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.planCard h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #1f2937;
+}
+
+.dark-theme .planCard h3 {
+  color: #f9fafb;
+}
+
+.planDesc {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.dark-theme .planDesc {
+  color: #d1d5db;
+}
+
+.planPriceRow {
+  margin-bottom: 1rem;
+}
+
+.planPrice {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1f2937;
+  display: block;
+}
+
+.dark-theme .planPrice {
+  color: #f9fafb;
+}
+
+.planPeriod {
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.dark-theme .planPeriod {
+  color: #d1d5db;
+}
+
+.trialInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.clockIcon {
+  font-size: 1rem;
+}
+
+.planFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  text-align: left;
+}
+
+.planFeatures li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.dark-theme .planFeatures li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d1d5db;
+}
+
+.planFeatures li:last-child {
+  border-bottom: none;
+}
+
+/* Buttons */
+.subscribeBtn, .currentBtn {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.subscribeBtn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.subscribeBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.currentBtn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.subscribeBtn:disabled, .currentBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Feature Highlights */
+.featureHighlights {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.featureHighlights h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1f2937;
+}
+
+.dark-theme .featureHighlights h3 {
+  color: #f9fafb;
+}
+
+.featureCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme .featureCard {
+  background: rgba(31, 41, 55, 0.9);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1.5rem auto;
+}
+
+.iconBlue {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.iconGreen {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.iconPurple {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.featureCard h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.dark-theme .featureCard h4 {
+  color: #f9fafb;
+}
+
+.featureCard p {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.dark-theme .featureCard p {
+  color: #d1d5db;
+}
+
+/* Bottom CTA */
+.bottomCTA {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bottomCTA h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.dark-theme .bottomCTA h3 {
+  color: #f9fafb;
+}
+
+.bottomCTA p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.dark-theme .bottomCTA p {
+  color: #d1d5db;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.viewDemoBtn {
+  padding: 1rem 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #1f2937;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark-theme .viewDemoBtn {
+  color: #f9fafb;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.viewDemoBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.ctaCrownIcon {
+  margin-right: 0.5rem;
+}
+
+/* Error Handling */
+.paymentError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dark-theme .paymentError {
+  background: #7f1d1d;
+  border-color: #dc2626;
+}
+
+.errorIcon {
+  font-size: 1.5rem;
+}
+
+.errorMessage {
+  flex: 1;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.dark-theme .errorMessage {
+  color: #fecaca;
+}
+
+.dismissError {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.dark-theme .dismissError {
+  color: #fecaca;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading p {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.dark-theme .loading p {
+  color: #d1d5db;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .subscriptionPlansPage {
+    padding: 1rem;
+  }
+  
+  .subscriptionTitle {
+    font-size: 2rem;
+  }
+  
+  .planOptions {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .planCard {
+    padding: 2rem;
+  }
+  
+  .statsRow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .featureCards {
+    grid-template-columns: 1fr;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ctaButtons button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subscriptionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .planCard {
+    padding: 1.5rem;
+  }
+  
+  .planPrice {
+    font-size: 2.5rem;
+  }
+  
+  .featureHighlights h3 {
+    font-size: 1.5rem;
+  }
+  
+  .bottomCTA h3 {
+    font-size: 1.5rem;
+  }
+}
