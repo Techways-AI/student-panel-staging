@@ -115,6 +115,11 @@ const nextConfig = {
     config.resolve = {
       ...config.resolve,
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', ...(config.resolve?.extensions || [])],
+      // Add alias to help resolve lib/api module
+      alias: {
+        ...config.resolve?.alias,
+        '@lib': require('path').resolve(__dirname, 'src/lib'),
+      },
     };
 
     if (dev) {
