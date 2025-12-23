@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { performCompleteLogout, clearAllUserData } from '../lib/api.js';
+import { performCompleteLogout, clearAllUserData } from '../lib/api';
 
 const AuthContext = createContext();
 

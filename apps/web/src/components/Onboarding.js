@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './Onboarding.module.css';
-import { performanceAPI, studyPlanAPI } from '../lib/api.js';
+import { performanceAPI, studyPlanAPI } from '../lib/api';
 import { useAuth } from '../context/AuthContext';
 import { API_CONFIG } from '../config/api';
 

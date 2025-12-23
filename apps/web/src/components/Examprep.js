@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback, useRef, useMemo } from "react"
 import Link from 'next/link';
 import styles from './Examprep.module.css';
 import mobileStyles from './ExamprepMobile.module.css';
-import { quizAPI, modelPaperAPI } from '../lib/api.js';
+import { quizAPI, modelPaperAPI } from '../lib/api';
 import { FaLock } from 'react-icons/fa';  // Import lock icon
 import { IoChevronDown, IoChevronForward } from 'react-icons/io5';  // Import chevron icons  // Import chevron down icon
 import { useImportantQuestionsSectionManager } from '../hooks/useExamPrepSectionManager';

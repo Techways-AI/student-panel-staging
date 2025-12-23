@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import styles from './AskAI.module.css';
 import { useChatSectionManager } from '../hooks/useChatSectionManager';
 import { askQuestion, logAIQuery } from '../services/aiService';
-import { aiAPI } from '../lib/api.js';
+import { aiAPI } from '../lib/api';
 import { useRouter } from 'next/navigation';
 import { useHydration, useLocalStorage } from '../hooks/useHydration';
 import { useSubscription } from '../hooks/useSubscription';
