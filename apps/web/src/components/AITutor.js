@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { useTheme } from '../context/ThemeContext';
 import { useLayout } from '../context/LayoutContext';
 import styles from './AITutor.module.css';
-import { aiAPI } from '../lib/api.js';
+import { aiAPI } from '../lib/api';
 import { sanitizeError, logTechnicalError } from '../utils/errorHandler';
  
 // Dynamic import for MarkdownRenderer to improve initial load time
