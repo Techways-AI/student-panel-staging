@@ -8,7 +8,6 @@ import {
   BackHandler,
 } from 'react-native';
 import { WebView } from 'react-native-webview';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // ✅ Use correct local IP for Android emulator or device
 const WEB_APP_URL =
