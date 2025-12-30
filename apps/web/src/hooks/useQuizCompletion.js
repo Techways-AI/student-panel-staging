@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { quizAPI } from '../lib/api';
+import { quizAPI } from '../lib/api.js';
 
 /**
  * Single-source-of-truth topic completion hook.

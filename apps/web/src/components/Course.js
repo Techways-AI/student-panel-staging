@@ -7,7 +7,7 @@ import { useSubscription } from '../hooks/useSubscription';
 import styles from './Course.module.css';
 import mobileStyles from './CourseMobile.module.css';
 const CourseContent = dynamic(() => import('./CourseContent'), { ssr: false });
-import { currentCourseAPI } from '../lib/api';
+import { currentCourseAPI } from '../lib/api.js';
 import { FaLock } from 'react-icons/fa';
 
 
