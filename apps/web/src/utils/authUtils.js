@@ -1,5 +1,5 @@
 // Authentication utility functions
-import { performCompleteLogout, clearAllUserData } from '@/lib/api';
+import { performCompleteLogout, clearAllUserData } from '../lib/api.js';
 
 // Check if user is properly authenticated
 export const checkAuthentication = () => {

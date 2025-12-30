@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom';
-import { quizAPI, dashboardAPI, studyPlanAPI } from '@/lib/api';
+import { quizAPI, dashboardAPI, studyPlanAPI } from '../lib/api.js';
 import { useTheme } from '../context/ThemeContext';
 import { useSubscription } from '../hooks/useSubscription';
 import { useLayout } from '../context/LayoutContext';

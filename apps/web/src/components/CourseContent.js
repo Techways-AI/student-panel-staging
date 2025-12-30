@@ -17,7 +17,7 @@ const Notes = dynamic(() => import('./Notes'), { ssr: false });
 const QuizComponent = dynamic(() => import('./QuizComponent'), { ssr: false });
 const QuizCompleted = dynamic(() => import('./QuizCompleted'), { ssr: false });
 const VideoPlayer = dynamic(() => import('./VideoPlayer'), { ssr: false });
-import { quizAPI, subjectContentAPI, studentContentAPI } from '@/lib/api';
+import { quizAPI, subjectContentAPI, studentContentAPI } from '../lib/api.js';
 import { getApiBaseUrl, createApiHeaders, fetchWithFallback } from '../utils/apiUtils';
 import { useQuizHandlers } from '../hooks/useQuizHandlers';
 

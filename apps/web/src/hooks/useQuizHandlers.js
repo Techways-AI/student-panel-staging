@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
-import { quizAPI, studentContentAPI } from '@/lib/api';
+import { quizAPI, studentContentAPI } from '../lib/api.js';
 import { useQuizCompletion } from './useQuizCompletion';
 
 /**

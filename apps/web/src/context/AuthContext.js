@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { performCompleteLogout, clearAllUserData } from '@/lib/api';
+import { performCompleteLogout, clearAllUserData } from '../lib/api.js';
 
 const AuthContext = createContext();
 
@@ -106,7 +106,7 @@ export function AuthProvider({ children }) {
         
         if (typeof window !== 'undefined') {
             // Use the centralized clean login function to ensure no stale data
-            import('@/lib/api').then((apiModule) => {
+            import('../lib/api.js').then((apiModule) => {
                 if (apiModule.ensureCleanLogin) {
                     apiModule.ensureCleanLogin();
                     console.log('🔐 AuthContext: Using centralized clean login function');
