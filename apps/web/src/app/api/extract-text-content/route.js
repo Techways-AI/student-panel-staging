@@ -21,7 +21,7 @@ export async function GET(request) {
     }
 
     // Fix: Use environment variable instead of hardcoded localhost
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
     
     // Call the FastAPI backend to extract text content
     const response = await fetch(`${API_BASE_URL}/api/subject-content/extract-text-content?key=${encodeURIComponent(key)}`, {

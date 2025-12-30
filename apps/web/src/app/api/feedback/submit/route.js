@@ -19,7 +19,7 @@ export async function POST(request) {
     }
     
     // Make request to FastAPI backend
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
     const response = await fetch(`${API_BASE_URL}/api/feedback/submit`, {
       method: 'POST',
       headers,

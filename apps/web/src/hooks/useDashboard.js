@@ -330,7 +330,7 @@ export const useDashboard = (userId, options = {}) => {
       console.log('🎯 Checking quiz completion for:', { subject, unit, topic, userId });
       
       // Check if quiz exists for this topic
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/quiz/check-topic-quiz`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/quiz/check-topic-quiz`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -367,7 +367,7 @@ export const useDashboard = (userId, options = {}) => {
     try {
       console.log('🎯 Marking quiz as completed for:', { subject, unit, topic, userId, score });
       
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/quiz/mark-completed`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/quiz/mark-completed`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

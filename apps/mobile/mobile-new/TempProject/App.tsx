@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // ✅ Use correct local IP for Android emulator or device
 const WEB_APP_URL =
-  Platform.OS === 'android' ? 'https://student-panel-staging-production-d927.up.railway.app/' : 'https://student-panel-staging-production-d927.up.railway.app/';
+  Platform.OS === 'android' ? 'https://student-panel-staging-production-d927.up.railway.app' : 'https://student-panel-staging-production-d927.up.railway.app';
 
 const App = () => {
   const [loading, setLoading] = useState(true);

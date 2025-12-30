@@ -7,7 +7,7 @@ export async function POST(request) {
     const body = await request.json();
     
     // Proxy the request to the FastAPI backend
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
     const response = await fetch(`${API_BASE_URL}/api/quiz/generate-from-file`, {
       method: 'POST',
       headers: {

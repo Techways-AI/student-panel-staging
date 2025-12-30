@@ -17,7 +17,7 @@ export async function GET(request) {
     }
     
     // Forward request to backend
-    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
     const backendResponse = await fetch(`${backendUrl}/api/subject-content/?courseName=${courseName}&yearSemester=${yearSemester}&subjectName=${encodeURIComponent(subjectTitle)}`, {
       headers: {
         'Authorization': authHeader,

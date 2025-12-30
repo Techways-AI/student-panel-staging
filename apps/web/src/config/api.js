@@ -16,7 +16,7 @@
 // Main Backend API Configuration
 export const API_CONFIG = {
   // Base URL for main backend API
-  BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/',
+  BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app',
   
   // FastAPI Backend URL (for AI services)
   FASTAPI_URL: process.env.NEXT_PUBLIC_FASTAPI_URL || 'https://sme-panel-staging-production.up.railway.app',

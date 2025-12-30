@@ -9,7 +9,7 @@ export async function GET(request) {
     const authHeader = request.headers.get('Authorization');
     
     // Call the FastAPI backend and forward incoming query parameters (subject, unit, topic)
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
     const incomingUrl = new URL(request.url);
     const backendUrl = new URL(`${API_BASE_URL}/api/quiz/completed`);
     incomingUrl.searchParams.forEach((value, key) => backendUrl.searchParams.append(key, value));

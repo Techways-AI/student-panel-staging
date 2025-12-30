@@ -1651,7 +1651,7 @@ const CourseContent = ({ subject, onBack, isLoading: externalLoading, subscripti
             }
 
             // First, find the correct study plan task ID based on subject and topic
-            const findTaskResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/study-plan/task/find-by-topic?subject=${encodeURIComponent(subjectName)}&topic=${encodeURIComponent(topicName)}`, {
+            const findTaskResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/study-plan/task/find-by-topic?subject=${encodeURIComponent(subjectName)}&topic=${encodeURIComponent(topicName)}`, {
               method: 'GET',
               headers: {
                 'Authorization': `Bearer ${token}`,
@@ -1673,7 +1673,7 @@ const CourseContent = ({ subject, onBack, isLoading: externalLoading, subscripti
             const taskData = {
               task_id: taskInfo.task_id
             };
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/study-plan/task/mark-notes-completed`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/study-plan/task/mark-notes-completed`, {
               method: 'POST',
               headers: {
                 'Authorization': `Bearer ${token}`,
@@ -3253,7 +3253,7 @@ const CourseContent = ({ subject, onBack, isLoading: externalLoading, subscripti
                             const topicName = currentTopic?.title || 'Unknown Topic';
 
                             // First, find the correct study plan task ID based on subject and topic
-                            const findTaskResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/study-plan/task/find-by-topic?subject=${encodeURIComponent(subjectName)}&topic=${encodeURIComponent(topicName)}`, {
+                            const findTaskResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/study-plan/task/find-by-topic?subject=${encodeURIComponent(subjectName)}&topic=${encodeURIComponent(topicName)}`, {
                               method: 'GET',
                               headers: {
                                 'Authorization': `Bearer ${token}`,
@@ -3275,7 +3275,7 @@ const CourseContent = ({ subject, onBack, isLoading: externalLoading, subscripti
                             const taskData = {
                               task_id: taskInfo.task_id
                             };
-                            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/study-plan/task/mark-notes-completed`, {
+                            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/study-plan/task/mark-notes-completed`, {
                               method: 'POST',
                               headers: {
                                 'Authorization': `Bearer ${token}`,

@@ -34,7 +34,7 @@ RUN mkdir -p /app/logs && mkdir -p /app/tmp
 
 # Disable Docker healthcheck - let Railway handle it
 # HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=5 \
-#     CMD curl -f https://student-panel-staging-production.up.railway.app//health || exit 1
+#     CMD curl -f https://student-panel-staging-production.up.railway.app/health || exit 1
 
 EXPOSE 8000
 

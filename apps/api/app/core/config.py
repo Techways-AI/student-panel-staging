@@ -36,18 +36,18 @@ class Settings:
     
     # CORS settings
     CORS_ORIGINS: List[str] = [
-        "https://student-panel-staging-production-d927.up.railway.app/",
+        "https://student-panel-staging-production-d927.up.railway.app",
         "https://sme-panel-staging-production-67df.up.railway.app",
-        "https://student-panel-staging-production.up.railway.app/",
+        "https://student-panel-staging-production.up.railway.app",
         "https://sme-panel-staging-production.up.railway.app",
     ]
 
     CORS_ORIGINS_REGEX = "|".join([re.escape(origin) for origin in CORS_ORIGINS])
 
     CORS_ALLOWED_ORIGINS = [
-        "https://student-panel-staging-production-d927.up.railway.app/",
+        "https://student-panel-staging-production-d927.up.railway.app",
         "https://sme-panel-staging-production-67df.up.railway.app",
-        "https://student-panel-staging-production.up.railway.app/",
+        "https://student-panel-staging-production.up.railway.app",
         "https://sme-panel-staging-production.up.railway.app",
     ]
     
@@ -55,9 +55,9 @@ class Settings:
     if ENVIRONMENT == "development":
         # Add common localhost origins for development
         localhost_origins = [
-            "https://student-panel-staging-production-d927.up.railway.app/",
+            "https://student-panel-staging-production-d927.up.railway.app",
             "https://sme-panel-staging-production-67df.up.railway.app",
-            "https://student-panel-staging-production.up.railway.app/",
+            "https://student-panel-staging-production.up.railway.app",
             "https://sme-panel-staging-production.up.railway.app",
         ]
         CORS_ORIGINS.extend(localhost_origins)

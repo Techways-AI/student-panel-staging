@@ -42,8 +42,8 @@ echo "📋 Recent logs:"
 docker-compose logs --tail=20
 
 echo "✅ Durrani Student Panel is starting up!"
-echo "🌐 Frontend: https://student-panel-staging-production-d927.up.railway.app/"
-echo "🔌 Backend API: https://student-panel-staging-production.up.railway.app/"
+echo "🌐 Frontend: https://student-panel-staging-production-d927.up.railway.app"
+echo "🔌 Backend API: https://student-panel-staging-production.up.railway.app"
 echo "📚 API Documentation: https://student-panel-staging-production.up.railway.app/docs"
 echo "🔍 Health Check: https://student-panel-staging-production.up.railway.app/health"
 echo "🗄️  Database: localhost:5432"

@@ -104,7 +104,7 @@ const AITutor = ({ selectedTopic, documentContent, currentDocumentId, learningSu
 
     const fetchUsage = async () => {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
         const res = await fetch(`${baseUrl}/api/ai/query-count`, {
           method: 'GET',
           headers: {

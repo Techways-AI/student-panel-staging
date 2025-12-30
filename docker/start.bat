@@ -37,9 +37,9 @@ echo Recent logs:
 docker-compose logs --tail=20
 
 echo Durrani Student Panel is starting up!
-echo   Frontend: https://student-panel-staging-production-d927.up.railway.app/
-echo   Backend API: https://student-panel-staging-production.up.railway.app/
-echo   Nginx: https://student-panel-staging-production-d927.up.railway.app/
+echo   Frontend: https://student-panel-staging-production-d927.up.railway.app
+echo   Backend API: https://student-panel-staging-production.up.railway.app
+echo   Nginx: https://student-panel-staging-production-d927.up.railway.app
 echo   Database: localhost:5432
 
 echo.

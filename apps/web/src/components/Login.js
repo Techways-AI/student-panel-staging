@@ -8,7 +8,7 @@ import { useAuth } from '../context/AuthContext';
 import { checkProfileCompletionFromAPI } from '../utils/profileUtils';
 
 // Base URL for backend API
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
 const RESEND_COOLDOWN_SECONDS = 15;
 
 // Persistent UUID generation function - generates same UUID for same browser

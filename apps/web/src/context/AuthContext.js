@@ -307,7 +307,7 @@ export function AuthProvider({ children }) {
 
             console.log('🔄 Attempting to refresh access token (header-based)...');
             
-            const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+            const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
             const response = await fetch(`${API_BASE_URL}/api/auth/refresh-token`, {
                 method: 'POST',
                 headers: {
@@ -453,7 +453,7 @@ export function AuthProvider({ children }) {
         }
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/auth/profile-completion-status`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/auth/profile-completion-status`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

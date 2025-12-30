@@ -18,7 +18,7 @@ export async function GET(request) {
     }
     
     // Make request to FastAPI backend debug endpoint
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
     const response = await fetch(`${API_BASE_URL}/api/ai/debug/me`, {
       method: 'GET',
       headers,

@@ -12,7 +12,7 @@ import { FaLock } from 'react-icons/fa';
 
 
 const SEMESTERS = [1, 2];
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
 
 // Debounce utility
 const debounce = (func, wait) => {

@@ -21,7 +21,7 @@ export async function POST(request) {
       return NextResponse.json({ message: 'Missing or invalid data' }, { status: 400 });
     }
 
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
 
     const resp = await fetch(`${API_BASE}/api/user-activity`, {
       method: 'POST',

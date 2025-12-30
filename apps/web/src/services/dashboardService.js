@@ -1,5 +1,5 @@
 // Dashboard Service - Handles all dashboard-related API calls
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
 
 class DashboardService {
   constructor() {

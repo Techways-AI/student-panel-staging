@@ -17,7 +17,7 @@ export async function GET(request) {
     }
     
     // Call the FastAPI backend
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
     
     const response = await fetch(
       `${API_BASE_URL}/api/subject-content/get-document-id?documentId=${encodeURIComponent(documentId)}`,

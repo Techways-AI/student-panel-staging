@@ -15,7 +15,7 @@ export async function GET(request) {
       );
     }
     
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
     // Call the FastAPI backend
     const response = await fetch(
               `${API_BASE_URL}/api/daily-goal/dashboard-summary/${userId}`,

@@ -234,6 +234,6 @@ export function createApiHeaders(token, additionalHeaders = {}) {
  * @returns {string} - The API base URL
  */
 export function getApiBaseUrl() {
-  return process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+  return process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
 }
 

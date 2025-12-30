@@ -59,7 +59,7 @@ export const useSubscription = () => {
       
       // Add cache-busting parameter to force fresh data
       const cacheBuster = force ? `?_t=${Date.now()}` : '';
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/payments/status${cacheBuster}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/payments/status${cacheBuster}`, {
         headers: {
           'Authorization': `Bearer ${effectiveToken}`,
         },

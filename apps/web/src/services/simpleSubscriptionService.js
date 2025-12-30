@@ -1,7 +1,7 @@
 // Simplified Subscription Service for Direct Payments Only
 // Removes all complex subscription API logic and uses only direct payments
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
 
 class SimpleSubscriptionService {
   constructor() {

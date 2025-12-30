@@ -198,7 +198,7 @@ const Navbar = React.memo(() => {
             try {
                 const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
                 if (token) {
-                    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/auth/me`, {
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app'}/api/auth/me`, {
                         method: 'GET',
                         headers: {
                             'Authorization': `Bearer ${token}`,

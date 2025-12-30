@@ -1,6 +1,6 @@
 // Production-safe API service
 // Default to local API in absence of env var to avoid accidental production hits
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app';
 
 // Request deduplication to prevent duplicate API calls (session-only)
 const pendingRequests = new Map();
