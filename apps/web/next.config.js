@@ -3,6 +3,8 @@ console.log('NEXT_MSG91_BUILD_ENV', {
   hasProcessWidgetId: !!process.env.NEXT_PUBLIC_MSG91_WIDGET_ID,
   hasProcessTokenAuth: !!process.env.NEXT_PUBLIC_MSG91_TOKEN_AUTH,
 });
+const path = require('path');
+
 const nextConfig = {
   // ✅ Environment variables
   env: {
@@ -115,6 +117,16 @@ const nextConfig = {
     config.resolve = {
       ...config.resolve,
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    };
+
+    // Ensure alias resolution for "@/..." imports in both local and CI builds
+    config.resolve = {
+      ...(config.resolve || {}),
+      alias: {
+        ...(config.resolve?.alias || {}),
+        '@': path.join(__dirname, 'src'),
+      },
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     };
 
     if (dev) {
