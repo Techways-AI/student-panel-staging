@@ -38,6 +38,7 @@ RUN mkdir -p /app/logs && mkdir -p /app/tmp
 
 EXPOSE 8000
 
-# Railway-optimized startup with fewer workers to prevent memory issues
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1", "--log-level", "info", "--access-log"]
+# Railway-optimized startup with fewer workers to prevent memory issues.
+# Bind to the PORT injected by Railway (fallback to 8000 for local/dev).
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1 --log-level info --access-log"]
 
