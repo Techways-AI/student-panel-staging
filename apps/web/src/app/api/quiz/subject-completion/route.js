@@ -1,13 +1,17 @@
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+
+// Force this route to be dynamic (it depends on request headers/tokens)
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
 
 export async function GET(request) {
   try {
-    const session = await getServerSession(authOptions);
-    if (!session?.accessToken) {
+    // Read bearer token from incoming request headers to avoid next-auth dependency
+    const authHeader = request.headers.get('authorization');
+    if (!authHeader) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -22,7 +26,7 @@ export async function GET(request) {
       `${API_BASE_URL}/api/quiz/subject-completion?subject=${encodeURIComponent(subject)}`,
       {
         headers: {
-          'Authorization': `Bearer ${session.accessToken}`,
+          'Authorization': authHeader,
           'Content-Type': 'application/json',
         },
       }
