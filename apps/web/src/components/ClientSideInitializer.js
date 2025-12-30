@@ -39,7 +39,7 @@ export default function ClientSideInitializer() {
       }
 
       // Preload critical data
-      import('../lib/api').then((apiModule) => {
+      import('@/lib/api').then((apiModule) => {
         if (apiModule.prefetchCriticalData) {
           apiModule.prefetchCriticalData();
         } else {

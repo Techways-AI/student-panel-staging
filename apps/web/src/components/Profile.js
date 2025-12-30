@@ -4,7 +4,7 @@ import { useSectionManager } from '../hooks/useSectionManager';
 import { useTheme } from '../context/ThemeContext';
 import { useSubscription } from '../hooks/useSubscription';
 import { useRouter } from 'next/navigation';
-import { performCompleteLogout, clearAllUserData } from '../lib/api.js';
+import { performCompleteLogout, clearAllUserData } from '@/lib/api';
 import DeviceManagement from './DeviceManagement';
 
 import styles from './Profile.module.css';
