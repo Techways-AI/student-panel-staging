@@ -8,7 +8,7 @@ export async function POST(request) {
     const xApiKey = request.headers.get('X-API-Key');
     
     // Use environment variable for backend URL with fallback
-    const BACKEND_URL = process.env.FASTAPI_BACKEND_URL || 'http://127.0.0.1:8001';
+    const BACKEND_URL = process.env.FASTAPI_BACKEND_URL || 'https://sme-panel-staging-production.up.railway.app';
     
     // Prepare headers for the FastAPI backend
     const headers = {

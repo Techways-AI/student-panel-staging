@@ -8,9 +8,9 @@ const path = require('path');
 const nextConfig = {
   // ✅ Environment variables
   env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000',
-    NEXT_PUBLIC_FASTAPI_URL: process.env.NEXT_PUBLIC_FASTAPI_URL || 'http://127.0.0.1:8001',
-    FASTAPI_BACKEND_URL: process.env.FASTAPI_BACKEND_URL || 'http://127.0.0.1:8001',
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/',
+    NEXT_PUBLIC_FASTAPI_URL: process.env.NEXT_PUBLIC_FASTAPI_URL || 'https://sme-panel-staging-production.up.railway.app',
+    FASTAPI_BACKEND_URL: process.env.FASTAPI_BACKEND_URL || 'https://sme-panel-staging-production.up.railway.app',
     NEXT_PUBLIC_RAZORPAY_KEY_ID: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
     NEXT_PUBLIC_PAYMENT_CURRENCY: process.env.NEXT_PUBLIC_PAYMENT_CURRENCY || 'INR',
     NEXT_PUBLIC_PAYMENT_MODE: process.env.NEXT_PUBLIC_PAYMENT_MODE || 'live',

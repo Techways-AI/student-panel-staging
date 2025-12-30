@@ -151,7 +151,7 @@ const AskAI = () => {
 
     const fetchUsage = async () => {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
         const res = await fetch(`${baseUrl}/api/ai/query-count`, {
           method: 'GET',
           headers: {

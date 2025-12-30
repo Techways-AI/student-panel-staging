@@ -18,7 +18,7 @@ export async function GET(request) {
     }
     
     // Call the FastAPI backend
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
     
     const response = await fetch(
       `${API_BASE_URL}/api/subject-content/get-notes-by-document-id?document_id=${encodeURIComponent(documentId)}`,

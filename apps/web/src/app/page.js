@@ -29,7 +29,7 @@ export default function HomePage() {
                 // Check if user has complete profile before redirecting
                 const checkProfileAndRedirect = async () => {
                     try {
-                        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/api/auth/profile-completion-status`, {
+                        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/auth/profile-completion-status`, {
                             headers: {
                                 'Authorization': `Bearer ${token}`
                             }

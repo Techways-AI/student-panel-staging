@@ -42,10 +42,10 @@ echo "📋 Recent logs:"
 docker-compose logs --tail=20
 
 echo "✅ Durrani Student Panel is starting up!"
-echo "🌐 Frontend: http://localhost:3000"
-echo "🔌 Backend API: http://127.0.0.1:8000"
-echo "📚 API Documentation: http://127.0.0.1:8000/docs"
-echo "🔍 Health Check: http://127.0.0.1:8000/health"
+echo "🌐 Frontend: https://student-panel-staging-production-d927.up.railway.app/"
+echo "🔌 Backend API: https://student-panel-staging-production.up.railway.app/"
+echo "📚 API Documentation: https://student-panel-staging-production.up.railway.app/docs"
+echo "🔍 Health Check: https://student-panel-staging-production.up.railway.app/health"
 echo "🗄️  Database: localhost:5432"
 
 echo ""

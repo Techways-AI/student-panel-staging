@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect, useRef, memo } from 'react';
 import { Calendar, Trophy, Flame, Check, X, Zap, Crown, PlaySquare, Info, BookOpen, Brain, FileText, Target, Clock, Grid3x3, TrendingUp, GraduationCap, ChevronDown } from 'lucide-react';
 // Removed: subjects.js - using curriculum API instead
 import subscriptionService from '../services/simpleSubscriptionService';
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/';
 import styles from './Upgrade.module.css';
 import { useLayout } from '../context/LayoutContext';
 import PaymentConfirmationModal from './PaymentConfirmationModal';

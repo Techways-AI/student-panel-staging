@@ -198,7 +198,7 @@ const SubscriptionPlans = () => {
       // If still no id, try to get user data from API
       if (!userInfo.id && token) {
         try {
-          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/api/profile/me`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/'}/api/profile/me`, {
             headers: {
               'Authorization': `Bearer ${token}`,
             },

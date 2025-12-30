@@ -49,9 +49,9 @@ docker-compose up -d
 
 ### 3. Access the Application
 
-- **Frontend**: http://localhost:3000
-- **API**: http://127.0.0.1:8000
-- **Nginx**: http://localhost:3000
+- **Frontend**: https://student-panel-staging-production-d927.up.railway.app/
+- **API**: https://student-panel-staging-production.up.railway.app/
+- **Nginx**: https://student-panel-staging-production-d927.up.railway.app/
 - **Database**: production managed service
 
 ## Environment Variables
@@ -147,7 +147,7 @@ docker-compose ps
 docker stats
 
 # View service health
-curl http://127.0.0.1:8000/health
+curl https://student-panel-staging-production.up.railway.app//health
 ```
 
 ## Troubleshooting

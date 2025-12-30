@@ -5,8 +5,8 @@
 
 const AI_API_CONFIG = {
   // Use environment variable for backend URL with fallback
-  BASE_URL: process.env.NEXT_PUBLIC_FASTAPI_URL || 'http://127.0.0.1:8001',
-  STUDENT_API_BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000',
+  BASE_URL: process.env.NEXT_PUBLIC_FASTAPI_URL || 'https://sme-panel-staging-production.up.railway.app',
+  STUDENT_API_BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'https://student-panel-staging-production.up.railway.app/',
   API_KEY: 'rjaLrgTqGA8LzJg9fMKqCvLtHrKLJoH1r8EHjRwVunqcA9KiiCy6jJfg2DoyCbNa8ZVUga-u5W7SCPPA486BQA',
   ENDPOINTS: {
     ASK: '/api/ai/ask',

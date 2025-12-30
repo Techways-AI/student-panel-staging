@@ -6,7 +6,7 @@ import { NextResponse } from 'next/server';
 const AI_API_KEY = 'rjaLrgTqGA8LzJg9fMKqCvLtHrKLJoH1r8EHjRwVunqcA9KiiCy6jJfg2DoyCbNa8ZVUga-u5W7SCPPA486BQA';
 
 // Backend API configuration
-const BACKEND_API_URL = process.env.BACKEND_API_URL || 'http://127.0.0.1:8000';
+const BACKEND_API_URL = process.env.BACKEND_API_URL || 'https://student-panel-staging-production.up.railway.app/';
 
 export async function POST(request) {
   try {

@@ -36,29 +36,29 @@ class Settings:
     
     # CORS settings
     CORS_ORIGINS: List[str] = [
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://127.0.0.1:8000",
-        "http://127.0.0.1:8001",
+        "https://student-panel-staging-production-d927.up.railway.app/",
+        "https://sme-panel-staging-production-67df.up.railway.app",
+        "https://student-panel-staging-production.up.railway.app/",
+        "https://sme-panel-staging-production.up.railway.app",
     ]
 
     CORS_ORIGINS_REGEX = "|".join([re.escape(origin) for origin in CORS_ORIGINS])
 
     CORS_ALLOWED_ORIGINS = [
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://127.0.0.1:8000",
-        "http://127.0.0.1:8001",
+        "https://student-panel-staging-production-d927.up.railway.app/",
+        "https://sme-panel-staging-production-67df.up.railway.app",
+        "https://student-panel-staging-production.up.railway.app/",
+        "https://sme-panel-staging-production.up.railway.app",
     ]
     
     # Development CORS (only in development)
     if ENVIRONMENT == "development":
         # Add common localhost origins for development
         localhost_origins = [
-            "http://localhost:3000",
-            "http://localhost:3001",
-            "http://127.0.0.1:8000",
-            "http://127.0.0.1:8001",
+            "https://student-panel-staging-production-d927.up.railway.app/",
+            "https://sme-panel-staging-production-67df.up.railway.app",
+            "https://student-panel-staging-production.up.railway.app/",
+            "https://sme-panel-staging-production.up.railway.app",
         ]
         CORS_ORIGINS.extend(localhost_origins)
         CORS_ALLOWED_ORIGINS.extend(localhost_origins)
@@ -132,13 +132,13 @@ class Settings:
     S3_READ_TIMEOUT: int = int(os.getenv("S3_READ_TIMEOUT", "10"))  # 10 seconds
     
     # AI Backend Service settings
-    AI_BACKEND_URL: str = os.getenv("AI_BACKEND_URL", "http://127.0.0.1:8001/ai")
+    AI_BACKEND_URL: str = os.getenv("AI_BACKEND_URL", "https://sme-panel-staging-production.up.railway.app/ai")
     AI_BACKEND_TIMEOUT: int = int(os.getenv("AI_BACKEND_TIMEOUT", "30"))
     AI_BACKEND_API_KEY: str = os.getenv("AI_BACKEND_API_KEY", "")
 
     # SME Panel Configuration
     SME_PANEL_API_KEY: str = os.getenv("SME_PANEL_API_KEY", "rjaLrgTqGA8LzJg9fMKqCvLtHrKLJoH1r8EHjRwVunqcA9KiiCy6jJfg2DoyCbNa8ZVUga-u5W7SCPPA486BQA")
-    SME_PANEL_URL: str = os.getenv("SME_PANEL_URL", "http://127.0.0.1:8001")
+    SME_PANEL_URL: str = os.getenv("SME_PANEL_URL", "https://sme-panel-staging-production.up.railway.app")
     SME_PANEL_TIMEOUT: int = int(os.getenv("SME_PANEL_TIMEOUT", "30"))
     
     # MSG91 settings for WhatsApp OTP
