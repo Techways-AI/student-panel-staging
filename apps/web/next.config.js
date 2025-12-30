@@ -98,7 +98,7 @@ const nextConfig = {
   },
 
   // ✅ Webpack optimizations
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { dev }) => {
     config.watchOptions = {
       ...(config.watchOptions || {}),
       ignored: [
@@ -109,17 +109,6 @@ const nextConfig = {
         '**/dist/**',
         '**/.next/**',
       ],
-    };
-
-    // Ensure proper module resolution
-    config.resolve = {
-      ...config.resolve,
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mjs'],
-      modules: ['node_modules', 'src'],
-      alias: {
-        ...config.resolve?.alias,
-      },
-      symlinks: false,
     };
 
     if (dev) {
