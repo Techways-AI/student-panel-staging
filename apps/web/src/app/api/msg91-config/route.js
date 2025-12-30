@@ -9,10 +9,18 @@ export async function GET() {
 
   console.log('MSG91_CONFIG_RUNTIME', { hasWidgetId, hasTokenAuth });
 
+  // Return a non-error response even when MSG91 is not configured so the
+  // frontend can handle the absence gracefully without logging 500s.
   if (!hasWidgetId || !hasTokenAuth) {
     return NextResponse.json(
-      { widgetId: null, tokenAuth: null, hasWidgetId, hasTokenAuth },
-      { status: 500 }
+      {
+        widgetId: null,
+        tokenAuth: null,
+        hasWidgetId,
+        hasTokenAuth,
+        configured: false,
+      },
+      { status: 200 }
     );
   }
 
@@ -21,6 +29,7 @@ export async function GET() {
     tokenAuth,
     hasWidgetId,
     hasTokenAuth,
+    configured: true,
   });
 }
 
